@@ -1,0 +1,8 @@
+{% if page.metafields.custom_fields["collection_discover_title"] != blank %}
+  <div class="custom-field custom-field__collection-discover-title custom-field__type--text">
+    <h3 class="custom-field--title">Collection Discover Title</h3>
+    <div class="custom-field--value">
+      {{ page.metafields.custom_fields["collection_discover_title"] }}
+    </div>
+  </div>
+{% endif %}

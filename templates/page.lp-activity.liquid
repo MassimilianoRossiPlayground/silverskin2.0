@@ -1,0 +1,305 @@
+{% assign collectionsActivitiesTemperatures = "running-stay-fresh,running-stay-warm,running-stay-x-warm,cycling-stay-fresh,cycling-stay-warm,cycling-stay-x-warm,snowsport-stay-fresh,snowsport-stay-warm,snowsport-stay-x-warm,mountaineering-stay-fresh,mountaineering-stay-warm,mountaineering-stay-x-warm" | split: ',' %}
+
+<script>
+  var headerWrapper = document.querySelector(".header-wrapper");
+  headerWrapper.classList.add("is-light");
+</script>
+<div class="activity-page__template">
+
+  {% comment %}
+    {% include 'breadcrumbs' %}
+  {% endcomment %}
+  <!-- <div class="floating-bar">
+  <div class="flotaing-bar__activity"><ly-as-740732>Corsa</ly-as-740732></div>
+  <div class="flotaing-bar__collection"><ly-as-740698>Stay</ly-as-740698> <span><ly-as-740699>Fresh</ly-as-740699></span></div>
+  <button class="back-selection"><ly-as-742152>Torna alla selezione</ly-as-742152></button>
+  </div> -->
+  <div class="activity-page__hero " data-hero="">
+
+    <div class="activity-page__hero-text">
+      <h2>
+        <ly-as-740701>I NOSTRI LAYER IN AZIONE</ly-as-740701>
+      </h2>
+      <p>
+        <ly-as-740702>Pratica i tuoi sport preferiti in qualunque condizione climatica, proteggendo il tuo corpo con il base layer più adatto.</ly-as-740702><br/>
+        <ly-as-740703>Scegli l'attività e scopri di quale base layer hai bisogno.</ly-as-740703>
+      </p>
+      <img class="hero-icon back-selection" loading="lazy" width="auto" height="auto" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/arrow-down.svg?v=1662544796"/>
+
+    </div>
+    <span class="activity_text">
+      <ly-as-744002>Seleziona la tua attività:</ly-as-744002>
+    </span>
+
+  </div>
+  <div class="activity-page__tabs" id="activity-selection">
+    <button class="activity-page__tab js-pane-select active" data-pane="running">
+      <span class="simbol"><img loading="lazy" width="auto" height="auto" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/run-icon.svg?v=1662544789"/></span>
+      <span class="text">
+        <ly-as-740704>CORSA</ly-as-740704>
+      </span>
+    </button>
+    <button class="activity-page__tab js-pane-select" data-pane="cycling">
+      <span class="simbol"><img loading="lazy" width="auto" height="auto" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/cycling-icon.svg?v=1662544789"/></span>
+      <span class="text">
+        <ly-as-740705>BICI</ly-as-740705>
+      </span>
+    </button>
+    <button class="activity-page__tab js-pane-select" data-pane="snowsport">
+      <span class="simbol"><img loading="lazy" width="auto" height="auto" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/snow-icon.svg?v=1662544789"/></span>
+      <span class="text">
+        <ly-as-740706>NEVE</ly-as-740706>
+      </span>
+    </button>
+    <button class="activity-page__tab js-pane-select" data-pane="mountaineering">
+      <span class="simbol"><img loading="lazy" width="auto" height="auto" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/mountaineering-icon.svg?v=1662544789"/></span>
+      <span class="text">
+        <ly-as-740707>ALPINISMO</ly-as-740707>
+      </span>
+    </button>
+  </div>
+  <div class="activity-page__panes">
+    <div class="activity-page__pane">
+      <div class="activity-page__pane-text active  js-pane" data-pane="running">
+        <ly-as-740708>Il base layer più adatto alla corsa dipende dall'intensità dell'attività che pratichi e dalla temperatura esterna.</ly-as-740708><br/>
+        <ly-as-740709>Esplora intensità e temperatura per trovare la collezione perfetta per te.</ly-as-740709>
+        <br/><br/><br/>
+        <span>
+          <ly-as-740710>SELEZIONA UNA COLLEZIONE:</ly-as-740710>
+        </span>
+      </div>
+      <div class="activity-page__pane-text js-pane" data-pane="cycling">
+        <ly-as-740711>Il base layer più adatto alla bici dipende dall'intensità dell'attività che pratichi e dalla temperatura esterna.</ly-as-740711><br/>
+        <ly-as-740712>Esplora intensità e temperatura per trovare la collezione perfetta per la tua prossima uscita in bici.</ly-as-740712>
+        <br/><br/><br/>
+        <span>
+          <ly-as-740710>SELEZIONA UNA COLLEZIONE:</ly-as-740710>
+        </span>
+      </div>
+      <div class="activity-page__pane-text js-pane" data-pane="snowsport">
+        <ly-as-740713>Il base layer più adatto agli sport su neve dipende dall'intensità dell'attività che pratichi e dalla temperatura esterna.</ly-as-740713><br/>
+        <ly-as-740714>
+          Esplora intensità e temperatura per trovare la collezione perfetta per te.</ly-as-740714>
+        <br/><br/><br/>
+        <span>
+          <ly-as-740710>SELEZIONA UNA COLLEZIONE:</ly-as-740710>
+        </span>
+      </div>
+      <div class="activity-page__pane-text js-pane" data-pane="mountaineering">
+        <ly-as-740715>Il base layer più adatto all'alpinismo dipende dall'intensità dell'attività che pratichi e dalla temperatura esterna.</ly-as-740715><br/>
+        <ly-as-740709>Esplora intensità e temperatura per trovare la collezione perfetta per te.</ly-as-740709>
+        <br/><br/><br/>
+        <span>
+          <ly-as-740710>SELEZIONA UNA COLLEZIONE:</ly-as-740710>
+        </span>
+      </div>
+      <div class="activity-page__pane-selector-wrapper js-pane active" data-pane="running">
+        <div class="activity-page__pane-selector fresh  js-select-collection active" data-temp="fresh">
+          <div class="temp">
+            <ly-as-744003>+10° +40°</ly-as-744003>
+          </div>
+          <div class="title">
+            <ly-as-744004>STAY FRESH</ly-as-744004>
+            <div class="arrow-mob-selector">{% render 'black-arrow' %}
+            </div>
+          </div>
+          <div class="text">
+            <ly-as-740717>Mantiene costante la tua temperatura ideale nelle giornate più calde o miti. Perfetto anche per sessioni di corsa ad alta intensità durante i mesi più freddi.</ly-as-740717>
+          </div>
+          <button class="activity-button ">
+            <ly-as-744005>SCOPRI TUTTI I PRODOTTI</ly-as-744005>
+            <span></span>
+            {% render 'black-arrow' %}
+          </button>
+        </div>
+        <div class="activity-page__products--mob">
+          {% render 'page-activity_slider-products-item' , products_collection:"running-stay-fresh" %}
+        </div>
+        <div class="activity-page__pane-selector warm js-select-collection " data-temp="warm">
+          <div class="temp">
+            <ly-as-740719>-20° +20°</ly-as-740719>
+          </div>
+          <div class="title">
+            <ly-as-740720>STAY WARM</ly-as-740720>
+            <div class="arrow-mob-selector">{% render 'black-arrow' %}
+            </div>
+          </div>
+          <div class="text">
+            <ly-as-740721>Preserva la tua temperatura ideale durante le sessioni di corsa ad intensità moderata nelle giornate fredde.</ly-as-740721>
+          </div>
+          <button class="activity-button ">
+            <ly-as-744005>SCOPRI TUTTI I PRODOTTI</ly-as-744005>
+            <span></span>
+            {% render 'black-arrow' %}
+          </button>
+        </div>
+        <div class="activity-page__products--mob">
+          {% render 'page-activity_slider-products-item' , products_collection:"running-stay-warm" %}
+        </div>
+
+      </div>
+      <div class="activity-page__pane-selector-wrapper js-pane " data-pane="cycling">
+        <div class="activity-page__pane-selector fresh js-select-collection" data-temp="fresh">
+          <div class="temp">
+            <ly-as-744003>+10° +40°</ly-as-744003>
+          </div>
+          <div class="title">
+            <ly-as-744004>STAY FRESH</ly-as-744004>
+            <div class="arrow-mob-selector">{% render 'black-arrow' %}
+            </div>
+          </div>
+          <div class="text">
+            <ly-as-740724>Mantiene costante la tua temperatura ideale nelle giornate più calde, ma anche nei mesi un po' più freddi, quando ti alleni ad alta intensità su lunghe distanze o in salita.</ly-as-740724>
+          </div>
+          <button class="activity-button ">
+            <ly-as-744005>SCOPRI TUTTI I PRODOTTI</ly-as-744005>
+            <span></span>
+            {% render 'black-arrow' %}
+          </button>
+        </div>
+        <div class="activity-page__products--mob">
+          {% render 'page-activity_slider-products-item' , products_collection:"cycling-stay-fresh" %}
+        </div>
+        <div class="activity-page__pane-selector warm js-select-collection" data-temp="warm">
+          <div class="temp">
+            <ly-as-740719>-20° +20°</ly-as-740719>
+          </div>
+          <div class="title">
+            <ly-as-740720>STAY WARM</ly-as-740720>
+            <div class="arrow-mob-selector">{% render 'black-arrow' %}
+            </div>
+          </div>
+          <div class="text">
+            <ly-as-740725>Preserva la tua temperatura ideale nelle giornate fredde, o in quelle più miti, quando ti alleni a bassa intensità.</ly-as-740725>
+          </div>
+          <button class="activity-button ">
+            <ly-as-744005>SCOPRI TUTTI I PRODOTTI</ly-as-744005>
+            <span></span>
+            {% render 'black-arrow' %}
+          </button>
+        </div>
+        <div class="activity-page__products--mob">
+          {% render 'page-activity_slider-products-item' , products_collection:"cycling-stay-warm" %}
+        </div>
+
+      </div>
+      <div class="activity-page__pane-selector-wrapper js-pane " data-pane="snowsport">
+
+        <div class="activity-page__pane-selector warm js-select-collection" data-temp="warm">
+          <div class="temp">
+            <ly-as-740719>-20° +20°</ly-as-740719>
+          </div>
+          <div class="title">
+            <ly-as-740720>STAY WARM</ly-as-740720>
+            <div class="arrow-mob-selector">{% render 'black-arrow' %}
+            </div>
+          </div>
+          <div class="text">
+            <ly-as-740727>Preserva la tua temperatura ideale, quando scii su pista o scendi con lo snowboard in giornate fredde.</ly-as-740727>
+          </div>
+          <button class="activity-button">
+            <ly-as-744005>SCOPRI TUTTI I PRODOTTI</ly-as-744005>
+            <span></span>
+            {% render 'black-arrow' %}
+          </button>
+        </div>
+        <div class="activity-page__products--mob">
+          {% render 'page-activity_slider-products-item' , products_collection:"snowsport-stay-warm" %}
+        </div>
+        <div class="activity-page__pane-selector x-warm js-select-collection" data-temp="x-warm">
+          <div class="temp">
+            <ly-as-740722>-40° -10°</ly-as-740722>
+          </div>
+          <div class="title">
+            <ly-as-742522>STAY X-WARM</ly-as-742522>
+            <div class="arrow-mob-selector">{% render 'black-arrow' %}
+            </div>
+          </div>
+          <div class="text">
+            <ly-as-740728>Mantiene la tua temperatura ideale quando fai snowboard o scii in climi particolarmente freddi. Perfetto anche se ti muovi a bassa intensità, preferisci un outer e mid layer più leggero, o se sei particolarmente sensibile al freddo.</ly-as-740728>
+          </div>
+          <button class="activity-button ">
+            <ly-as-744005>SCOPRI TUTTI I PRODOTTI</ly-as-744005>
+            <span></span>
+            {% render 'black-arrow' %}
+          </button>
+        </div>
+        <div class="activity-page__products--mob">
+          {% render 'page-activity_slider-products-item' , products_collection:"snowsport-stay-x-warm" %}
+        </div>
+      </div>
+      <div class="activity-page__pane-selector-wrapper js-pane " data-pane="mountaineering">
+        <div class="activity-page__pane-selector fresh js-select-collection" data-temp="fresh">
+          <div class="temp">
+            <ly-as-744003>+10° +40°</ly-as-744003>
+          </div>
+          <div class="title">
+            <ly-as-744004>STAY FRESH</ly-as-744004>
+            <div class="arrow-mob-selector">{% render 'black-arrow' %}
+            </div>
+          </div>
+          <div class="text">
+            <ly-as-740729>Perfetto per le giornate più calde. Oppure quando pratichi attività ad alta intensità come lo speed hiking, nelle giornate più fredde</ly-as-740729>
+          </div>
+          <button class="activity-button " data-temp="fresh">
+            <ly-as-744005>SCOPRI TUTTI I PRODOTTI</ly-as-744005>
+            <span></span>
+            {% render 'black-arrow' %}
+          </button>
+        </div>
+        <div class="activity-page__products--mob">
+          {% render 'page-activity_slider-products-item' , products_collection:"mountaineering-stay-fresh" %}
+        </div>
+        <div class="activity-page__pane-selector warm js-select-collection" data-temp="warm">
+          <div class="temp">
+            <ly-as-740719>-20° +20°</ly-as-740719>
+          </div>
+          <div class="title">
+            <ly-as-740720>STAY WARM</ly-as-740720>
+            <div class="arrow-mob-selector">{% render 'black-arrow' %}
+            </div>
+          </div>
+          <div class="text">
+            <ly-as-740730>In ambienti freddi e durante attività a intensità moderata, preserva la tua temperatura ideale.</ly-as-740730>
+          </div>
+          <button class="activity-button ">
+            <ly-as-744005>SCOPRI TUTTI I PRODOTTI</ly-as-744005>
+            <span></span>
+            {% render 'black-arrow' %}
+          </button>
+        </div>
+        <div class="activity-page__products--mob">
+          {% render 'page-activity_slider-products-item' , products_collection:"mountaineering-stay-warm" %}
+        </div>
+        <div class="activity-page__pane-selector x-warm js-select-collection" data-temp="x-warm">
+          <div class="temp">
+            <ly-as-740722>-40° -10°</ly-as-740722>
+          </div>
+          <div class="title">
+            <ly-as-742522>STAY X-WARM</ly-as-742522>
+            <div class="arrow-mob-selector">{% render 'black-arrow' %}
+            </div>
+          </div>
+          <div class="text">
+            <ly-as-740731>Con temperature esterne basse e attività a bassa intesità, dal bivacco allo sci su pista, mantiene costante la tua temperatura ideale. Aggiunge quell'extra di calore, se sei particolarmente sensibile al freddo.</ly-as-740731>
+          </div>
+          <button class="activity-button ">
+            <ly-as-744005>SCOPRI TUTTI I PRODOTTI</ly-as-744005>
+            <span></span>
+            {% render 'black-arrow' %}
+          </button>
+        </div>
+        <div class="activity-page__products--mob">
+          {% render 'page-activity_slider-products-item' , products_collection: "mountaineering-stay-x-warm" %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="activity-page__products">
+    {% for products_collection in collectionsActivitiesTemperatures %}
+      {% render 'page-activity_slider-products-item' , products_collection: products_collection %}
+    {% endfor %}
+  </div>
+</div>
+
+{% section 'custom-fields-pages' %}

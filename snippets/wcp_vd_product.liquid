@@ -1,0 +1,26 @@
+{% if customer %}
+{% assign wcp_table_current_variant = wcp_vd_product.selected_or_first_available_variant %}
+{% assign wcp_vd_table_v_price = wcp_table_current_variant.price %}
+{% if shop.metafields.wcp_net.IsOverrideIndividualPrice == "true" or shop.metafields.wcp_net.IsOverrideIndividualPrice == '1' %}
+			{% assign wcp_vd_table_v_price = wcp_v_price %}
+{% endif %}
+    {% assign wcp_vd_HTML_table ='' %}
+    {% assign Tag = p_discount_tag %}
+    {% assign Discount = p_discount_value %}
+    {% capture discount_key %}{{Tag}}-{{Discount}}{% endcapture %}
+    {% if shop.metafields.wcp_vd[discount_key] contains wcp_vd_product.id %}
+        {% assign wcp_vd_meta_data = shop.metafields.wcp_vd[discount_key] %}
+        {% assign Master = wcp_vd_meta_data | split: '||' %}
+        {% assign vd_Ids = Master[1] %}
+        {% assign vd_Ids = vd_Ids |split: "^" %}
+   {% assign Discount_Price = 0 %}
+        {% for vd_Id in vd_Ids %}
+            {% if vd_Id contains wcp_vd_product.id %}
+                {% assign Discounts_values_with_qty = vd_Id |split: "~~" %}
+                {% assign Discounts_values_with_qty = Discounts_values_with_qty[1] | split: "," %}
+               	{% capture wcp_vd_HTML_table %}<table><th class=Wpd_Qty_head>Quantity</th><th class=Wpd_disc_head>Discount</th><th class=Wpd_Discount_head>Price</th>{% for Discounts_value_with_qty in Discounts_values_with_qty %}{% assign Qty_Discount = Discounts_value_with_qty | split: '-' %}<tr>{% if forloop.last == true  %}<td class=Wpd_Qty>{{Qty_Discount[0]}}+</td>{% else  %}{% assign Qty_Discount_netx = Discounts_values_with_qty[forloop.index] | split: '-' %}<td class=Wpd_Qty>{{Qty_Discount[0]}} - {{Qty_Discount_netx[0] |minus:1}}</td>{% endif %}<td class=Wpd_Discount>{{Qty_Discount[1]}}%</td>{% assign wcp_vd_discount_value = Qty_Discount[1] | divided_by: 100.0 %}{% assign wcp_vd_discount_value = 1 | minus: wcp_vd_discount_value %}{% assign Discount_Price = wcp_vd_table_v_price | times: wcp_vd_discount_value %}<td class=Wpd_Discount_Price>{{ Discount_Price | floor | money}}</td></tr>{% endfor %}</table>{% endcapture %}
+				{% break %}
+            {% endif %}
+        {% endfor %}
+    {% endif %} 
+{% endif %}

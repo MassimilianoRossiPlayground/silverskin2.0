@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="{{ 'page-snow.scss.css' | asset_url }}" type="text/css">
+<script src="{{ 'page-snow.js' | asset_url }}" defer="defer"></script>
+
+{% section 'page-snow-template' %}
+
+<script>
+    var headerWrapper = document.querySelector(".header-wrapper");
+    headerWrapper.classList.add("is-light");
+    headerWrapper.classList.add("header-snow");
+</script>

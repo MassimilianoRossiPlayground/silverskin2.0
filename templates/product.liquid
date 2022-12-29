@@ -1,0 +1,218 @@
+{% section 'product-template' %}
+
+{% comment %}
+  CUSTOM FIELDS BANNER
+{% endcomment %}
+
+{% for c in product.collections %}
+
+  {% if c.handle == "stay-fresh-collection" %}
+
+    {% assign title_banner = "STAY FRESH" %}
+    {% assign collection_banner = c.handle %}
+
+    {% assign secondary_handle_banner_1 = "stay-warm-collection" %}
+    {% assign secondary_handle_banner_2 = "stay-x-warm-collection" %}
+
+    {% assign secondary_title_banner_1 = "STAY WARM" %}
+    {% assign secondary_title_banner_2 = "STAY X-WARM" %}
+
+    {% assign secondary_link_banner_1 = "/collections/stay-warm-collection" %}
+    {% assign secondary_link_banner_1 = "/collections/stay-x-warm-collection" %}
+
+    {% assign secondary_img_banner_1 = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hp-banner-fresh-small-desk.jpg?v=1610553665" %}
+    {% assign secondary_img_banner_2 = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hp-banner-x-warm-desk.jpg?v=1610553697" %}
+
+    {% assign background_banner = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-banner-fresh-desk_1dd5cb2b-4d6e-4916-9103-cf7f3c81280d.jpg?v=1610546347" %}
+
+  {% elsif c.handle == "stay-warm-collection" %}
+
+    {% assign title_banner = "STAY WARM" %}
+    {% assign collection_banner = c.handle %}
+
+    {% assign secondary_handle_banner_1 = "stay-fresh-collection" %}
+    {% assign secondary_handle_banner_2 = "stay-x-warm-collection" %}
+
+    {% assign secondary_title_banner_1 = "STAY FRESH" %}
+    {% assign secondary_title_banner_2 = "STAY X-WARM" %}
+
+    {% assign secondary_link_banner_1 = "/collections/stay-fresh-collection" %}
+    {% assign secondary_link_banner_1 = "/collections/stay-x-warm-collection" %}
+
+    {% assign secondary_img_banner_1 = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/stayfresh_2x_a2e2624a-473a-4222-88b1-ba8a6dc6d935.jpg?v=1620392461" %}
+    {% assign secondary_img_banner_2 = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hp-banner-x-warm-desk.jpg?v=1610553697" %}
+
+    {% assign background_banner = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-banner-warm-desk.jpg?v=1617984602" %}
+
+
+  {% elsif c.handle == "stay-x-warm-collection" %}
+
+    {% assign title_banner = "STAY X-WARM" %}
+    {% assign collection_banner = c.handle %}
+
+    {% assign secondary_handle_banner_1 = "stay-fresh-collection" %}
+    {% assign secondary_handle_banner_2 = "stay-warm-collection" %}
+
+    {% assign secondary_title_banner_1 = "STAY FRESH" %}
+    {% assign secondary_title_banner_2 = "STAY WARM" %}
+
+    {% assign secondary_link_banner_1 = "/collections/stay-fresh-collection" %}
+    {% assign secondary_link_banner_1 = "/collections/stay-warm-collection" %}
+
+    {% assign secondary_img_banner_1 = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/stayfresh_2x_a2e2624a-473a-4222-88b1-ba8a6dc6d935.jpg?v=1620392461" %}
+    {% assign secondary_img_banner_2 = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hp-banner-fresh-small-desk.jpg?v=1610553665" %}
+
+    {% assign background_banner = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-banner-x-warm-desk.jpg?v=1617984603" %}
+
+  {% else %}
+
+
+    {% else %}
+
+  {% endif %}
+
+{% endfor %}
+
+{% assign nessuna_collezione_corrisponente = false %}
+
+{% if product.tags contains "Mascherine" %}
+  {% assign nessuna_collezione_corrisponente = true %}
+{% endif %}
+
+{% if nessuna_collezione_corrisponente == true %}
+  <style>
+    .secondary-banner,
+    .title-secondary-banner,
+    .pdp-banner {
+      display: none;
+    }
+  </style>
+{% endif %}
+
+<style>
+  .pdp-banner {
+    background-image: url("{{background_banner}}");
+  }
+</style>
+
+<div class="pdp-banner {{collection_banner}}__banner">
+  <div class="pdp-banner__box">
+    <div class="pdp-banner__box__col">
+
+      <h2>{{ title_banner }}</h2>
+
+      <div class="custom-field__banner-description">
+        {{ collections[collection_banner].metafields.custom_fields["banner_description"] }}
+      </div>
+
+      {% assign cta_link = collections[collection_banner].metafields.custom_fields["cta_link"] %}
+      <a class="pdp-banner__cta pdp-banner__cta-desk" href="{{cta_link}}">{{ collections[collection_banner].metafields.custom_fields["cta_text"] }}</a>
+
+      {% assign cta_link_2 = collections[collection_banner].metafields.custom_fields["cta_link_2"] %}
+      <a class="pdp-banner__cta pdp-banner__cta-desk" href="{{cta_link_2}}">{{ collections[collection_banner].metafields.custom_fields["cta_text_2"] }}</a>
+
+    </div>
+    <div class="pdp-banner__box__col">
+
+      {% assign img_banner = collections[collection_banner].metafields.custom_fields["url_image"] %}
+      <img data-src="{{ img_banner }}" src="" class="lazyload" alt="silverskin banner">
+
+    </div>
+    <div class="pdp-banner__box__col">
+
+      <div class="custom-field custom-field__banner_description_secondary custom-field__type--text">
+        <div class="custom-field--value">
+          {{ collections[collection_banner].metafields.custom_fields["banner_description_secondary"] }}
+        </div>
+      </div>
+
+      <div class="hexagon__group">
+        <div class="hexagon__single">
+          {{ '10_ENHANCED_SILVER_FIBER_TECHNOLOGY_Esagono.png' | asset_url | img_tag: 'apice silverskin'}}
+          <span class="feature_text">{{ collections[collection_banner].metafields.custom_fields["banner_secondary_feature2"] }}</span>
+        </div>
+        <div class="hexagon__single">
+          {{ '9_THERMO_BUFFERING_SYSTEM_Esagono.png' | asset_url | img_tag: 'apice silverskin'}}
+          <span class="feature_text">{{ collections[collection_banner].metafields.custom_fields["banner_secondary_feature1"] }}</span>
+        </div>
+        <div class="hexagon__single">
+          {{ '11_STRUTTURA_OTTIMIZZATA_DEL_FILATO_Esagono.png' | asset_url | img_tag: 'apice silverskin'}}
+          <span class="feature_text">{{ collections[collection_banner].metafields.custom_fields["banner_secondary_feature3"] }}</span>
+        </div>
+      </div>
+      <div>
+
+        <a class="pdp-banner__cta pdp-banner__cta-mob" href="{{cta_link}}">{{ collections[collection_banner].metafields.custom_fields["cta_text"] }}</a>
+        <a class="pdp-banner__cta pdp-banner__cta-mob" href="{{cta_link_2}}">{{ collections[collection_banner].metafields.custom_fields["cta_text_2"] }}</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% section 'product-gallery' %}
+{% section 'product-recommendations' %}
+{% section 'recently-viewed' %}
+
+
+
+{% comment %}
+  SECONDARY BANNERS
+{% endcomment %}
+
+<h3 class="title-secondary-banner">SCOPRI LA NOSTRA COLLEZIONE</h3>
+
+<div class="secondary-banner">
+
+  <div class="secondary-banner__box {{secondary_handle_banner_1}}__banner lazyload" data-bgset="{{secondary_img_banner_1}}" data-size="auto">
+
+    <h2>
+      {{ secondary_title_banner_1 }}
+    </h2>
+
+    <p>{{ collections[secondary_handle_banner_1].metafields.custom_fields["banner_description_like_second"] }}</p>
+
+    <a class="secondary-banner__cta" href="{{secondary_link_banner_1}}">SCOPRI LA COLLEZIONE</a>
+
+  </div>
+
+  <div class="secondary-banner__box {{secondary_handle_banner_2}}__banner lazyload" data-bgset="{{secondary_img_banner_2}}" data-size="auto">
+
+    <h2>
+      {{ secondary_title_banner_2 }}
+    </h2>
+
+    <p>{{ collections[secondary_handle_banner_2].metafields.custom_fields["banner_description_like_second"] }}</p>
+
+    <a class="secondary-banner__cta" href="{{secondary_link_banner_1}}">SCOPRI LA COLLEZIONE</a>
+
+  </div>
+
+</div>
+
+
+
+{% comment %}
+  {% if collection %}
+  <div class="text-center page-content page-content--bottom">
+  <a href="{% if collection.handle == 'frontpage' %}/{% else %}{{ collection.url }}{% endif %}" class="btn btn--small return-link">
+  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-arrow-left" viewBox="0 0 50 15"><path d="M50 5.38v4.25H15V15L0 7.5 15 0v5.38z"/></svg> {{ 'products.general.collection_return' | t: collection: collection.title }}
+  </a>
+  </div>
+  {% endif %}
+{% endcomment %}
+
+{% for collection in product.collections %}
+  {% assign collection_list = collection_list | append: collection %}
+{% endfor %}
+
+<script>
+  // Override default values of shop.strings for each template.
+// Alternate product templates can change values of
+// add to cart button, sold out, and unavailable states here.
+  theme.productStrings = {
+    addToCart: {{ 'products.product.add_to_cart' | t | json }},
+    soldOut: {{ 'products.product.sold_out' | t | json }},
+    unavailable: {{ 'products.product.unavailable' | t | json }}
+  };
+</script>

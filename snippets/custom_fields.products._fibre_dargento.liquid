@@ -1,0 +1,8 @@
+{% if product.metafields.custom_fields["_fibre_dargento"] != blank %}
+  <div class="custom-field custom-field__-fibre-dargento custom-field__type--number">
+    <h3 class="custom-field--title">% Fibre d’argento</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["_fibre_dargento"] }}
+    </div>
+  </div>
+{% endif %}

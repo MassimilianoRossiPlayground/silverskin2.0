@@ -1,0 +1,260 @@
+{% section 'product-calze' %}
+
+{% comment %} CUSTOM FIELDS BANNER {% endcomment %}
+
+{% for c in product.collections %}
+
+  {% if c.handle == "stay-fresh-collection" %}
+    
+    {% assign title_banner = "STAY FRESH" %}
+    {% assign collection_banner = c.handle %}
+
+    {% assign secondary_handle_banner_1 = "stay-warm-collection" %}
+    {% assign secondary_handle_banner_2 = "stay-x-warm-collection" %}  
+
+    {% assign secondary_title_banner_1 = "STAY WARM" %}
+    {% assign secondary_title_banner_2 = "STAY X-WARM" %}  
+
+    {% assign secondary_link_banner_1 = "/collections/stay-warm-collection" %}  
+    {% assign secondary_link_banner_1 = "/collections/stay-x-warm-collection" %}  
+
+    {% assign secondary_img_banner_1 = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hp-banner-fresh-small-desk.jpg?v=1610553665" %}  
+    {% assign secondary_img_banner_2 = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hp-banner-x-warm-desk.jpg?v=1610553697" %}  
+
+    {% assign background_banner = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-banner-fresh-desk_1dd5cb2b-4d6e-4916-9103-cf7f3c81280d.jpg?v=1610546347" %}  
+
+  {% elsif c.handle == "stay-warm-collection" %}
+
+    {% assign title_banner = "STAY WARM" %}
+    {% assign collection_banner = c.handle %}
+
+    {% assign secondary_handle_banner_1 = "stay-fresh-collection" %}
+    {% assign secondary_handle_banner_2 = "stay-x-warm-collection" %}  
+
+    {% assign secondary_title_banner_1 = "STAY FRESH" %}
+    {% assign secondary_title_banner_2 = "STAY X-WARM" %}  
+
+    {% assign secondary_link_banner_1 = "/collections/stay-fresh-collection" %}  
+    {% assign secondary_link_banner_1 = "/collections/stay-x-warm-collection" %}  
+
+    {% assign secondary_img_banner_1 = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/stayfresh_2x_a2e2624a-473a-4222-88b1-ba8a6dc6d935.jpg?v=1620392461" %}  
+    {% assign secondary_img_banner_2 = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hp-banner-x-warm-desk.jpg?v=1610553697" %}  
+
+    {% assign background_banner = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-banner-warm-desk.jpg?v=1617984602" %}  
+
+
+  {% elsif c.handle == "stay-x-warm-collection" %}
+
+    {% assign title_banner = "STAY X-WARM" %}
+    {% assign collection_banner = c.handle %}
+
+    {% assign secondary_handle_banner_1 = "stay-fresh-collection" %}
+    {% assign secondary_handle_banner_2 = "stay-warm-collection" %}  
+
+    {% assign secondary_title_banner_1 = "STAY FRESH" %}
+    {% assign secondary_title_banner_2 = "STAY WARM" %}  
+
+    {% assign secondary_link_banner_1 = "/collections/stay-fresh-collection" %}  
+    {% assign secondary_link_banner_1 = "/collections/stay-warm-collection" %}  
+
+    {% assign secondary_img_banner_1 = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/stayfresh_2x_a2e2624a-473a-4222-88b1-ba8a6dc6d935.jpg?v=1620392461" %}  
+    {% assign secondary_img_banner_2 = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hp-banner-fresh-small-desk.jpg?v=1610553665" %}  
+
+    {% assign background_banner = "https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-banner-x-warm-desk.jpg?v=1617984603" %}  
+
+  {% else %}
+
+  
+  {% else %}
+  
+  {% endif %}
+  
+  {% endfor %}
+
+  {% if product.tags contains "Endurance Run" %}
+    {% assign show_endurance_run = false %}
+  {% else %}
+      {% assign show_endurance_run = true %}
+  {% endif %}
+
+  {% if product.tags contains "Running" %}
+    {% assign show_running = false %}
+  {% else %}
+      {% assign show_running = true %}
+  {% endif %}
+
+  {% if product.tags contains "Cycling" %}
+    {% assign show_cycling = false %}
+  {% else %}
+      {% assign show_cycling = true %}
+  {% endif %}
+
+  {% if product.tags contains "Trekking" %}
+    {% assign show_trekking = false %}
+  {% else %}
+      {% assign show_trekking = true %}
+  {% endif %}
+
+<style>
+.pdp-banner {
+    background-image: url("{{background_banner}}");
+}
+
+</style>
+<div class="pdp-banner pdp-banner--calze {{collection_banner}}__banner">
+  <div class="pdp-banner__box">
+
+    <h2>{{ product.title }}</h2>
+
+    <div class="custom-field__banner-description">
+      {{ collections[collection_banner].metafields.custom_fields["banner_description"] }}
+    </div>
+
+    {% comment %} Slider Calze {% endcomment %}
+    <div class="swiper-container socks-banner-slider">
+      <div class="swiper-wrapper">
+        {% for item in collection.metafields.custom_fields["calze_banner_slider"] %}
+        {% comment %} stampo le le slide corrispondenti alla tipologia di calza dettata dal tag {% endcomment %}
+        {% assign tipologia_calza = item["tipologia_di_calza"] %}
+          {% if product.tags contains tipologia_calza %}
+            <div class="swiper-slide pdp-banner-slider">
+
+              <div class="slider-imgs-socks">
+                {{ item['immagine'] }}
+              </div>
+
+              <div class="slider-text-socks">
+                <h3>0{{ forloop.index }}. <strong>{{ item["titolo"] }}</strong></h3>
+                <p>{{ item["descrizione"] }}</p>
+                <div class="slider-text-socks__feature">
+                  <div class="slider-text-socks__feature__single">
+                    {{ item['img_feature_1'] }}
+                    <span>{{ item["feature_1"] }}</span>
+                  </div>
+                  <div class="slider-text-socks__feature__single">
+                    {{ item['img_feature_2'] }}
+                    <span>{{ item["feature_2"] }}</span>
+                  </div>
+                  <div class="slider-text-socks__feature__single">
+                    {{ item['img_feature_3'] }}
+                    <span>{{ item["feature_3"] }}</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          {% endif %}
+       {% endfor %}
+      
+      </div>
+      <div class="socks-banner-slider__nav">
+        <div class="swiper-pagination"></div>
+        <div class="socks-banner-slider__nav__arrows">
+          <div class="swiper-button-prev">
+            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-left" viewbox="0 0 284.49 498.98"><path d="M249.49 0a35 35 0 0 1 24.75 59.75L84.49 249.49l189.75 189.74a35.002 35.002 0 1 1-49.5 49.5L10.25 274.24a35 35 0 0 1 0-49.5L224.74 10.25A34.89 34.89 0 0 1 249.49 0z"></path></svg>
+          </div>
+          <div class="swiper-button-next">
+            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewbox="0 0 284.49 498.98"><path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+<div class="pdp-banner pdp-banner--calze {{collection_banner}}__banner pdp-banner--full-range">
+  <div class="pdp-banner__box">
+    <div class="pdp-banner__full-range">
+      <h4>DISCOVER THE FULL RANGE</h4>
+      <div class="full-range">
+          {% if show_endurance_run %}
+            <div class="full-range__single">
+              <img src="" class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/trek_ant_lato2.jpg?v=1622729421" alt="socks calze silverskin">
+              <h5><strong>ENDURANCE RUN</strong> SOCKS</h5>
+              <a class="cta-link" href="/collections/calze/#endurance-run">SHOP NOW</a>
+            </div>
+          {% endif %}
+          {% if show_cycling %}
+            <div class="full-range__single">
+              <img src="" class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/trek_ant_lato2.jpg?v=1622729421" alt="socks calze silverskin">
+              <h5><strong>BIKE</strong> SOCKS</h5>
+              <a class="cta-link" href="/collections/calze/#cycling">SHOP NOW</a>
+            </div>
+          {% endif %}
+          {% if show_trekking %}
+            <div class="full-range__single">
+              <img src="" class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/trek_ant_lato2.jpg?v=1622729421" alt="socks calze silverskin">
+              <h5><strong>TREK</strong> SOCKS</h5>
+              <a class="cta-link" href="/collections/calze/#trekking">SHOP NOW</a>
+            </div>
+          {% endif %}
+          {% if show_running %}
+            <div class="full-range__single">
+              <img src="" class="lazyload" data-src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/trek_ant_lato2.jpg?v=1622729421" alt="socks calze silverskin">
+              <h5><strong>LIGHT RUN</strong> SOCKS</h5>
+              <a class="cta-link" href="/collections/calze/#light-run">SHOP NOW</a>
+            </div>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="white-bg"></div>
+</div>
+
+{% section 'product-recommendations' %}
+{% section 'recently-viewed' %}
+
+
+
+{% comment %} SECONDARY BANNERS {% endcomment %}
+
+<h3 class="title-secondary-banner">SCOPRI LA NOSTRA COLLEZIONE</h3>
+
+<div class="secondary-banner">
+
+  <div class="secondary-banner__box {{secondary_handle_banner_1}}__banner lazyload" data-sizes="auto" data-bgset="{{secondary_img_banner_1}}">
+
+    <h2> {{ secondary_title_banner_1 }} </h2>
+
+    <p>{{ collections[secondary_handle_banner_1].metafields.custom_fields["banner_description_like_second"] }}</p>
+
+    <a class="secondary-banner__cta" href="{{secondary_link_banner_1}}">SCOPRI LA COLLEZIONE</a>
+
+  </div>
+
+  <div class="secondary-banner__box {{secondary_handle_banner_2}}__banner lazyload" data-sizes="auto" data-bgset="{{secondary_img_banner_2}}">
+
+    <h2> {{ secondary_title_banner_2 }} </h2>
+
+    <p>{{ collections[secondary_handle_banner_2].metafields.custom_fields["banner_description_like_second"] }}</p>
+
+    <a class="secondary-banner__cta" href="{{secondary_link_banner_1}}">SCOPRI LA COLLEZIONE</a>
+
+  </div>
+
+</div>
+
+
+
+
+{% comment %} {% if collection %}
+  <div class="text-center page-content page-content--bottom">
+    <a href="{% if collection.handle == 'frontpage' %}/{% else %}{{ collection.url }}{% endif %}" class="btn btn--small return-link">
+      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-arrow-left" viewBox="0 0 50 15"><path d="M50 5.38v4.25H15V15L0 7.5 15 0v5.38z"/></svg> {{ 'products.general.collection_return' | t: collection: collection.title }}
+    </a>
+  </div>
+{% endif %} {% endcomment %}
+
+<script>
+  // Override default values of shop.strings for each template.
+  // Alternate product templates can change values of
+  // add to cart button, sold out, and unavailable states here.
+  theme.productStrings = {
+    addToCart: {{ 'products.product.add_to_cart' | t | json }},
+    soldOut: {{ 'products.product.sold_out' | t | json }},
+    unavailable: {{ 'products.product.unavailable' | t | json }}
+  };
+</script>

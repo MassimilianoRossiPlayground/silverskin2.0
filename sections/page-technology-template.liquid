@@ -1,0 +1,404 @@
+{% if shop.locale == "it" %}
+    {% assign link_lang_trad = "" %}
+{% else %}
+    {% assign link_lang_trad = "/" | append: shop.locale %}
+{% endif %}
+
+{% comment %} START - HERO BANNER {% endcomment %}
+<div class="section-hero-banner">
+  {% comment %} <video width="100%" autoplay muted loop>
+    <source src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/Hero_Silver_Compressed_ca6f19d4-686d-48b3-9070-bd9219756589.mp4?v=1623418559" type="video/mp4">
+    Your browser does not support the video tag.
+  </video> {% endcomment %}
+  <div class="overlay-dark"></div>
+  <img class="hero-banner__image"src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/LP_Tecnologia_HeroBanner.jpg?v=1664447650" alt="silverskin technology" width="100%">
+  <div class="hero-banner__content">
+    <h1>{{ section.settings.herotitle }}</h1>
+    <h4>{{ section.settings.herosubtitle }}</h4>
+    <div class="hero-banner-cta">
+      <a class="banner-cta__link" href="{{link_lang_trad}}/collections/uomo">ACQUISTA UOMO</a>
+      <a class="banner-cta__link" href="{{link_lang_trad}}/collections/donna">ACQUISTA DONNA</a>
+    </div>
+  </div>
+  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-left tech-scroll-down" viewbox="0 0 284.49 498.98"><path d="M249.49 0a35 35 0 0 1 24.75 59.75L84.49 249.49l189.75 189.74a35.002 35.002 0 1 1-49.5 49.5L10.25 274.24a35 35 0 0 1 0-49.5L224.74 10.25A34.89 34.89 0 0 1 249.49 0z"></path></svg>
+</div>
+{% comment %} END - HERO BANNER {% endcomment %}
+
+
+{% comment %} START - INTERACTIVE SECTION {% endcomment %}
+<div class="section-interactive">
+  <img class="section-interactive__background-top" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/background.png?v=1635348830" alt="silverskin tech">
+  <img class="section-interactive__background-bottom" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/background.png?v=1635348830" alt="silverskin tech">
+  <img class="section-interactive__background-text" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/tech-silverfibers.png?v=1623419804" alt="silverskin tech">
+  <img class="logo-ag" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/tech-icon-ag_2x_7d1eea65-5c86-4695-9cb7-fe2b23bf4199.png?v=1623332862" alt="ag silverskin" width="80px">
+  <p class="text-ag">{{ section.settings.interactivetextdescription }}</p>
+  <div class="interactive-banner">
+      <div class="interactive-banner__image">
+          <img class="interactive-banner__image__img"src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/tech-product_2x_f58d3652-7b46-4c0c-b8c1-83972971d271.png?v=1623332915" alt="technology silverskin">
+          <img class="interactive-banner__image__pin" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hotspot-closed-2x.png?v=1623333645" alt="technology silverskin" attr-close="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hotspot-closed-2x.png?v=1623333645" alt="technology silverskin" attr-open="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hotspot-opened-2x.png?v=1623333645" attr-pin="1">
+          <img class="interactive-banner__image__pin open" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hotspot-closed-2x.png?v=1623333645" alt="technology silverskin" attr-close="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hotspot-closed-2x.png?v=1623333645" alt="technology silverskin" attr-open="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hotspot-opened-2x.png?v=1623333645" attr-pin="2">
+          <img class="interactive-banner__image__pin" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hotspot-closed-2x.png?v=1623333645" alt="technology silverskin" attr-close="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hotspot-closed-2x.png?v=1623333645" alt="technology silverskin" attr-open="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/hotspot-opened-2x.png?v=1623333645" attr-pin="3">
+      </div>
+      <span class="interactive-banner__line" attr-pin="1"></span>  
+      <span class="interactive-banner__line open" attr-pin="2"></span>  
+      <span class="interactive-banner__line" attr-pin="3"></span>  
+      <div class="interactive-banner__info" attr-pin="1">
+        <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/tech-info3_2x_ef1d6a04-ecfc-408d-b6df-9679efaea7b6.png?v=1623333399" alt="technology silverskin silver">
+        <h5>{{ section.settings.inter_1_title }}</h5>
+        {{ section.settings.inter_1_text }}
+      </div>
+      <div class="interactive-banner__info open" attr-pin="2">
+        <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/tech-info2_2x_a3972cd6-d830-49e8-bb86-ee37ce18ea94.png?v=1623333384" alt="technology silverskin silver">
+        <h5>{{ section.settings.inter_2_title }}</h5>
+        {{ section.settings.inter_2_text }}
+      </div>
+      <div class="interactive-banner__info" attr-pin="3">
+        <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/tech-info1_2x_49b10596-38f6-4b20-9fb7-d63c406acec4.png?v=1623333252" alt="technology silverskin silver">
+        <h5>{{ section.settings.inter_3_title }}</h5>
+        {{ section.settings.inter_3_text }}
+      </div>
+  </div>
+  <div class="hero-banner-cta">
+    <a class="banner-cta__link" href="{{link_lang_trad}}/collections/uomo">ACQUISTA UOMO</a>
+    <a class="banner-cta__link" href="{{link_lang_trad}}/collections/donna">ACQUISTA DONNA</a>
+  </div>
+
+</div>
+{% comment %} END - INTERACTIVE SECTION {% endcomment %}
+
+
+{% comment %} START - THERMOREGULATION SECTION {% endcomment %}
+<div class="section-thermoregulation" style="background-image:url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/03-2x.jpg?v=1623415301);">
+  <div class="overlay-dark"></div>  
+    <video width="100%" height="600" autoplay muted loop playsinline>
+      <source src="https://cdn.shopify.com/videos/c/o/v/51dacefa655b43e7b1350aee26e8d000.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  <div class="section-thermoregulation__content">
+    <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/tech-icon-banner3_2x_b1d658ba-5e11-4e8a-88d4-90ea09f111d8.png?v=1623333080" alt="ag silverskin">
+    <h2>{{ section.settings.banner_1_title }}</h2>
+    {{ section.settings.banner_1_text }}
+  </div>
+
+</div>
+{% comment %} END - THERMOREGULATION SECTION {% endcomment %}
+
+
+{% comment %} START - BREATHABILITY SECTION {% endcomment %}
+<div class="section-breathability" style="background-image:url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/01-2x.jpg?v=1623415301);">
+  <div class="overlay-dark"></div>
+    <video width="100%" height="600" autoplay muted loop playsinline>
+      <source src="https://cdn.shopify.com/videos/c/o/v/61bf3c797a3f4289a0dc7a28b1908e0e.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  <div class="section-breathability__content">
+    <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/tech-icon-banner1_2x_26cabf08-eee2-4eae-928e-2e2892d05192.png?v=1623333049" alt="ag silverskin">
+    <h2>{{ section.settings.banner_2_title }}</h2>
+    {{ section.settings.banner_2_text }}
+  </div>
+
+</div>
+{% comment %} END - BREATHABILITY SECTION {% endcomment %}
+
+
+
+{% comment %} START - STRETCHABILITY SECTION {% endcomment %}
+<div class="section-stretchability" style="background-image:url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/02-2x.jpg?v=1623415301);">
+  <div class="overlay-dark"></div>
+    <video width="100%" height="600" autoplay muted loop playsinline>
+      <source src="https://cdn.shopify.com/videos/c/o/v/f6591ebf35684d87a556695e822190ed.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  <div class="section-stretchability__content">
+    <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/tech-icon-banner2_2x_00d85b87-5432-4ffc-9c85-120f4a35e037.png?v=1623333060" alt="ag silverskin">
+    <h2>{{ section.settings.banner_3_title }}</h2>
+    {{ section.settings.banner_3_text }}    
+  </div>
+
+</div>
+{% comment %} END - STRETCHABILITY SECTION {% endcomment %}
+
+
+
+
+
+
+
+{% comment %} START - THERMIC TEST {% endcomment %}
+<div class="section-termictest">
+  <img class="section-termictest__background-top" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/background.png?v=1635348830" alt="silverskin tech">
+
+  <div class="box-width section-termictest__content">
+    <div class="col-6 section-termictest__content__img">
+      <h4>{{ section.settings.thermic_title }}</h4>  
+      <h2>{{ section.settings.thermic_title_2 }}<h2>
+      <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/gradient.png?v=1623416869" alt="termic test silverskin">
+    </div>
+    <div class="col-6 section-termictest__content__text">
+      {{ section.settings.thermic_description }}
+    </div>  
+  </div>
+  <div class="box-width section-termictest__video">
+
+      <div class="termich-test-img">
+        <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/thermic_frame_tech.jpg?v=1635518113" alt="termic test silverskin">
+        <i class="fas fa-play"></i>
+      </div>
+      <iframe class="termich-test-iframe hide" width="100%" height="834" src="https://www.youtube.com/embed/rrQJfRXXO3Q?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    
+  </div>
+</div>
+{% comment %} END - THERMIC TEST {% endcomment %}
+
+<div class="row">
+  {% for best_seller in collections.best-sellers.products  %}
+    {{ best_seller }}
+  {% endfor %}
+</div>
+
+{% comment %} START - BEST SELLERS {% endcomment %}
+<div class="section-bestsellers">
+  <div class="box-width section-bestsellers__content">
+    <h2>SCOPRI I NOSTRI BEST SELLER</h2>
+
+      <div class="swiper-container technology-slider">
+        <div class="swiper-wrapper">
+            {% for product in collections['homepage-ss-collection'].products  %}
+            <!-- <li>
+              <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape }}" />
+              <a class="shop-now" href="{{ product.url }}">{{ product.title | escape }}
+              </a>
+            </li> -->
+     
+          <div class="swiper-slide">
+          <!-- {%- assign featured_image = all_products['base-layer-termico-girocollo-manica-lunga-pearlgrey-3'].selected_or_first_available_variant.featured_image | default: all_products['base-layer-termico-girocollo-manica-lunga-pearlgrey-3'].featured_image -%} -->
+            <img src="{{  product.featured_image | img_url: '1024x' }}" alt="best seller silverskin">
+            <h4>{{ product.title }}</h4>    
+            <h4 class="best-sellers-price">{{ product.price | money }}</h4>
+            <div class="best-sellers-cta">
+              <a class="best-sellers-cta__link" 
+                  attr-title="{{ product.title }}" 
+                  attr-price="{{ product.price | money | remove: '€ ' | replace: ',' , '.'  }}" 
+                  attr-handle="{{ product.handle }}" 
+                  attr-type="{{ product.type }}" 
+                  href="{{ product.url }}">ACQUISTA</a>
+              <!-- <a class="best-sellers-cta__link" 
+                  attr-title="{{ all_products['base-layer-termico-girocollo-manica-lunga-pearlgrey-2'].title }}" 
+                  attr-price="{{ all_products['base-layer-termico-girocollo-manica-lunga-pearlgrey-2'].price | money | remove: '€ ' | replace: ',' , '.'  }}" 
+                  attr-handle="{{ all_products['base-layer-termico-girocollo-manica-lunga-pearlgrey-2'].handle }}" 
+                  attr-type="{{ all_products['base-layer-termico-girocollo-manica-lunga-pearlgrey-2'].type }}" 
+                  href="{{ all_products['base-layer-termico-girocollo-manica-lunga-pearlgrey-2'].url }}">ACQUISTA DONNA</a>
+              -->
+            </div> 
+          </div>
+          {% endfor %}
+
+          <!-- <div class="swiper-slide">
+          {%- assign featured_image = all_products['base-layer-termico-manica-lunga-collo-alto-anthracite-1'].selected_or_first_available_variant.featured_image | default: all_products['base-layer-termico-manica-lunga-collo-alto-anthracite-1'].featured_image -%}
+            <img src="{{ featured_image | img_url: '1024x' }}" alt="best seller silverskin">
+            <h4>{{ all_products['base-layer-termico-manica-lunga-collo-alto-anthracite-1'].title }}</h4>
+            <h4 class="best-sellers-price">{{ all_products['base-layer-termico-manica-lunga-collo-alto-anthracite-1'].price | money }}</h4> 
+            <div class="best-sellers-cta">
+              <a class="best-sellers-cta__link" 
+                  attr-title="{{ all_products['base-layer-termico-manica-lunga-collo-alto-anthracite'].title }}" 
+                  attr-price="{{ all_products['base-layer-termico-manica-lunga-collo-alto-anthracite'].price | money | remove: '€ ' | replace: ',' , '.'  }}" 
+                  attr-handle="{{ all_products['base-layer-termico-manica-lunga-collo-alto-anthracite'].handle }}" 
+                  attr-type="{{ all_products['base-layer-termico-manica-lunga-collo-alto-anthracite'].type }}" 
+                  href="{{ all_products['base-layer-termico-manica-lunga-collo-alto-anthracite'].url }}">ACQUISTA UOMO</a>
+              <a class="best-sellers-cta__link" 
+                  attr-title="{{ all_products['base-layer-termico-manica-lunga-collo-alto-anthracite-1'].title }}" 
+                  attr-price="{{ all_products['base-layer-termico-manica-lunga-collo-alto-anthracite-1'].price | money | remove: '€ ' | replace: ',' , '.'  }}" 
+                  attr-handle="{{ all_products['base-layer-termico-manica-lunga-collo-alto-anthracite-1'].handle }}" 
+                  attr-type="{{ all_products['base-layer-termico-manica-lunga-collo-alto-anthracite-1'].type }}" 
+                  href="{{ all_products['base-layer-termico-manica-lunga-collo-alto-anthracite-1'].url }}">ACQUISTA DONNA</a>
+            </div>
+          </div>
+          
+          <div class="swiper-slide">
+          {%- assign featured_image = all_products['base-layer-termico-girocollo-manica-corta-pearlgrey'].selected_or_first_available_variant.featured_image | default: all_products['base-layer-termico-girocollo-manica-corta-pearlgrey'].featured_image -%}
+            <img src="{{ featured_image | img_url: '1024x' }}" alt="best seller silverskin">
+            <h4>{{ all_products['base-layer-termico-girocollo-manica-corta-pearlgrey'].title }}</h4>    
+            <h4 class="best-sellers-price">{{ all_products['base-layer-termico-girocollo-manica-corta-pearlgrey'].price | money }}</h4> 
+            <div class="best-sellers-cta">
+              <a class="best-sellers-cta__link" 
+                  attr-title="{{ all_products['base-layer-termico-girocollo-manica-corta-pearlgrey'].title }}" 
+                  attr-price="{{ all_products['base-layer-termico-girocollo-manica-corta-pearlgrey'].price | money | remove: '€ ' | replace: ',' , '.'  }}" 
+                  attr-handle="{{ all_products['base-layer-termico-girocollo-manica-corta-pearlgrey'].handle }}" 
+                  attr-type="{{ all_products['base-layer-termico-girocollo-manica-corta-pearlgrey'].type }}" 
+                  href="{{ all_products['base-layer-termico-girocollo-manica-corta-pearlgrey'].url }}">ACQUISTA UOMO</a>
+              <a class="best-sellers-cta__link" 
+                  attr-title="{{ all_products['base-layer-termico-girocollo-manica-corta-pearlgrey-1'].title }}" 
+                  attr-price="{{ all_products['base-layer-termico-girocollo-manica-corta-pearlgrey-1'].price | money | remove: '€ ' | replace: ',' , '.'  }}" 
+                  attr-handle="{{ all_products['base-layer-termico-girocollo-manica-corta-pearlgrey-1'].handle }}" 
+                  attr-type="{{ all_products['base-layer-termico-girocollo-manica-corta-pearlgrey-1'].type }}" 
+                  href="{{ all_products['base-layer-termico-girocollo-manica-corta-pearlgrey-1'].url }}">ACQUISTA DONNA</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+          {%- assign featured_image = all_products['calze-performance-corte-anthracite'].selected_or_first_available_variant.featured_image | default: all_products['calze-performance-corte-anthracite'].featured_image -%}
+            <img src="{{ featured_image | img_url: '1024x' }}" alt="best seller silverskin">
+            <h4>{{ all_products['calze-performance-corte-anthracite'].title }}</h4>    
+            <h4 class="best-sellers-price">{{ all_products['calze-performance-corte-anthracite'].price | money }}</h4> 
+            <div class="best-sellers-cta">
+              <a class="best-sellers-cta__link" 
+                  attr-title="{{ all_products['calze-performance-corte-anthracite'].title }}" 
+                  attr-price="{{ all_products['calze-performance-corte-anthracite'].price | money | remove: '€ ' | replace: ',' , '.'  }}" 
+                  attr-handle="{{ all_products['calze-performance-corte-anthracite'].handle }}" 
+                  attr-type="{{ all_products['calze-performance-corte-anthracite'].type }}" 
+                  href="{{ all_products['calze-performance-corte-anthracite'].url }}">ACQUISTA UOMO</a>
+              <a class="best-sellers-cta__link" 
+                  attr-title="{{ all_products['calze-performance-corte-anthracite'].title }}" 
+                  attr-price="{{ all_products['calze-performance-corte-anthracite'].price | money | remove: '€ ' | replace: ',' , '.'  }}" 
+                  attr-handle="{{ all_products['calze-performance-corte-anthracite'].handle }}" 
+                  attr-type="{{ all_products['calze-performance-corte-anthracite'].type }}" 
+                  href="{{ all_products['calze-performance-corte-anthracite'].url }}">ACQUISTA DONNA</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+          {%- assign featured_image = all_products['stay-warm-cappello-pearlgrey'].selected_or_first_available_variant.featured_image | default: all_products['stay-warm-cappello-pearlgrey'].featured_image -%}
+            <img src="{{ featured_image | img_url: '1024x' }}" alt="best seller silverskin">
+            <h4>{{ all_products['stay-warm-cappello-pearlgrey'].title }}</h4>    
+            <h4 class="best-sellers-price">{{ all_products['stay-warm-cappello-pearlgrey'].price | money }}</h4>  
+            <div class="best-sellers-cta">
+              <a class="best-sellers-cta__link" 
+                  attr-title="{{ all_products['cappello-performance-grigio-perla-sk015w'].title }}" 
+                  attr-price="{{ all_products['cappello-performance-grigio-perla-sk015w'].price | money | remove: '€ ' | replace: ',' , '.'  }}" 
+                  attr-handle="{{ all_products['cappello-performance-grigio-perla-sk015w'].handle }}" 
+                  attr-type="{{ all_products['cappello-performance-grigio-perla-sk015w'].type }}" 
+                  href="{{ all_products['cappello-performance-grigio-perla-sk015w'].url }}">ACQUISTA UOMO</a>
+              <a class="best-sellers-cta__link" 
+                  attr-title="{{ all_products['stay-warm-cappello-pearlgrey'].title }}" 
+                  attr-price="{{ all_products['stay-warm-cappello-pearlgrey'].price | money | remove: '€ ' | replace: ',' , '.'  }}" 
+                  attr-handle="{{ all_products['stay-warm-cappello-pearlgrey'].handle }}" 
+                  attr-type="{{ all_products['stay-warm-cappello-pearlgrey'].type }}" 
+                  href="{{ all_products['stay-warm-cappello-pearlgrey'].url }}">ACQUISTA DONNA</a>
+            </div>
+          </div> -->
+
+
+        </div>
+        <div class="swiper-button-next"><i class="fas fa-angle-right"></i></div>
+        <div class="swiper-button-prev"><i class="fas fa-angle-left"></i></div>
+      </div>
+
+  </div>
+</div>
+{% comment %} END - BEST SELLERS {% endcomment %}
+
+
+
+<script>
+    var headerWrapper = document.querySelector(".header-wrapper");
+    headerWrapper.classList.add("is-light");
+</script>
+
+
+{% schema %}
+  {
+    "name": "Page.technology page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "herotitle",
+        "label": "Hero Title"
+      },
+      {
+        "type": "text",
+        "id": "herosubtitle",
+        "label": "Hero Sub Title"
+      },
+      {
+        "type": "textarea",
+        "id": "interactivetextdescription",
+        "label": "Interactive Text Description"
+      },
+      {
+        "type": "text",
+        "id": "inter_1_title",
+        "label": "Interactive 1 Title"
+      },
+      {
+        "type": "textarea",
+        "id": "inter_1_text",
+        "label": "Interactive 1 Text"
+      },
+      {
+        "type": "text",
+        "id": "inter_2_title",
+        "label": "Interactive 2 Title"
+      },
+      {
+        "type": "textarea",
+        "id": "inter_2_text",
+        "label": "Interactive 2 Text"
+      },
+      {
+        "type": "text",
+        "id": "inter_3_title",
+        "label": "Interactive 3 Title"
+      },
+      {
+        "type": "textarea",
+        "id": "inter_3_text",
+        "label": "Interactive 3 Text"
+      },
+      {
+        "type": "text",
+        "id": "banner_1_title",
+        "label": "Banner 1 Title"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_1_text",
+        "label": "Banner 1 Text"
+      },
+      {
+        "type": "text",
+        "id": "banner_2_title",
+        "label": "Banner 2 Title"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_2_text",
+        "label": "Banner 2 Text"
+      },
+      {
+        "type": "text",
+        "id": "banner_3_title",
+        "label": "Banner 3 Title"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_3_text",
+        "label": "Banner 3 Text"
+      },
+      {
+        "type": "text",
+        "id": "thermic_title",
+        "label": "Thermic Title"
+      },
+      {
+        "type": "text",
+        "id": "thermic_title_2",
+        "label": "Thermic Title 2"
+      },
+      {
+        "type": "textarea",
+        "id": "thermic_description",
+        "label": "Thermic Description"
+      },
+      {
+        "type": "text",
+        "id": "best_seller_text",
+        "label": "Best Seller Text"
+      },
+      {
+        "type": "text",
+        "id": "trustpilot_text",
+        "label": "Trustpilot Text"
+      }
+    ]
+  }
+{% endschema %}

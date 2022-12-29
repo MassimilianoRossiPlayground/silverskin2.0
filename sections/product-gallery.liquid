@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="{{ 'product-gallery.scss.css' | asset_url }}" type="text/css">
+
+<div class="product-gallery">
+
+  {% for item in product.metafields["custom_fields"]["gallery_widget"] %}
+    <div class="gallery-image" data-index="{{ forloop.index0 }}">
+
+      {% if item.image != blank %}
+        <img src="{% render "cf-image" with image: item.image, print: "url" %}" 
+          data-original-src="{% render "cf-image" with image: item.image, print: "url" %}"/>
+      {% endif %}
+
+      <div class="gallery-image__content">
+        
+        {% if item.title != blank %}
+          <h3>{{ item.title }}</h3>
+        {% endif %}
+      
+        {% if item.caption != blank %}
+          <h5>{{ item.caption }}</h5>
+        {% endif %}
+        
+      </div>
+
+    </div>
+  {% endfor %}
+</div>

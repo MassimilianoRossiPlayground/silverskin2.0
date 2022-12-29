@@ -1,0 +1,198 @@
+
+{% include 'wcp_discount' with product %}
+{% assign current_variant = product.selected_or_first_available_variant %}
+    {% include 'wcp_variant' with current_variant %}
+    {% include 'wcp_vd_table_change' with product %}
+    {% include 'wcp_variant' with current_variant %}
+    {% include 'wcp_vd_product' with product %} 
+    {% include 'wcp_variant' with current_variant %}
+
+    {% assign temp_wcp_v_price = wcp_v_price %}
+    {% assign temp_wcp_v_compare_at_price = wcp_v_compare_at_price %}
+{% capture form_id %}AddToCartForm-{{ section_id }}{% endcapture %}
+
+<!-- show selected option in label -->
+<label      class="variant__label" >COLORE {% if product.tags contains 'Anthracite' %}- Anthracite{% endif %}{% if product.tags contains 'Pearlgrey' %}- Pearlgrey{% endif %}</label>
+<div class="product-color-variants">
+   
+
+{% for t in product.tags %}
+
+      {% case t %}
+      {% when 'Anthracite' %}
+
+        <a class="active" href="#"><img height="24px" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-antrachite-color-selected-icon.png?v=1610984998"><span><ly-as-309084>Anthracite</ly-as-309084></span></a>
+        
+        {% if product.metafields.custom_fields['link_colore_alternativo'] != blank %}
+          <a href="{{ product.metafields.custom_fields['link_colore_alternativo'] }}"><img height="24px" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-grey-color-icon.png?v=1610984998"><span><ly-as-309085>Pearlgrey</ly-as-309085></span></a>
+        {% endif %}
+
+      {% when 'Pearlgrey' %}
+
+        {% if product.metafields.custom_fields['link_colore_alternativo'] != blank %}
+          <a href="{{ product.metafields.custom_fields['link_colore_alternativo'] }}"><img height="24px" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-antrachite-color-icon.png?v=1610984997"><span><ly-as-309084>Anthracite</ly-as-309084></span></a>
+        {% endif %}
+
+        <a href="#" class="active" ><img height="24px" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-grey-color-selected-icon.png?v=1610984998"><span><ly-as-309085>Pearlgrey</ly-as-309085></span></a>
+
+      {% endcase %}
+
+{% endfor %}
+</div>
+
+
+{% form 'product', product, id: form_id, class: 'product-single__form' %}
+  <input type="hidden" class="pid" value="{{product.id}}">
+  <input type="hidden" class="ptitle" value="{{product.title | remove: "'" | remove: '"'}}">
+  <input type="hidden" class="pprice" value="{{product.variants.first.price | times: 0.01}}">
+  <input type="hidden" class="pbrand" value="{{product.vendor | remove: "'" | remove: '"'}}">
+  <input type="hidden" class="ptype" value="{{product.type | remove: "'" | remove: '"'}}">
+  <input type="hidden" class="pcollection" value="{{ product.collections.last.title | remove: "'" | remove: '"' }}">
+  {% unless product.has_only_default_variant %}
+    {% for option in product.options_with_values %}
+      {% if settings.variant_type == 'button' %}
+        {% include 'variant-button', section_id: section_id, option_drop: option %}
+      {% else %}
+        {% include 'variant-dropdown', section_id: section_id %}
+      {% endif %}
+    {% endfor %} 
+ {% assign wcp_v_price = temp_wcp_v_price %} {% assign wcp_v_compare_at_price = temp_wcp_v_compare_at_price %}
+  {% endunless %}
+
+  <select name="id" id="ProductSelect-{{ section_id }}" class="product-single__variants no-js">
+    {% for variant in product.variants %} 
+{% comment %} wcp_variant_include {% endcomment %}{% include 'wcp_variant' with variant %}
+      {% if variant.available %}
+        <option {% if variant == product.selected_or_first_available_variant %}
+          selected="selected" {% endif %}
+          value="{{ variant.id }}">
+          {{ variant.title }} - {{ wcp_v_price | money_with_currency }}
+        </option>
+      {% else %}
+        <option disabled="disabled">
+          {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+        </option>
+      {% endif %}
+    {% endfor %} 
+ {% assign wcp_v_price = temp_wcp_v_price %} {% assign wcp_v_compare_at_price = temp_wcp_v_compare_at_price %}
+  </select>
+
+  {% if settings.quantity_enable %}
+    <div class="product__quantity product__quantity--{{ settings.variant_type }}">
+      <label for="Quantity-{{ section_id }}">{{ 'products.product.quantity' | t }}</label>
+      {% include 'quantity-input', id: section_id, qty: 1, min: 1 %}
+    </div>
+  {% endif %}
+
+  {% assign inventory_visible = false %}
+  {% if settings.inventory_enable and current_variant.inventory_management == 'shopify' %}
+    {% if current_variant.inventory_quantity <= settings.inventory_threshold and current_variant.inventory_quantity >= 0 %}
+      {% assign inventory_visible = true %}
+    {% endif %}
+  {% endif %}
+  {% if current_variant.inventory_quantity == 0 %}
+    {% assign inventory_visible = false %}
+  {% endif %}
+
+  <div
+    id="ProductInventory-{{ section_id }}"
+    class="product__inventory {% unless inventory_visible %}hide{% endunless %}"
+    >
+    {% if current_variant.available %}
+      {{ 'products.product.stock_label' | t: count: current_variant.inventory_quantity }}
+    {% endif %}
+  </div>
+
+  {% if settings.inventory_transfers_enable %}
+    <div
+      id="ProductIncomingInventory-{{ section_id }}"
+      class="product__inventory{% if inventory_visible %} hide{% endif %}">
+      {% if current_variant.incoming and inventory_visible == false %}
+        {% if current_variant.next_incoming_date %}
+          {% assign date = current_variant.next_incoming_date | date: format: 'date' %}
+          {% if current_variant.available %}
+            {{ 'products.product.will_not_ship_until' | t: date: date }}
+          {% else %}
+            {{ 'products.product.will_be_in_stock_after' | t: date: date }}
+          {% endif %}
+        {% else %}
+          {{ 'products.product.waiting_for_stock' | t }}
+        {% endif %}
+      {% endif %}
+    </div>
+  {% endif %}
+
+{% comment %} CUSTOM FIELD
+{% if product.metafields.custom_fields["before_button"] != blank %}
+  <div class="custom-field custom-field__before-button custom-field__type--text">
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["before_button"] }}
+    </div>
+  </div>
+{% endif %}
+{% endcomment %}
+  {% assign enable_dynamic_buttons = false %}
+  {% if settings.enable_payment_button and template != 'product.preorder' %}
+    {% assign enable_dynamic_buttons = true %}
+  {% endif %}
+
+{% comment %} START - PROMO CALZE {% endcomment %}
+  {% for tag in product.tags %}
+    {% assign listTag = listTag | append: " " | append: tag %}
+  {% endfor %}
+  {% comment %} {% if listTag contains 'Calze' and listTag contains 'Fresh'%}
+    {{ '<div class="promo-active-pdp"><ly-as-309086>Aggiungi 3 calze al carrello, la meno cara è in omaggio.</ly-as-309086></div>' }}
+  {% endif %} {% endcomment %}
+{% comment %} END - PROMO CALZE {% endcomment %}
+
+  {% if enable_dynamic_buttons %}
+    <div class="payment-buttons"> 
+  {% endif %}
+
+    <button
+      {% if product.empty? %}type="button"{% else %}type="submit"{% endif %}
+      name="add"
+      id="AddToCart-{{ section_id }}" 
+        attr-title="{{ product.title }}" 
+        attr-price="{{ product.price | money | remove: '€ ' | replace: ',' , '.'  }}" 
+        attr-handle="{{ product.handle }}" 
+        attr-type="{{ product.type }}" 
+      class="btn btn--full add-to-cart{% if enable_dynamic_buttons %} btn--secondary{% endif %} {% unless current_variant.available %}sold-out-btn{% endunless %}"
+      {% unless current_variant.available %} disabled="disabled"{% endunless %}>
+      <span id="AddToCartText-{{ section_id }}">
+        {% if current_variant.available %}
+          {% if template == 'product.preorder' %}
+            {{ 'products.product.preorder' | t }}
+          {% else %}
+            {{ 'products.product.add_to_cart' | t }}
+          {% endif %}
+        {% else %}
+          {{ 'products.product.sold_out' | t }}
+        {% endif %}
+      </span>
+    </button>
+
+    {% if enable_dynamic_buttons %}
+       {% unless customer.tags contains p_discount_tag or customer.tags contains v_discount_tag %} 
+            {{ form | payment_button }}        
+          {% endunless %}
+    {% endif %}
+
+      <div>
+    <b>{% unless wcp_vd_HTML_table == '' or  wcp_vd_HTML_table == blank %}<br><span>{{shop.metafields.wcp_net.VDTableNote}}<br/></span>{% endunless %}</b>
+    <div class-data='{{wcp_vd_HTML_table}}' id='wcp_vd_table' style ='margin-top :20px;'>{{wcp_vd_HTML_table}}</div>             
+    </div> 
+      
+  {% if enable_dynamic_buttons %}
+    </div>
+  {% endif %}
+
+  <div id="VariantsJson-{{ section_id }}" class="hide" aria-hidden="true">
+    {{ product.variants | json }}
+  </div>
+  {% if product.options.size > 1 %}
+    <div id="CurrentVariantJson-{{ section_id }}" class="hide" aria-hidden="true">
+      {{ current_variant | json }}
+    </div>
+  {% endif %}
+{% endform %}

@@ -1,0 +1,78 @@
+
+<div class="billing-data hide">
+    <div class="cart-attribute__field">
+        <label>Nome Azienda</label>
+        <input id="billing-data__azienda" type="text" name="attributes[azienda]" value="{{ cart.attributes['azienda'] }}">
+    </div>
+    <div class="cart-attribute__fields-group">
+        <div class="cart-attribute__field">
+            <label>Indirizzo</label>
+            <input id="billing-data__indirizzo" type="text" name="attributes[indirizzo]" value="{{ cart.attributes['indirizzo'] }}">
+        </div>
+        <div class="cart-attribute__field">
+            <label>Città</label>
+            <input id="billing-data__città" type="text" name="attributes[città]" value="{{ cart.attributes['città'] }}">
+        </div>
+        <div class="cart-attribute__field">
+            <label>Provincia</label>
+            <input id="billing-data__provincia" type="text" name="attributes[provincia]" value="{{ cart.attributes['provincia'] }}">
+        </div>
+    </div>
+    <div class="cart-attribute__fields-group">
+        <div class="cart-attribute__field">
+            <label>P.iva</label>
+            <input id="billing-data__piva" type="text" name="attributes[piva]" value="{{ cart.attributes['piva'] }}">
+        </div>
+        <div class="cart-attribute__field">
+            <label>C.F. se diverso da P.Iva</label>
+            <input id="billing-data__cf" type="text" name="attributes[cf]" value="{{ cart.attributes['cf'] }}">
+        </div>
+        <div class="cart-attribute__field">
+            <label>Codice SDI</label>
+            <input id="billing-data__sdi" type="text" name="attributes[sdi]" value="{{ cart.attributes['sdi'] }}">
+        </div>
+    </div>
+    <span style="display:block; font-size: 12px; color: #53382d;" class="instructions">NB: è obbligatorio compilare tutti i dati per poter ricevere la fattura.</span>
+</div>
+
+<script>
+
+    function toggleCheckboxBilling(element) {
+        if (element.checked) {
+            document.querySelector(".billing-data").classList.remove("hide")
+            sessionStorage.setItem("toggleCheckboxBillingCheck", "open")
+        } else {
+            document.querySelector(".billing-data").classList.add("hide")
+            sessionStorage.setItem("toggleCheckboxBillingCheck", "close")
+        }
+    }
+
+    // Open billing info if parameter 'openbilling' is set true
+    let searchParams = new URLSearchParams(window.location.search)
+    const openbilling = searchParams.get('openbilling')
+    var toggleCheckboxBillingCheck = sessionStorage.getItem("toggleCheckboxBillingCheck")
+
+    if ((openbilling == "true") || (toggleCheckboxBillingCheck == "open")) {
+        document.querySelector("#addBillingInfo").click()
+    } 
+
+    // Check if data is compiled and saved in sessionStorage
+    var input_billing = document.querySelectorAll(".billing-data input")
+    const change = new InputEvent('change');
+
+    input_billing.forEach(element => {
+        var input_id = element.getAttribute("id")
+        var session_saved_id = sessionStorage.getItem(input_id)
+        if (session_saved_id) {
+            element.value = session_saved_id
+        }
+    });
+
+    input_billing.forEach(element => {
+        element.addEventListener('input', function () {
+            sessionStorage.setItem(element.getAttribute("id"), element.value)
+        });
+    });
+
+
+</script>

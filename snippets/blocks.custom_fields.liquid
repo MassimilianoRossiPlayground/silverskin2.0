@@ -1,0 +1,144 @@
+<div class="custom-fields-section">
+  
+    {% if resource_type == "collections" %}
+    <div class="custom-fields-section__collections">
+      {% for block in blocks %}
+      {% if block.type contains "cf_" %}
+      <div class="custom-fields-section__item custom-fields-section__item--{{ block.type }} custom-fields-section__item--{{ block.type }}--{{ block.settings.key }}" {{ block.shopify_attributes }}>
+        {% case block.settings.key %}
+        
+          {% when "banner_description" %}
+            {% render "custom_fields.collections.banner_description" %}
+        
+          {% when "banner_description_like_second" %}
+            {% render "custom_fields.collections.banner_description_like_second" %}
+        
+          {% when "banner_description_secondary" %}
+            {% render "custom_fields.collections.banner_description_secondary" %}
+        
+          {% when "banner_secondary_feature1" %}
+            {% render "custom_fields.collections.banner_secondary_feature1" %}
+        
+          {% when "banner_secondary_feature2" %}
+            {% render "custom_fields.collections.banner_secondary_feature2" %}
+        
+          {% when "banner_secondary_feature3" %}
+            {% render "custom_fields.collections.banner_secondary_feature3" %}
+        
+          {% when "calze_banner_slider" %}
+            {% render "custom_fields.collections.calze_banner_slider" %}
+        
+          {% when "cta_link" %}
+            {% render "custom_fields.collections.cta_link" %}
+        
+          {% when "cta_link_2" %}
+            {% render "custom_fields.collections.cta_link_2" %}
+        
+          {% when "cta_text" %}
+            {% render "custom_fields.collections.cta_text" %}
+        
+          {% when "cta_text_2" %}
+            {% render "custom_fields.collections.cta_text_2" %}
+        
+          {% when "img_fresh_man" %}
+            {% render "custom_fields.collections.img_fresh_man" %}
+        
+          {% when "img_fresh_woman" %}
+            {% render "custom_fields.collections.img_fresh_woman" %}
+        
+          {% when "img_warm_man" %}
+            {% render "custom_fields.collections.img_warm_man" %}
+        
+          {% when "img_warm_woman" %}
+            {% render "custom_fields.collections.img_warm_woman" %}
+        
+          {% when "img_xwarm_man" %}
+            {% render "custom_fields.collections.img_xwarm_man" %}
+        
+          {% when "img_xwarm_woman" %}
+            {% render "custom_fields.collections.img_xwarm_woman" %}
+        
+          {% when "main_banner_text" %}
+            {% render "custom_fields.collections.main_banner_text" %}
+        
+          {% when "text_fresh_man" %}
+            {% render "custom_fields.collections.text_fresh_man" %}
+        
+          {% when "text_fresh_woman" %}
+            {% render "custom_fields.collections.text_fresh_woman" %}
+        
+          {% when "text_warm_man" %}
+            {% render "custom_fields.collections.text_warm_man" %}
+        
+          {% when "text_warm_woman" %}
+            {% render "custom_fields.collections.text_warm_woman" %}
+        
+          {% when "text_xwarm_man" %}
+            {% render "custom_fields.collections.text_xwarm_man" %}
+        
+          {% when "text_xwarm_woman" %}
+            {% render "custom_fields.collections.text_xwarm_woman" %}
+        
+          {% when "url_image" %}
+            {% render "custom_fields.collections.url_image" %}
+        
+        {% endcase %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  
+    {% if resource_type == "products" %}
+    <div class="custom-fields-section__products">
+      {% for block in blocks %}
+      {% if block.type contains "cf_" %}
+      <div class="custom-fields-section__item custom-fields-section__item--{{ block.type }} custom-fields-section__item--{{ block.type }}--{{ block.settings.key }}" {{ block.shopify_attributes }}>
+        {% case block.settings.key %}
+        
+          {% when "before_button" %}
+            {% render "custom_fields.products.before_button" %}
+        
+          {% when "calze_banner_-_desc" %}
+            {% render "custom_fields.products.calze_banner_-_desc" %}
+        
+          {% when "link_colore_alternativo" %}
+            {% render "custom_fields.products.link_colore_alternativo" %}
+        
+          {% when "materials_text" %}
+            {% render "custom_fields.products.materials_text" %}
+        
+          {% when "_dacron" %}
+            {% render "custom_fields.products._dacron" %}
+        
+          {% when "_elastan" %}
+            {% render "custom_fields.products._elastan" %}
+        
+          {% when "_fibre_dargento" %}
+            {% render "custom_fields.products._fibre_dargento" %}
+        
+        {% endcase %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  
+    {% if resource_type == "pages" %}
+    <div class="custom-fields-section__pages">
+      {% for block in blocks %}
+      {% if block.type contains "cf_" %}
+      <div class="custom-fields-section__item custom-fields-section__item--{{ block.type }} custom-fields-section__item--{{ block.type }}--{{ block.settings.key }}" {{ block.shopify_attributes }}>
+        {% case block.settings.key %}
+        
+          {% when "collection_discover_title" %}
+            {% render "custom_fields.pages.collection_discover_title" %}
+        
+        {% endcase %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  
+</div>

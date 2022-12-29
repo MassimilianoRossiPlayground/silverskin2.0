@@ -1,0 +1,44 @@
+@media screen and (max-width: 768px) {
+
+
+
+
+    .container-sliders_markers .swiper-container p{
+        line-height: 1.6;
+    }
+    
+
+    .swiper-container.container-left.swiper-container-initialized.swiper-container-horizontal .swiper-slide,
+    .swiper-container.container-left.swiper-container-initialized.swiper-container-horizontal .fixed-content
+    {
+        padding: 0 5vw;
+
+    }
+
+    .bottom_right .ly-languages-switcher{
+        display: none !important;
+    }
+
+    #CookiebotWidget{
+        display: none !important;
+    }
+
+    .line-copy{
+        display: none;
+    }
+    #insta-feed .instafeed-container{
+        padding-top: 0px!important;
+        width: 50vw !important;
+        height: 50vw !important;
+    }
+    
+    #insta-feed img{
+        //  max-width: none!important; 
+        //  object-fit:none!important; 
+        //  position: relative!important; 
+        //  width: 100%!important; 
+        //  height: auto!important;
+        //  transform: initial!important; 
+     
+    }
+}

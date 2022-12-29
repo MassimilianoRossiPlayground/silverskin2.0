@@ -1,0 +1,8 @@
+{% if collection.metafields.custom_fields["cta_text_2"] != blank %}
+  <div class="custom-field custom-field__cta-text-2 custom-field__type--text">
+    <h3 class="custom-field--title">CTA Text 2</h3>
+    <div class="custom-field--value">
+      {{ collection.metafields.custom_fields["cta_text_2"] }}
+    </div>
+  </div>
+{% endif %}

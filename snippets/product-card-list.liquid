@@ -1,0 +1,11 @@
+
+{%- include 'wcp_discount' with product -%}
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+    {% include 'wcp_variant' with current_variant %}
+    {% include 'wcp_vd_table_change' with product %}
+    {% include 'wcp_variant' with current_variant %}
+    {% include 'wcp_vd_product' with product %} 
+    {% include 'wcp_variant' with current_variant %}
+
+    {% assign temp_wcp_v_price = wcp_v_price %}
+    {% assign temp_wcp_v_compare_at_price = wcp_v_compare_at_price %}

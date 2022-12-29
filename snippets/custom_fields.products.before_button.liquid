@@ -1,0 +1,8 @@
+{% if product.metafields.custom_fields["before_button"] != blank %}
+  <div class="custom-field custom-field__before-button custom-field__type--text">
+    <h3 class="custom-field--title">Before AddToCart Button</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["before_button"] }}
+    </div>
+  </div>
+{% endif %}

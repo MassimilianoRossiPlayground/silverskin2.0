@@ -1,0 +1,8 @@
+{% if product.metafields.custom_fields["_elastan"] != blank %}
+  <div class="custom-field custom-field__-elastan custom-field__type--number">
+    <h3 class="custom-field--title">% Elastan</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["_elastan"] }}
+    </div>
+  </div>
+{% endif %}

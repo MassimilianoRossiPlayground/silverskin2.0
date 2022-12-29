@@ -1,0 +1,181 @@
+{% assign blog_1 = section.settings.blog_1 %}
+
+{% comment %} START - INTRO {% endcomment %}
+<div class="container">
+  <section id="section-blog-intro" class="blog-intro">
+      <h1>{{ section.settings.page_title }}</h1>
+      <p class="blog-description">{{ section.settings.page_sub_title }}</p>
+  </section>
+</div>  
+{% comment %} END - INTRO {% endcomment %}
+
+
+{% comment %} START - NAV SCROLL {% endcomment %}
+<div class="nav-blog hidden">
+  <span class="nav-blog__title">Blog</span>
+  <nav class="nav-blog__list">
+    <span class="single-nav"><a href="{{ blogs[blog_1].url }}">{{ section.settings.blog_1_title }}</a></span>
+    <span class="single-nav"><a href="{{ blogs[blog_2].url }}">{{ section.settings.blog_2_title }}</a></span>
+    <span class="single-nav"><a href="{{ blogs[blog_3].url }}">{{ section.settings.blog_3_title }}</a></span>
+  </nav>
+</div>
+{% comment %} END -  NAV SCROLL {% endcomment %}
+
+
+{% comment %} START - BLOGS {% endcomment %}
+<div class="container container-blogs">
+  <section id="section-blog-cards" class="blog-cards">
+      <div class="blog-cards__container">
+
+        {% for block in section.blocks %} 
+        
+          {% if block.type == 'cards' %}
+            <div class="single-card">
+              {%- assign img_url = block.settings.card_image | img_url: 'master' -%}
+              <img class="card-image" src="{{ img_url }}" alt="{{ block.settings.card_title }} ">
+              <div class="single-card__content">
+                <h4 class="card-title">{{ block.settings.card_title }}</h4>
+                <p class="card-subtitle">{{ block.settings.card_subtitle }}</p>
+                <a class="card-cta btn btn-white" href="{{ block.settings.card_link }}">{{ block.settings.card_cta }}</a>
+              </div>
+            </div>
+          {% endif %}
+
+        {% endfor %}
+
+      </div>
+  </section>
+</div>  
+{% comment %} END - BLOGS {% endcomment %}
+
+
+{% comment %} START - BLOG SECTION 1 {% endcomment %}
+<div class="container-fluid">
+  <section id="section-blog-1" class="section-blog-list blog-1">
+
+
+
+    <div class="container">
+      <div class="blog-head">
+        <h4>{{ section.settings.blog_1_title }}</h4>
+        <a href="{{ blogs[blog_1].url }}">View All</a>
+      </div>
+    </div>
+
+    <div id="blog-1-list" class="swiper-container">
+      <div class="swiper-wrapper">
+        
+        {% for article in blogs[blog_1].articles limit:6 %}
+          <div class="swiper-slide">
+            <div class="single-article">
+              {%- assign article_img_url = article.image | img_url: 'master' -%}
+              <img class="card-image" src="{{ article_img_url }}" alt="{{ article.title }} ">
+              <div class="single-article__tags">
+
+                {%- for tag in article.tags -%}
+                  <a href="{{ blogs[blog_1].url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% unless forloop.last %} - {% endunless %}
+                {%- endfor -%}
+
+              </div>
+              <h4 class="article-title">{{ article.title }}</h4>
+            </div>
+          </div>
+        {% endfor %} 
+
+      </div>
+    </div>
+  </section>
+</div>  
+{% comment %} END - BLOG SECTION 1 {% endcomment %}
+
+
+
+{% schema %}
+  {
+    "name": "Page.snow page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "page_title",
+        "label": "Page Title"
+      },
+      {
+        "type": "text",
+        "id": "page_sub_title",
+        "label": "Page Sub Title"
+      },
+      {
+        "type": "text",
+        "id": "blog_1_title",
+        "label": "Blog 1 Title"
+      },
+      {
+        "type": "blog",
+        "id": "blog_1",
+        "label": "Blog 1"
+      },
+      {
+        "type": "text",
+        "id": "blog_2_title",
+        "label": "Blog 2 Title"
+      },
+      {
+        "type": "blog",
+        "id": "blog_2",
+        "label": "Blog 2"
+      },
+      {
+        "type": "text",
+        "id": "blog_3_title",
+        "label": "Blog 3 Title"
+      },
+      {
+        "type": "blog",
+        "id": "blog_3",
+        "label": "Blog 3"
+      }
+      
+    ],
+    "default": {
+      "settings": {
+        "page_title": "BLOG",
+        "page_sub_title": "La pagina di introduzione serve per mostrare i 3 differenti argomenti trattati nel blog"
+      }
+    },
+    "blocks": [
+      {
+        "type": "cards",
+        "name": "cards",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "card_image",
+            "label": "Card image"
+          }, 
+          {
+            "type": "text",
+            "id": "card_title",
+            "label": "Card title"
+          }, 
+          {
+            "type": "text",
+            "id": "card_subtitle",
+            "label": "Card sub title"
+          }, 
+          {
+            "type": "text",
+            "id": "card_link",
+            "label": "Card link"
+          }, 
+          {
+            "type": "text",
+            "id": "card_cta",
+            "label": "Card cta"
+          }
+        ]
+      }
+    ]
+
+  }
+{% endschema %}

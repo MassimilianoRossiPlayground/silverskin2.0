@@ -1,0 +1,608 @@
+{% include 'wcp_discount' with product %}
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% include 'wcp_variant' with current_variant %}
+{% include 'wcp_vd_table_change' with product %}
+{% include 'wcp_variant' with current_variant %}
+{% include 'wcp_vd_product' with product %}
+{% include 'wcp_variant' with current_variant %}
+
+{% assign temp_wcp_v_price = wcp_v_price %}
+{% assign temp_wcp_v_compare_at_price = wcp_v_compare_at_price %}
+{% unless thumbnail_position %}
+  {% assign thumbnail_position = 'beside' %}
+{% endunless %}
+
+{% unless description_style %}
+  {% assign description_style = 'full' %}
+{% endunless %}
+
+{% assign product_img_structure = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+<div id="ProductSection-{{ section_id }}" class="product-section" data-section-id="{{ section_id }}" data-section-type="product-template" data-product-handle="{{ product.handle }}" data-product-url="{{ product.url | within: collection }}" data-aspect-ratio="{{ 100 | divided_by: product.featured_image.aspect_ratio }}" data-img-url="{{ product_img_structure }}"
+  {% if settings.product_zoom_enable %}
+  data-image-zoom="true"
+  {% endif %}
+  {% if settings.inventory_enable %}
+  data-inventory="true"
+  {% endif %}
+  {% if settings.inventory_transfers_enable %}
+  data-incoming-inventory="true"
+  {% endif %}
+  {% unless isModal %}
+  data-enable-history-state="true"
+  {% endunless %}
+  {% if isModal %}
+  data-lazyload-content="true"
+  {% endif %}>
+
+  {% include 'product-template-variables' %}
+
+  <div class="page-content page-content--product">
+    <div class="page-width">
+
+      <div class="grid{% unless image_position == 'left' %} grid--product-images-right{% endunless %}">
+        {% if image_position == 'left' %}
+          <div class="grid__item {{ product_image_width }}">
+            {% include 'product-images', section_id: section_id, isModal: isModal, thumbnail_position: thumbnail_position, thumbnail_arrows: thumbnail_arrows %}
+          </div>
+        {% endif %}
+
+        <div class="grid__item {{ product_description_width }}">
+
+          <div class="product-single__meta">
+            {% if settings.show_breadcrumbs and isModal != true %}
+              {% include 'breadcrumbs' %}
+            {% endif %}
+
+            {% if settings.vendor_enable %}
+              <div class="product-single__vendor">
+                {{ product.vendor }}
+              </div>
+            {% endif %}
+
+            {% if isModal %}
+              <p class="h2 product-single__title">
+                {{ product.title }}
+              </p>
+            {% else %}
+              <h1 class="h2 product-single__title">
+                {{ product.title }}
+              </h1>
+            {% endif %}
+
+            {% if settings.enable_product_reviews and settings.reviews_layout == 'full' %}
+              {% if isModal %}
+                {% assign review_link = product.url | within: collection | append: '#Reviews-' | append: product.id %}
+              {% else %}
+                {% assign review_link = '#Reviews-' | append: product.id %}
+              {% endif %}
+              <a href="{{ review_link }}" class="product-single__review-link">
+                <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+              </a>
+            {% endif %}
+
+            {% if settings.sku_enable %}
+              <p id="Sku-{{ section_id }}" class="product-single__sku">
+                {% if current_variant.sku %}
+                  {{ current_variant.sku }}
+                {% endif %}
+              </p>
+            {% endif %}
+
+            {% assign hide_sale_price = true %}
+            {% if wcp_compare_at_price_max > wcp_price %}
+              {% if wcp_v_compare_at_price > wcp_v_price %}
+                {% assign hide_sale_price = false %}
+              {% endif %}
+              <span id="PriceA11y-{{ section_id }}" class="visually-hidden" aria-hidden="{{ hide_sale_price }}">
+                {{ 'products.general.regular_price' | t }}
+              </span>
+              <span class="product__price-wrap-{{ section_id }}{% if hide_sale_price %} hide{% endif %}">
+                <span id="ComparePrice-{{ section_id }}" class="product__price product__price--compare">
+                  {% if wcp_v_compare_at_price > wcp_v_price %}
+                    {{ wcp_v_compare_at_price | money }}
+                  {% endif %}
+                </span>
+              </span>
+              <span id="ComparePriceA11y-{{ section_id }}" class="visually-hidden">{{ 'products.general.sale_price' | t }}
+              </span>
+            {% else %}
+              <span id="PriceA11y-{{ section_id }}" class="visually-hidden">{{ 'products.general.regular_price' | t }}
+              </span>
+            {% endif %}
+
+            <span id="ProductPrice-{{ section_id }}" class="product__price{% if wcp_v_compare_at_price > wcp_v_price %} on-sale{% endif %}">
+              {{ wcp_v_price | money }}
+            </span>
+
+            {% if settings.product_save_amount %}
+              {% if settings.product_save_type == 'dollar' %}
+                {% capture saved_amount %}
+                  {{ wcp_v_compare_at_price | minus: wcp_v_price | money }}
+                {% endcapture %}
+              {% else %}
+                {% capture saved_amount %}
+                  {{ wcp_v_compare_at_price | minus: wcp_v_price | times: 100.0 | divided_by: wcp_v_compare_at_price | round }}
+                  %{% endcapture %}
+              {% endif %}
+              <span id="SavePrice-{{ section_id }}" class="product__price-savings{% if hide_sale_price %} hide{% endif %}">
+                {{ 'products.general.save_html' | t: saved_amount: saved_amount }}
+              </span>
+            {% endif %}
+
+            <div class="product__unit-price product__unit-price--spacing product__unit-price-wrapper--{{ section_id }}{% unless current_variant.unit_price_measurement %} hide{% endunless %}">
+              {% capture unit_price_base_unit %}
+                <span class="product__unit-base--{{ section_id }}">
+                  {% if current_variant.unit_price_measurement %}
+                    {% if current_variant.unit_price_measurement.reference_value != 1 %}
+                      {{ current_variant.unit_price_measurement.reference_value }}
+                    {% endif %}
+                    {{ current_variant.unit_price_measurement.reference_unit }}
+                  {% endif %}
+                </span>
+              {% endcapture %}
+
+              <span class="product__unit-price--{{ section_id }}">{{ current_variant.unit_price | money }}
+              </span>/{{ unit_price_base_unit }}
+            </div>
+
+            <div class="klarna-widget-desk"></div>
+
+
+
+            {% if shop.taxes_included or shop.shipping_policy.body != blank %}
+              <div class="product__policies product__policies-desk rte">
+
+                {% if shop.taxes_included %}
+                  {{ 'products.product.include_taxes' | t }}
+                {% endif %}
+                {% if shop.shipping_policy.body != blank %}
+                  {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                {% endif %}
+
+              </div>
+            {% endif %}
+
+
+
+            {% if settings.inventory_enable or settings.inventory_transfers_enable %}
+              {% assign variants_with_inventory_tracking = product.variants | where: 'inventory_management', 'shopify' %}
+
+              <script>
+                // Store inventory quantities in JS because they're no longer
+// available directly in JS when a variant changes.
+// Have an object that holds all potential products so it works
+// with quick view or with multiple featured products.
+                window.inventories = window.inventories || {};
+                window.inventories['{{section_id}}'] = {};{% for variant in variants_with_inventory_tracking %}window.inventories['{{section_id}}'][{{variant.id}}] = {
+                    'quantity': {{ variant.inventory_quantity | default: 0 }},
+                    'incoming': {{ variant.incoming | default: false | json }},
+                    'next_incoming_date': {{ variant.next_incoming_date | date: format: 'date' | json }}
+                  };{% endfor %}
+              </script>
+
+              {% comment %}
+                If loaded in quick view, it might be from a JS-loaded function
+                that loads recommended products. If that's the case, the above
+                JS will not set the variant inventory. Add it to an accessible
+                data div to read later instead.
+              {% endcomment %}
+              {% if isModal %}
+                <div data-section-id="{{ section_id }}" class="hide js-product-inventory-data" aria-hidden="true">
+                  {% for variant in variants_with_inventory_tracking %}
+                    <div class="js-variant-inventory-data" data-id="{{ variant.id }}" data-quantity="{{ variant.inventory_quantity | default: 0 }}" data-incoming="{{ variant.incoming | default: false | json }}" data-date="{{ variant.next_incoming_date | date: format: 'date' | json }}"></div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endif %}
+
+
+            <div class="product-evidence-box product-evidence-box-desk">
+              <!-- <a href="https://it.trustpilot.com/review/www.silverskin.it" target="_blank" id="trustpilot">
+              <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/Trustpilot_logo.png?v=1634201262" width="100"><br>
+              <img src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-4.5.svg" width="100"><br>
+              <span class="trustpilot-rec"></span>
+              </a>   -->
+              <!-- TrustBox widget - Micro Combo -->
+              <!-- End TrustBox widget -->
+                <div class="shipping-return-policy"> <div class="box-group-del">
+                  <div class="box-del">
+                    <img src="" class="lazyload" data-sizes="auto" data-src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-shipping-icon_2x_e0d3c320-1fce-484b-bc07-8a88b1207ba1.png?v=1610984327" alt="silverskin">
+                    <div>
+                      <a href="/pages/spedizioni-e-consegna" target="_blank">
+                        <span>Consegna in Italia in 24/48h lavorative</span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="box-del">
+                    <img src="" class="lazyload" data-sizes="auto" data-src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-return-icon_2x_a69cb4bf-9d8b-4062-a965-36f2fc9a425e.png?v=1610984327" alt="silverskin">
+                    <div>
+                      <a href="/pages/resi" target="_blank">
+                        <ly-as-442620>30 giorni per reso e cambio</ly-as-442620>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TrustBox widget - Product Mini -->
+            {% if localization.language.iso_code == 'it' %}
+              {%- assign languageWidget = "it-IT" -%}
+            {% endif %}
+            {% if localization.language.iso_code == 'de' %}
+              {%- assign languageWidget = "de-DE" -%}
+            {% endif %}
+            {% if localization.language.iso_code == 'en' %}
+              {%- assign languageWidget = "en-GB" -%}
+            {% endif %}
+            <div class="trustpilot-widget  trustpilot-widget-desk trustpilot-product-mini" data-locale="{{languageWidget}}" data-template-id="54d39695764ea907c0f34825" data-businessunit-id="5de514fbf25ac90001046fb1" data-style-height="24px" data-style-width="100%" data-theme="light" data-sku="{{ current_variant.sku }}" data-no-reviews="hide" data-scroll-to-list="true" data-style-alignment="center">
+              <a href="https://it.trustpilot.com/review/www.silverskin.it" target="_blank" rel="noopener">Trustpilot</a>
+            </div>
+
+            <!-- TrustBox widget - Product Mini -->
+
+
+            <hr class="hr--medium">
+
+            {% unless isModal %}
+              {% comment %}
+                Shopify's product form attaches a number of tracking
+                scripts that cause slower load times and false statistics.
+                Quick view modals request these on-demand.
+              {% endcomment %}
+              {% include 'product-form', section_id: section_id %}
+            {% else %}
+              <div id="ProductFormHolder-{{ section_id }}" class="product-form-holder" data-url="{{ product.url }}" data-template="{{ product.template_suffix }}"></div>
+            {% endunless %}
+
+            {% if settings.trust_image != blank %}
+              <div class="aos-animate trust-image" style="max-width: {{ settings.trust_image.width }}px;">
+                <div class="image-wrap " style="height: 0; padding-bottom: {{ 100 | divided_by: settings.trust_image.aspect_ratio }}%;">
+                  {% assign img_url = settings.trust_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                  <img class="lazyload" data-src="{{ img_url }}" data-widths="[360, 540]" data-aspectratio="{{ settings.trust_image.aspect_ratio }}" data-sizes="auto" alt="{{ settings.trust_image.alt }}">
+                  <noscript>
+                    <img class="lazyloaded" src="{{ settings.trust_image | img_url: '540x' }}" alt="{{ settings.trust_image.alt }}">
+                  </noscript>
+                </div>
+              </div>
+            {% endif %}
+
+
+
+            {%- comment -%}
+              mobile sections
+            {%- endcomment -%}
+
+            <div class="klarna-widget-mob"></div>
+
+            {% if shop.taxes_included or shop.shipping_policy.body != blank %}
+              <div class="product__policies product__policies-mob rte">
+
+                {% if shop.taxes_included %}
+                  {{ 'products.product.include_taxes' | t }}
+                {% endif %}
+                {% if shop.shipping_policy.body != blank %}
+                  {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                {% endif %}
+
+              </div>
+            {% endif %}
+
+
+            <div class="product-evidence-box product-evidence-box-mob">
+
+              <div class="shipping-return-policy">
+                <div class="box-group-del">
+                  <div class="box-del">
+                    <img src="" class="lazyload" data-sizes="auto" data-src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-shipping-icon_2x_e0d3c320-1fce-484b-bc07-8a88b1207ba1.png?v=1610984327" alt="silverskin">
+                    <div>
+                      <a href="/pages/spedizioni-e-consegna" target="_blank">
+                        <span>Consegna in Italia in 24/48h lavorative</span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="box-del">
+                    <img src="" class="lazyload" data-sizes="auto" data-src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-return-icon_2x_a69cb4bf-9d8b-4062-a965-36f2fc9a425e.png?v=1610984327" alt="silverskin">
+                    <div>
+                      <a href="/pages/resi" target="_blank">
+                        <ly-as-442620>30 giorni per reso e cambio</ly-as-442620>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="trustpilot-widget  trustpilot-widget-mob trustpilot-product-mini" data-locale="{{languageWidget}}" data-template-id="54d39695764ea907c0f34825" data-businessunit-id="5de514fbf25ac90001046fb1" data-style-height="24px" data-style-width="100%" data-theme="light" data-sku="{{ current_variant.sku }}" data-no-reviews="hide" data-scroll-to-list="true" data-style-alignment="center">
+              <a href="https://it.trustpilot.com/review/www.silverskin.it" target="_blank" rel="noopener">Trustpilot</a>
+            </div>
+
+
+            {% unless product.title contains "Gift Card" %}
+              <div class="accordion active">
+                <ly-as-442621>Benefici</ly-as-442621>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="panel" style="display:block;">
+                <div class="box-ben">
+                  <div class="box-ben-single">
+                    <img class="lazyload" data-sizes="auto" src="" data-src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-thermoregulation-icon_2x_786b526a-2e86-4276-a1e2-339ba414a442.png?v=1610980403" alt="silverskin">
+                    <span>
+                      <ly-as-442622>Termoregolazione superiore</ly-as-442622>
+                    </span>
+                  </div>
+                  <div class="box-ben-single">
+                    <img class="lazyload" data-sizes="auto" src="" data-src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-breathability-icon_2x_ec5f3bf5-98c8-45b4-9629-1e0ae12a78ef.png?v=1610980403" alt="silverskin">
+                    <span>
+                      <ly-as-442623>Traspirabilità estrema</ly-as-442623>
+                    </span>
+                  </div>
+                  <div class="box-ben-single">
+                    <img class="lazyload" data-sizes="auto" src="" data-src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-stretchability-icon_2x_a6a623b2-615c-44ff-9e52-5503d7156bb9.png?v=1610980403" alt="silverskin">
+                    <span>
+                      <ly-as-442624>Massima elasticità</ly-as-442624>
+                    </span>
+                  </div>
+                  <div class="box-ben-single">
+                    <img class="lazyload" data-sizes="auto" src="" data-src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-seamless-icon_2x_8b4a6a38-5ba1-4b85-995a-2f3990325ee0.png?v=1610980403" alt="silverskin">
+                    <span>
+                      <ly-as-442625>Tecnologia senza cuciture</ly-as-442625>
+                    </span>
+                  </div>
+                  <div class="box-ben-single">
+                    <img class="lazyload" data-sizes="auto" src="" data-src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-antiodour-icon_2x_9f567c11-8276-491e-ae97-aec737c897e6.png?v=1610980403" alt="silverskin">
+                    <span>
+                      <ly-as-442626>Ipoallergenico</ly-as-442626>
+                    </span>
+                  </div>
+                  <div class="box-ben-single">
+                    <img class="lazyload" data-sizes="auto" src="" data-src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-antiodour-icon_2x_9f567c11-8276-491e-ae97-aec737c897e6.png?v=1610980403" alt="silverskin">
+                    <span>
+                      <ly-as-442627>Anti odore</ly-as-442627>
+                    </span>
+                  </div>
+                  <div class="box-ben-single">
+                    <img class="lazyload" data-sizes="auto" src="" data-src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-antibacterial-icon_2x_0aa96563-dce8-4137-badc-d59e87d55a00.png?v=1610980403" alt="silverskin">
+                    <span>
+                      <ly-as-442628>Antibatterico</ly-as-442628>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            {% endunless %}
+            <div class="accordion ">
+              <ly-as-442629>Descrizione</ly-as-442629>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="panel">
+              {% unless description_style == 'full' %}
+                <div class="product-single__description rte">
+                  {{ product.description }}
+                </div>
+
+                {% include 'product-additional-content', section_id: section_id %}
+              {% endunless %}
+            </div>
+
+            {% if product.metafields.custom_fields["_dacron"] != blank %}
+              {% assign _dacron = product.metafields.custom_fields["_dacron"] %}
+            {% else %}
+              {% assign _dacron = "90" %}
+            {% endif %}
+            {% if product.metafields.custom_fields["_elastan"] != blank %}
+              {% assign _elastan = product.metafields.custom_fields["_elastan"] %}
+            {% else %}
+              {% assign _elastan = "5" %}
+            {% endif %}
+            {% if product.metafields.custom_fields["_fibre_dargento"] != blank %}
+              {% assign _fibre_dargento = product.metafields.custom_fields["_fibre_dargento"] %}
+            {% else %}
+              {% assign _fibre_dargento = "5" %}
+            {% endif %}
+            {% unless product.title contains "Gift Card" %}
+              <div class="accordion">
+                <ly-as-442630>Materiali</ly-as-442630>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="panel">
+                <p>
+                  {{ product.metafields.custom_fields["materials_text"] }}
+                  {% if product.tags contains "Mascherine" %}
+                    <div>
+                      <span>
+                        <ly-as-442631>100% poliammide 6.6</ly-as-442631>
+                      </span>
+                      <span>
+                        <ly-as-442632>multifibra con ioni d'argento</ly-as-442632>
+                      </span>.</div>
+                    <div>
+                      <span>
+                        <ly-as-442633>TNT formato da 3 strati differenti di materiale</ly-as-442633>
+                      </span>.</div>
+
+                  {% elsif product.tags contains "Calze" and product.tags contains "Stay Fresh" and product.tags contains "Cycling" %}
+
+                    <b>Gambale</b>
+                    <br/> <br/>
+                    100% Dryarn®
+
+
+                    <br/> <br/>
+                    <b>Piede</b>
+                    <br/> <br/>
+                    {{ _dacron }}% PE
+                    <br/> <br/>
+
+                    {{ _elastan }}% Elastan
+                    <br/> <br/>
+                    {{ _fibre_dargento }}%
+                    <span>
+                      <ly-as-442613>Fibre d’argento</ly-as-442613>
+                    </span>
+                    <br/> <br/>
+
+                  {% else %}
+
+
+
+                    {{ _dacron }}
+                    % PE
+                    <br/>
+                    <br/>
+                    {{ _elastan }}
+                    % Elastan
+                    <br/>
+                    <br/>
+                    {{ _fibre_dargento }}
+                    %
+                    <span>
+                      <ly-as-442634>Fibre d’argento</ly-as-442634>
+                    </span>
+                  {% endif %}
+                </p>
+              </div>
+            {% endunless %}
+            <div class="accordion " id="trustpilot-accordion">
+              <ly-as-442630>Recensioni</ly-as-442630>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+
+            <div class="panel" style="">
+              <div>
+
+                <!-- TrustBox widget - Product Reviews -->
+                <div class="trustpilot-widget" data-locale="{{languageWidget}}" data-template-id="544a426205dc0a09088833c6" data-font-family="barlow" data-businessunit-id="5de514fbf25ac90001046fb1" data-style-height="700px" data-style-width="100%" data-theme="light" data-sku="{{ current_variant.sku }}" data-review-languages="it" data-no-reviews="show">
+                  <a href="https://it.trustpilot.com/review/www.silverskin.it" target="_blank" rel="noopener">Trustpilot</a>
+                </div>
+                <!-- End TrustBox widget -->
+              </div>
+            </div>
+
+            {% if product.metafields.custom_fields["shipping_days"] != blank %}
+              {% assign shipping_days = product.metafields.custom_fields["shipping_days"] %}
+            {% else %}
+              {% assign shipping_days = "5" %}
+            {% endif %}
+
+            {% comment %}
+              <div class="accordion">Consegna e Resi</div>
+              <div class="panel">
+              <div class="box-group-del">
+              <div class="box-del">
+              <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-shipping-icon_2x_e0d3c320-1fce-484b-bc07-8a88b1207ba1.png?v=1610984327" alt="silverskin">
+              <div><a href="/pages/spedizioni-e-consegna" target="_blank"><span>Consegna in Italia ENTRO </span> {{ shipping_days }} <span>giorni lavorativi</span></a></div>
+              </div>
+              <div class="box-del">
+              <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/pdp-return-icon_2x_a69cb4bf-9d8b-4062-a965-36f2fc9a425e.png?v=1610984327" alt="silverskin">
+              <div><a href="/pages/resi" target="_blank">30 giorni per reso e cambio</a></div>
+              </div>
+              </div>
+              </div>
+            {% endcomment %}
+
+
+            <script>
+
+              // klarna mob/desk switch
+              $(function() {
+
+                if (window.innerWidth > 768) {
+                  $(".klarna-widget-mob").remove()
+                } else {
+                  $(".klarna-widget-desk").remove()
+
+                }
+
+              })
+
+              var acc = document.getElementsByClassName("accordion");
+              var i;
+
+              for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                  this.classList.toggle("active");
+                  var panel = this.nextElementSibling;
+                  if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                  } else {
+                    panel.style.display = "block";
+                  }
+                });
+              }
+            </script>
+
+
+
+            {% if social %}
+              {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+            {% endif %}
+          </div>
+        </div>
+
+        {% unless image_position == 'left' %}
+          <div class="grid__item {{ product_image_width }}">
+            {% include 'product-images', section_id: section_id, isModal: isModal, thumbnail_position: thumbnail_position, thumbnail_arrows: thumbnail_arrows %}
+          </div>
+        {% endunless %}
+      </div>
+
+      {% if description_style == 'full' %}
+        <div class="product-single__description-full rte">
+          {{ product.description }}
+        </div>
+
+        {% include 'product-additional-content', section_id: section_id %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+{% unless product == empty %}
+  <script type='application/json' class='wcp_json wcp_json_{{ product.id }}' id='wcp_json_{{ product.id }}'>
+    {% include 'wcp_product_json' with product %}
+  </script>
+{% endunless %}
+
+
+
+{% unless wcp_vd_HTML_table == '' %}
+  <script type='application/json' class='wcp_vd_table' id='wcp_vd_table_{{ product.id }}'>
+    {{ wcp_vd_HTML_table_tmp }}
+  </script>
+{% endunless %}
+
+{% unless wcp_vd_HTML_table == '' %}
+  <script id='vdtable' type='text/x-handlebars-template'>
+    <table>
+      <tr>
+        <th>Quantity</th>
+        <th>Discount</th>
+        <th>Price</th>
+      </tr>
+      {% raw %}
+        {{#each vdtable}}
+        <tr>
+          <td>{{Qty}}
+          </td>
+          <td>{{Discount}}
+          </td>
+          <td>{{Price}}
+          </td>
+        </tr>
+        {{/each}}
+      {% endraw %}
+    </table>
+  </script>
+  <script>
+    if (typeof Handlebars === 'undefined') {
+      var head = document.getElementsByTagName('head')[0];
+      script = document.createElement('script');
+      script.onload = function() {};
+      script.type = 'text/javascript';
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js';
+      head.appendChild(script);
+    }
+  </script>
+{% endunless %}

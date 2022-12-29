@@ -1,0 +1,849 @@
+
+/*typografy*/
+.config__page h2{
+    /*font-family: barlow-bold-italic!important;*/
+    font-size: 32px;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+.config__page h3{
+    font-family: barlow-bold-italic!important;
+    font-size: 24px;
+    margin-top: 10px;
+   
+}
+
+.config__page .absolute-title{
+    position: absolute;
+    top:10px;
+    margin: auto;
+}
+
+.config__page .subtitle{
+    font-size: 16px;
+    margin-top:10px;
+
+}
+
+.config__page .btn{
+    padding: 15px 25px;
+    letter-spacing: 1.5px;
+}
+
+.config__page hr{
+    border:1px solid  #E3E3E3;
+    margin:10vw 10vw;
+    height: 1px;
+    width: 100%;
+    display: block;
+}
+
+.config__container{
+    height: calc(100vh - 133px);
+    position: relative;    
+}
+
+.config__back{
+
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    display: none;
+    z-index: 10;
+}
+
+.config__back img{
+    width: 100%;
+}
+
+.config__bottom-nav{   
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column; 
+}
+.config__bottom-nav.disabled{   
+    display: none;
+}
+.config__bottom-nav--start{
+     background-color: #F4F4F4;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.config__bottom-nav--end{
+    position: relative;
+    background-color: white;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 20px 1px #6a6969;
+    overflow: hidden;
+}
+
+.config__bottom-nav--progress{
+    height: 8px;
+    background: rgb(255,255,255);
+background: linear-gradient(288deg, rgba(255,255,255,1) 7%, rgba(29,137,255,1) 7%);
+    width:16.6%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.config__bottom-nav--btn{
+    width: 70vw;
+    margin:10px;
+    line-height: 2.6;
+}
+.config__bottom-nav--step{
+    width: 30vw;
+    padding:10px;
+    font-size:24px ;
+    font-weight: bold;
+    text-align: center;
+    font-family: barlow-bold-italic!important;
+}
+.step-container{
+
+    display: block;
+    right: 5vw;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.static-page{
+    color: #E3E3E3!important;
+}
+
+.config__bottom-nav--btn.disabled{
+    pointer-events: none;
+    opacity: .7;
+}
+.config__bottom-nav--progress[data-page="1"]{
+    width:25%;
+}
+.config__bottom-nav--progress[data-page="2"]{
+    width:50%;
+}
+.config__bottom-nav--progress[data-page="3"]{
+    width:75%;
+}
+.config__bottom-nav--progress[data-page="4"]{
+    width:110%;
+}
+
+
+
+.collection .deactive{
+    display: block;
+}
+
+.collection .active{
+    display: none;
+}
+
+.collection.active .deactive{
+    display: none;
+}
+
+.collection.active .active{
+    display: block;
+}
+
+.config__page{
+
+    width: 100%;
+    height: calc(100% - 18vh);   
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow-y: scroll;
+    background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-configurator-background-mob-2x.jpg?v=1646663426);
+    background-size: cover;
+    background-position:center ;
+    background-repeat: no-repeat;
+}
+
+.config__page.active{
+    display: flex;
+}
+
+.config__page--1{
+    background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/00-silverskin-configurator-hero-men-mob-2x.jpg?v=1646409827);
+    background-size: contain;
+    background-position:center;
+    background-repeat: no-repeat;
+    -webkit-transition: background-image 0.2s ease-in-out;
+    transition: background-image 0.2s ease-in-out;
+    padding-bottom:0px;
+    padding-top:0px;
+    height:100% ;
+   
+}
+.config__page--1.alt{
+    background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/00-silverskin-configurator-hero-women-mob-2x.jpg?v=1646409827)
+}
+
+.config__page--3{
+    
+    justify-content: start;
+}
+
+.gender-selector__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+.gender-selector__container img{
+    margin:10px 25px;
+    max-width: 33vw;
+}
+
+.gender-selector__container .active{
+    display: none;
+}
+
+.gender-selector__container .deactive{
+    display: block;
+}
+
+.gender-selector__container p{
+    margin:10px 25px;
+    font-weight: bold;
+    opacity: .6;
+    font-size: 16px;
+    font-family: barlow-bold!important;
+}
+.gender-selector__container.active p{
+    opacity: 1;
+}
+
+.gender-selector__container.active .active{
+    display: block;
+}
+
+.gender-selector__container.active .deactive{
+    display: none;
+}
+
+.activity__container{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;   
+    margin-bottom:20px; 
+}
+
+.activity__item{
+    width: 33vw;
+    padding:2vw;
+    position: relative;
+    
+}
+
+.activity__item img{
+    width: 100%;
+}
+.activity__item img.main{
+    clip-path:polygon(0% 0%,74% 0%,100% 21%,100% 100%,27% 100%,0% 78%);
+    padding: 10px;
+
+}
+
+.active .activity__item-wrapper:after {
+ 
+  background: linear-gradient(#000, #000) no-repeat left top / calc(100% - 13px) 1px,
+        linear-gradient(#000, #000) no-repeat right bottom / calc(100% - 13px) 1px,
+        linear-gradient(#000, #000) no-repeat left top / 1px calc(100% - 13px),
+        linear-gradient(#000, #000) no-repeat right bottom / 1px calc(100% - 13px),
+        linear-gradient( to top right, transparent calc(50% - 1px), #000 50%, transparent calc(50% + 1px)) no-repeat 100% 0 / 13px 13px,
+        linear-gradient( to bottom left, transparent calc(50% - 1px), #000 50%,  transparent calc(50% + 1px)) no-repeat 0 100% / 13px 13px;  
+}
+
+.activity__item-wrapper:after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 56px;
+    background: linear-gradient(#eee, #eee) no-repeat left top / calc(100% - 13px) 1px,
+        linear-gradient(#eee, #eee) no-repeat right bottom / calc(100% - 13px) 1px,
+        linear-gradient(#eee, #eee) no-repeat left top / 1px calc(100% - 13px),
+        linear-gradient(#eee, #eee) no-repeat right bottom / 1px calc(100% - 13px),
+        linear-gradient( to top right, transparent calc(50% - 1px), #eee 50%, transparent calc(50% + 1px)) no-repeat 100% 0 / 13px 13px,
+        linear-gradient( to bottom left, transparent calc(50% - 1px), #eee 50%,  transparent calc(50% + 1px)) no-repeat 0 100% / 13px 13px;
+    
+}
+
+.activity__item p{
+    height:40px;
+    margin-bottom: 0px;
+    font-family: barlow-bold-italic!important;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.activity__item .close-icon{
+     width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+/* .activity__item.active::after{
+    content: "-";
+    color: black;
+    border: 5px solid black;
+    background-color: white;
+    padding:5px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 100%;
+    line-height: .3;
+    font-weight: 900;
+    font-size: 20px;
+    cursor: pointer;
+} */
+
+.activity__item .active{
+    display:none
+}
+.activity__item .deactive{
+    display:block
+}
+.activity__item.active .active{
+    display:block
+}
+.activity__item.active .deactive{
+    display:none
+}
+.others-activities{
+    width: 100%;
+    text-align: center;
+}
+
+.others-activities h3{
+    font-size: 16px;
+    font-family: "barlow-semibold";
+    margin-bottom:20px
+}
+
+.other-activity{
+    display: flex;
+    JUSTIFY-CONTENT: space-evenly;
+    align-items: center;
+    margin-bottom:5px;
+}
+.other-activity input{
+    width: 80vw;
+    border-radius: 2px;
+}
+
+.other-activity--add{
+    width: 100%;
+}
+
+.other-activity-btn{   
+    width: 30px;
+    height: 30px;   
+    cursor: pointer;
+}
+
+/* sliders */
+.slider-wrapper{
+    width: 90%;
+    padding-bottom:20px;
+    margin: auto;
+}
+
+.noUiSlider{
+    margin: 10px 5%;
+    width: 90%;
+    margin-bottom:40px;
+}
+
+.slider-title{
+    display: flex;
+    text-align: left;
+    font-size: 16px;
+    font-family: "barlow-semibold";
+    justify-content: space-between;
+}
+
+.tooltip{
+float: right;
+
+}
+.noUi-marker-horizontal.noUi-marker{
+   visibility: hidden;
+}
+
+.noUi-value.highlight{
+    color: black;
+}
+.noUi-value.highlight:after{
+    content:"°"
+}
+.noUiSlider .noUi-handle{
+    background-color:transparent;
+    background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-configurator-range-selector-1x.png?v=1646663426);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    box-shadow: none;
+}
+.noUiSlider .noUi-handle:before{
+    display: none;
+}
+.noUiSlider .noUi-handle:after{
+    display: none;
+}
+
+#sliderTemperature.noUiSlider{
+    background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-configurator-range-01-mob-1x_55895629-a7aa-4e2d-9647-8311f3c04875.png?v=1646825765);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    box-shadow: none;
+}
+
+#sliderIntensity.noUiSlider,#sliderIntensityDesk.noUiSlider{
+    background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-configurator-range-02-mob-1x_c92d2db8-5a34-4091-af90-33e58821f16d.png?v=1646825765);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    box-shadow: none;
+}
+
+#sliderSensitivity.noUiSlider{
+    background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-configurator-range-03-mob-1x_f3057606-20d6-4aa0-b8c6-25ac48cfbda6.png?v=1646825765);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    box-shadow: none;
+}
+#sliderLayer.noUiSlider,#sliderLayerDesk.noUiSlider{
+    background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-configurator-range-04-mob-1x_1bba6373-1fed-4bfe-9094-11d8b21aa542.png?v=1646825765);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    box-shadow: none;
+}
+
+
+
+/* INTENSITY SLIDER */
+.intensity-label__container{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* tooltip */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  /* border-bottom: 1px dotted black; */
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: -110px;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 14px;
+    font-family: "barlow";
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 90%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.config__page--6 h3{
+    font-family: barlow!important;
+    font-size: 16px;
+    margin-top:10px;
+}
+
+
+.selected_collection {
+    width: 90vw;
+    display: none;
+    font-family: barlow!important;
+    font-size: 16px;
+}
+.selected_collection.active{
+    display: block;
+}
+
+.selected_collection img{
+    width: 100px;
+}
+
+.only-desk{
+    display: none!important;
+}
+.only-mob{
+    display: block!important;
+}
+
+.only-deskflex{
+    display: none!important;
+}
+.only-mobflex{
+    display: flex!important;
+}
+/*desktop mediaquery*/
+@media only screen and (min-width: 768px) {
+    
+
+    .only-desk{
+        display: block!important;
+    }
+
+    .only-mob{
+        display: none!important;
+    }
+
+    .only-deskflex{
+        display: flex!important;
+    }
+    .only-mobflex{
+        display: none!important;
+    }
+
+    .config__position{
+        position: absolute;
+        top: 50%;
+        right: 5vw;
+        transform: translateY(-50%);
+        text-align: right;
+    }
+
+    .config__position--item {
+        font-size: 14px;
+        text-align: right;
+        margin-bottom:10px;
+    }
+
+    .config__position--item.active {
+        font-weight: bold;
+    }
+ 
+    .config__position--item img{
+        display: none;
+          
+    }
+    .config__position--item.active img{
+        display: inline;
+    }
+
+    .config__page{
+        height: calc(100% - 11.5vh);
+        overflow-y: visible;
+        background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-configurator-background-mob-2x.jpg?v=1646663426);
+    }
+
+
+    .config__page--1{
+        background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/00-silverskin-configurator-hero-desk-1x_aecc6ba0-18b9-403a-8e92-d96c86a8c442.jpg?v=1647267936);
+        background-size: cover;
+        overflow-y:auto;
+        height: 100%;
+    }
+
+    .config__page h2{
+        font-size: 60px;
+        margin-bottom: 30px;
+        line-height: 1.2;
+        max-width: 650px;
+    }
+
+    .config__page--2{
+        flex-direction: row;
+    }
+
+    .config__page--4 .subtitle{
+        position: absolute;
+        top:40px;
+    }
+
+    .config__back{
+        width: 50px;
+        height:50px;
+        top: 0;
+        left: 10vw;
+    }
+
+    /* .config__bottom-nav{
+        position: relative;
+    } */
+
+    .config__bottom-nav--step{
+        width: auto;
+    }
+
+    .config__bottom-nav--btn{
+        width: auto;
+    }
+
+    .config__bottom-nav--start {
+        background-color: transparent;
+        flex:3;
+    } 
+    .config__bottom-nav--btn{
+        flex: 2;
+    }
+    .config__bottom-nav--step{
+        flex:3;
+    }
+
+    .config__bottom-nav--end{
+
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .config__bottom-nav--progress[data-page="1"]{
+        width:33%;
+    }
+    .config__bottom-nav--progress[data-page="2"]{
+        width:66%;
+    }
+    .config__bottom-nav--progress[data-page="3"]{
+        width:110%;
+    }
+
+
+    .gender-selector__container{
+       flex-direction: column;
+       width: auto;
+       padding:60px 30px;
+       background-color: white;
+       position: relative;
+       background: linear-gradient(#eeeeee, #eeeeee) no-repeat left top / calc(100% - 13px) 1px,
+        linear-gradient(#eeeeee, #eeeeee) no-repeat right bottom / calc(100% - 13px) 1px,
+        linear-gradient(#eeeeee, #eeeeee) no-repeat left top / 1px calc(100% - 13px),
+        linear-gradient(#eeeeee, #eeeeee) no-repeat right bottom / 1px calc(100% - 13px),
+        linear-gradient( to top right, transparent calc(50% - 1px), #eeeeee 50%, transparent calc(50% + 1px)) no-repeat 100% 0 / 13px 13px,
+        linear-gradient( to bottom left, transparent calc(50% - 1px), #eeeeee 50%,  transparent calc(50% + 1px)) no-repeat 0 100% / 13px 13px;
+        background-color: white;
+        clip-path: polygon(0% 0%,94% 0%,100% 4%,100% 100%,4% 100%,0% 95%);
+
+    }
+    .gender-selector__container--2{
+        flex-direction: column-reverse;
+        margin-left: 20px;
+    }
+
+    .gender-selector__container.active{
+        background: linear-gradient(#000, #000) no-repeat left top / calc(100% - 13px) 1px,
+        linear-gradient(#000, #000) no-repeat right bottom / calc(100% - 13px) 1px,
+        linear-gradient(#000, #000) no-repeat left top / 1px calc(100% - 13px),
+        linear-gradient(#000, #000) no-repeat right bottom / 1px calc(100% - 13px),
+        linear-gradient( to top right, transparent calc(50% - 1px), #000 50%, transparent calc(50% + 1px)) no-repeat 100% 0 / 13px 13px,
+        linear-gradient( to bottom left, transparent calc(50% - 1px), #000 50%,  transparent calc(50% + 1px)) no-repeat 0 100% / 13px 13px;
+        background-color: white;
+    }
+
+    .gender-selector__container img{
+       max-width: 100px;
+    }
+   
+    .gender-selector__container .tic{
+        position: absolute;
+        top:3px;
+        right:-10px;
+
+        visibility: hidden;
+    }
+
+    .gender-selector__container .tic img{
+        max-width: 25px;
+    }
+    
+    
+
+    .gender-selector__container .tic.deactive {
+        visibility: visible;
+    }
+    
+    .gender-selector__container.active .tic.active{
+        visibility: visible;
+    }
+
+    .activity__container--wrapper{
+        display: flex;
+        flex-direction: row;
+        max-width: 80vw;
+    }
+
+    .activity__container{
+        width: 70%;   
+        justify-content: end;
+        margin-bottom: 0;
+        max-width: 700px;
+    }
+
+    .activity__item{
+        width: 140px;
+        padding:5px;
+        margin: 5px .5vw;
+    }
+
+    .activity__item img.main{
+        clip-path: polygon(0% 0%,83% 0%,100% 14%,100% 100%,17% 100%,0% 85%);
+        padding: 7px;
+    }
+
+    .other-activity-container{
+        width: 30%; 
+        padding-left: 17px;
+        border-left: 1px solid #eee;
+        max-width: 400px;
+    }
+
+    .others-activities h3{
+        text-align: left;
+    }
+    .other-activity-btn{
+        margin-left: 10px;
+        width: 122px;
+        height: 29px;
+    }
+
+    .slider-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding:20px 20vw;
+        margin-top:70px;
+    }
+    .slider-wrapper{
+        width: 50%;
+        border:1px solid #eee;
+        padding:20px;
+        max-width: 470px;
+    }
+
+
+    #sliderTemperature.noUiSlider{
+        background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-configurator-range-01-1x_07290232-953d-4930-9b14-4077646cc3bb.png?v=1647441809);
+    }
+
+    #sliderIntensity.noUiSlider,#sliderIntensityDesk.noUiSlider{
+        background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-configurator-range-03-1x_0ab34b77-2d0e-4eb3-b43f-ad57f7f393ae.png?v=1647441809);
+    }
+
+    #sliderSensitivity.noUiSlider{
+        background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-configurator-range-02-1x_5568bf05-30fe-48d6-9fdc-1187fffaf7f9.png?v=1647441808);
+    }
+
+    #sliderLayer.noUiSlider,#sliderLayerDesk.noUiSlider{
+        background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-configurator-range-04-1x_1cd5327a-bee3-4eef-9884-397db8c38cc4.png?v=1647441809);
+    }   
+
+
+    .config__page--6.active{
+        display: block;
+    }
+
+    .config__page--6 h3{
+        padding-top:20vh;
+        margin-bottom:20px;
+        font-family: barlow-bold-italic!important;
+    }
+   
+    .selected_collection.active{
+        border: 1px solid #eee;
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        max-width: 70vw;
+        margin: 0 auto;
+        text-align: center;
+        border-radius: 2px;
+        background-color: white;
+
+    }
+
+
+    .selected_collection img{
+        width: auto;
+    }
+
+    .collection-text-wrapper{
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .selected_collection .btn{
+        width: max-content;
+        flex: none;
+        line-height: 1;
+        align-self: flex-start;
+        margin-left: 0;
+    }
+
+    vh{
+        display: block;
+        width: 1px;
+        height: 150px;
+        border-left:1px solid #eee;
+        display: block;
+        margin: auto 50px;
+
+    }
+}

@@ -1,0 +1,957 @@
+{% comment %} START - HERO {% endcomment %}
+<div class="super_container">
+  <section id="section-hero-snow" class="hero-snow">
+
+      {%- comment -%} <img class="hero-snow__img only-desk" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/Failover-Video-Orizzontale.jpg?v=1640943861" alt="silverskin neve snow">
+      <img class="hero-snow__img only-mob" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/Failover-Video-Verticale.jpg?v=1640943861" alt="silverskin neve snow"> {%- endcomment -%}
+
+      <video class="only-desk hide" width="100%" height="700"  poster="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-hero-desk.jpg?v=1669716921" autoplay muted loop playsinline preload="metadata">
+        <source src="https://cdn.shopify.com/videos/c/o/v/3ffb8e8db9d84f028705d2edf4379e5a.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <video class="only-mob hide" width="100%" height="600"  poster="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/Silverskin-snow-hero-Mob.jpg?v=1669716921" autoplay muted loop playsinline preload="metadata">
+        <source src="https://cdn.shopify.com/videos/c/o/v/20066a2377f44210b83c417a3b7cb1c9.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <div class="hero-snow__content">
+        <h2>{{ section.settings.slide_title }}</h2>
+        <h4>{{ section.settings.slide_subtitle }}</h4>
+        <div class="hero-snow__link">                
+          <a class="btn btn-white go-to-collections" tabindex="-1">
+            {{section.settings.cta1_hero_text}}
+          </a>
+          <a class="btn btn-transp show-video-bnt" tabindex="-1">
+            {{section.settings.cta2_hero_text}}
+          </a>
+        </div>
+      </div>
+      <i class="hero-snow-icon fas fa-chevron-down"></i>
+
+  </section>
+</div>  
+{% comment %} END - HERO {% endcomment %}
+
+
+
+{% comment %} START - TEXT BANNER {% endcomment %}
+<section id="section-textbanner-snow" class="textbanner-snow">
+
+  <h1>{{ section.settings.banner_text }}</h1>
+
+  <a class="banner-cta__link scopri_collezioni">{{ section.settings.cta_banner_text }} <i class="far fa-arrow-alt-circle-down"></i></a>
+
+</section>
+{% comment %} END - TEXT BANNER {% endcomment %}
+
+
+{% comment %} START - SLIDER CARDS {% endcomment %}
+<section id="slider-cards-snow">
+
+  <div class="slider-navigation-snow">
+    <div class="slider-navigation-snow__content">
+      <div class="swiper-button-next">                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewbox="0 0 284.49 498.98"><path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path></svg>
+      </div>
+      <div class="swiper-button-prev">                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-left" viewbox="0 0 284.49 498.98"><path d="M249.49 0a35 35 0 0 1 24.75 59.75L84.49 249.49l189.75 189.74a35.002 35.002 0 1 1-49.5 49.5L10.25 274.24a35 35 0 0 1 0-49.5L224.74 10.25A34.89 34.89 0 0 1 249.49 0z"></path></svg>
+      </div>
+    </div>  
+  </div>
+
+  <div class="cards-slider">
+
+    <div class="swiper-container ">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="card-box">
+            <img class="no-mob" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-focus-thermoregulation-desk_2x_9ff84a8a-7dec-418a-baa3-4eca4f28527f.jpg?v=1669635045" alt="silverskin">
+            <img class="no-desk" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-focus-thermoregulation-desk_1x_59afee51-c516-4324-9ad4-713dab420a49.jpg?v=1669635045" alt="silverskin">
+            <div class="card-box__content">
+              <h5>{{ section.settings.slide_1_title }}</h5>
+              <p>{{ section.settings.slide_1_description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="card-box">
+            <img class="no-mob" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-focus-breathable-desk_2x_3fe91dfd-8a56-40ea-a837-9a1d1362619a.jpg?v=1669635045" alt="silverskin">
+            <img class="no-desk" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-focus-breathable-desk_1x_419ad531-29a6-4519-8541-0bf9bd16d908.jpg?v=1669635044" alt="silverskin">
+            <div class="card-box__content">
+              <h5>{{ section.settings.slide_2_title }}</h5>
+              <p>{{ section.settings.slide_2_description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="card-box">
+            <img class="no-mob" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-focus-stretch-desk_2x_8a1a3bb5-93ab-402b-919f-8a7a7b584450.jpg?v=1669635045" alt="silverskin">
+            <img class="no-desk" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-focus-stretch-desk_1x_599c132d-b4d0-40ae-b12e-56ef68ed2e10.jpg?v=1669635045" alt="silverskin">
+            <div class="card-box__content">
+              <h5>{{ section.settings.slide_3_title }}</h5>
+              <p>{{ section.settings.slide_3_description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="card-box">
+            <img class="no-mob" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-focus-anti-odour-desk_2x_8b803e83-acc9-4d35-ae47-d9e2250cd704.jpg?v=1669635046" alt="silverskin">
+            <img class="no-desk" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-focus-anti-odour-desk_1x_1fc330b2-7db8-48ed-b035-c50aca65010d.jpg?v=1669635045" alt="silverskin">
+            <div class="card-box__content">
+              <h5>{{ section.settings.slide_4_title }}</h5>
+              <p>{{ section.settings.slide_4_description }}</p>
+            </div>
+          </div>
+        </div>
+
+        {% comment %} <div class="swiper-slide">
+          <div class="card-box">
+            <img class="no-mob" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-focus-comfort-desk_2x_ba4193d8-b87f-4eef-8244-5f9e3b96bdc5.jpg?v=1640603097)" alt="silverskin">
+            <img class="no-desk" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-focus-comfort-mob_2x_81267857-8ad5-4c2f-a220-8ef30023f690.jpg?v=1640785827" alt="silverskin">
+            <div class="card-box__content">
+              <h5>{{ section.settings.slide_5_title }}</h5>
+              <p>{{ section.settings.slide_5_description }}</p>
+            </div>
+          </div>
+        </div> {% endcomment %}
+
+        <div class="swiper-slide">
+          <div class="card-box">
+            <img class="no-mob" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-focus-comfort-desk_2x_8c580efe-42f6-47d7-a28f-d207c6ff29b2.jpg?v=1669635045" alt="silverskin">
+            <img class="no-desk" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-focus-comfort-desk_1x_99269e11-9b35-4b9b-a34a-23530d842a8d.jpg?v=1669635045" alt="silverskin">
+            <div class="card-box__content">
+              <h5>{{ section.settings.slide_6_title }}</h5>
+              <p>{{ section.settings.slide_6_description }}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="swiper-pagination"></div>
+
+  </div>
+
+</section>
+{% comment %} END - SLIDER CARDS {% endcomment %}
+
+
+
+
+{% comment %} START - HOTSPOTS {% endcomment %}
+<section id="section-hotspots-snow" style="background-image:url('https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-bg_1x_1671de72-59fe-42bb-b709-1d8479712a11.png?v=1640084605')">
+
+
+{% if shop.locale == "it" %}
+
+    <div class="hotspot-change-model-mob hotspot-change-model-mob--top"> 
+
+      <img class="hotspot-change-model-mob__img--man img-man-on" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-man-en-01-mob_2x_ab4ed5f0-ca99-44f3-8936-1b767567c4f7.png?v=1640704089" alt="silverskin" attr-type="man">
+      <img class="hotspot-change-model-mob__off hotspot-change-model-mob__img--man img-man-off hide" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-man-en-02-mob_2x_7901d6ae-d0ea-4133-b799-41091e1332b8.png?v=1640704088" alt="silverskin" attr-type="man">
+      
+      <img class="hotspot-change-model-mob__img--woman img-woman-on hide" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-woman-en-01-mob_2x_deb0e92d-c10b-4795-9e83-b7857df8fe04.png?v=1640704088" alt="silverskin" attr-type="woman">
+      <img class="hotspot-change-model-mob__off hotspot-change-model-mob__img--woman img-woman-off" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-woman-en-02-mob_2x_51535b38-b6ae-4b06-b209-7f95894625cd.png?v=1640704089" alt="silverskin" attr-type="woman">
+
+    </div>
+
+  {% elsif shop.locale == "en" %}
+
+    <div class="hotspot-change-model-mob hotspot-change-model-mob--top">
+
+      <img class="hotspot-change-model-mob__img--man img-man-on" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-man-en-01-mob_2x_ab4ed5f0-ca99-44f3-8936-1b767567c4f7.png?v=1640704089" alt="silverskin" attr-type="man">
+      <img class="hotspot-change-model-mob__off hotspot-change-model-mob__img--man img-man-off hide" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-man-en-02-mob_2x_7901d6ae-d0ea-4133-b799-41091e1332b8.png?v=1640704088" alt="silverskin" attr-type="man">
+      
+      <img class="hotspot-change-model-mob__img--woman img-woman-on hide" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-woman-en-01-mob_2x_deb0e92d-c10b-4795-9e83-b7857df8fe04.png?v=1640704088" alt="silverskin" attr-type="woman">
+      <img class="hotspot-change-model-mob__off hotspot-change-model-mob__img--woman img-woman-off" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-woman-en-02-mob_2x_51535b38-b6ae-4b06-b209-7f95894625cd.png?v=1640704089" alt="silverskin" attr-type="woman">
+
+    </div>
+
+
+  {% endif %}
+
+
+  <div class="hotspots-snow">
+
+    <img class="hotspots-snow__img hotspots-snow__img--man" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-model-man_2x_a72aaac5-a0af-4cbe-a0a7-f3687de12c40.png?v=1640083911" alt="snow silverskin" attr-type="man">
+    <img class="hotspots-snow__img hotspots-snow__img--woman hide" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-model-woman_2x_0b872db1-d9ad-41aa-b830-78b89d4e5bdb.png?v=1640083912" alt="snow silverskin" attr-type="woman">
+
+    <span class="hotspot-pin" attr-hotspot="hotspot-1"><img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-icn-hot-mob_2x_54abba48-657c-4262-ac3c-a39930e52941.png?v=1640788537" alt="hotspot snow"></span>
+    <span class="hotspot-pin" attr-hotspot="hotspot-2"><img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-icn-hot-mob_2x_54abba48-657c-4262-ac3c-a39930e52941.png?v=1640788537" alt="hotspot snow"></span>
+    <span class="hotspot-pin" attr-hotspot="hotspot-3"><img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-icn-hot-mob_2x_54abba48-657c-4262-ac3c-a39930e52941.png?v=1640788537" alt="hotspot snow"></span>
+    
+  </div>
+
+
+  {% if shop.locale == "it" %}
+
+    <div class="hotspot-change-model hotspot-change-model--top">
+      <img class="hotspot-change-model__img hotspot-change-model__img--man" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-01-it-desk_2x_e911b12e-9ca4-4641-99fa-c33fcc77776b.png?v=1640606718" alt="snow silverskin" attr-type="man">
+      <img class="hotspot-change-model__img hotspot-change-model__img--woman hide" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-02-it-desk_2x_6475616c-e6a5-4312-9f9e-d4bc885d8d7f.png?v=1640099756" alt="snow silverskin" attr-type="woman">
+    </div>
+
+    <div class="hotspot-change-model-mob hotspot-change-model-mob--bottom"> 
+
+      <img class="hotspot-change-model-mob__img--man img-man-on" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-man-en-01-mob_2x_ab4ed5f0-ca99-44f3-8936-1b767567c4f7.png?v=1640704089" alt="silverskin" attr-type="man">
+      <img class="hotspot-change-model-mob__off hotspot-change-model-mob__img--man img-man-off hide" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-man-en-02-mob_2x_7901d6ae-d0ea-4133-b799-41091e1332b8.png?v=1640704088" alt="silverskin" attr-type="man">
+      
+      <img class="hotspot-change-model-mob__img--woman img-woman-on hide" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-woman-en-01-mob_2x_deb0e92d-c10b-4795-9e83-b7857df8fe04.png?v=1640704088" alt="silverskin" attr-type="woman">
+      <img class="hotspot-change-model-mob__off hotspot-change-model-mob__img--woman img-woman-off" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-woman-en-02-mob_2x_51535b38-b6ae-4b06-b209-7f95894625cd.png?v=1640704089" alt="silverskin" attr-type="woman">
+
+    </div>
+
+  {% else  %}
+
+    <div class="hotspot-change-model hotspot-change-model--top">
+      <img class="hotspot-change-model__img hotspot-change-model__img--man" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-01-en-desk_2x_056c096a-44ba-4039-9ac5-ed901ee43cd8.png?v=1640606718" alt="snow silverskin" attr-type="man">
+      <img class="hotspot-change-model__img hotspot-change-model__img--woman hide" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-02-en-desk_2x_f9e1f7a8-f8ed-4db1-8fed-98c747c21327.png?v=1640606719" alt="snow silverskin" attr-type="woman">
+    </div>
+
+    <div class="hotspot-change-model-mob hotspot-change-model-mob--bottom">
+
+      <img class="hotspot-change-model-mob__img--man img-man-on" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-man-en-01-mob_2x_ab4ed5f0-ca99-44f3-8936-1b767567c4f7.png?v=1640704089" alt="silverskin" attr-type="man">
+      <img class="hotspot-change-model-mob__off hotspot-change-model-mob__img--man img-man-off hide" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-man-en-02-mob_2x_7901d6ae-d0ea-4133-b799-41091e1332b8.png?v=1640704088" alt="silverskin" attr-type="man">
+      
+      <img class="hotspot-change-model-mob__img--woman img-woman-on hide" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-woman-en-01-mob_2x_deb0e92d-c10b-4795-9e83-b7857df8fe04.png?v=1640704088" alt="silverskin" attr-type="woman">
+      <img class="hotspot-change-model-mob__off hotspot-change-model-mob__img--woman img-woman-off" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-switch-woman-en-02-mob_2x_51535b38-b6ae-4b06-b209-7f95894625cd.png?v=1640704089" alt="silverskin" attr-type="woman">
+
+    </div>
+
+
+  {% endif %}
+
+</section>
+{% comment %} END - HOTSPOTS {% endcomment %}
+
+
+
+
+{% comment %} START - BEST SELLERS - stay warm {% endcomment %}
+<section id="section-bestseller-snow">
+  {% assign collectionsActivitiesTemperatures = "snowsport-stay-fresh,snowsport-stay-warm,snowsport-stay-x-warm" | split: ',' %}
+
+  <div class="activity-page__pane-selector-wrapper js-pane active" data-pane="snowsport">
+  
+    <div class="activity-page__pane-selector warm js-select-collection active" data-temp="warm">
+      <div class="temp">
+        <ly-as-740719>-20° +20°</ly-as-740719>
+      </div>
+      <div class="title">
+        <ly-as-740720>STAY WARM</ly-as-740720>
+        <div class="arrow-mob-selector">{% render 'black-arrow' %}
+        </div>
+      </div>
+      <div class="text">
+        <ly-as-740721>
+          Preserva la tua temperatura ideale, quando scii o scendi con lo snowboard in giornate fredde.
+        </ly-as-740721>
+      </div>
+      <button class="activity-button ">
+        <ly-as-744005>SCOPRI TUTTI I PRODOTTI</ly-as-744005>
+        <span></span>
+        {% render 'black-arrow' %}
+      </button>
+    </div>
+    <div class="activity-page__products--mob">
+      {% render 'page-activity_slider-products-item' , products_collection: "snowsport-stay-warm" %}
+    </div>
+  
+    <div class="activity-page__pane-selector x-warm  js-select-collection" data-temp="x-warm">
+      <div class="temp">
+        <ly-as-744003>-40° -10°</ly-as-744003>
+      </div>
+      <div class="title">
+        <ly-as-744004>STAY X-WARM</ly-as-744004>
+        <div class="arrow-mob-selector">{% render 'black-arrow' %}
+        </div>
+      </div>
+      <div class="text">
+        <ly-as-740717>
+          Mantiene la tua temperatura ideale quando fai snowboard o scii in climi particolarmente freddi. Perfetto anche se ti muovi a bassa intensità, preferisci un outer e mid layer più leggero, o se sei particolarmente sensibile al freddo.
+        </ly-as-740717>
+      </div>
+      <button class="activity-button ">
+        <ly-as-744005>SCOPRI TUTTI I PRODOTTI</ly-as-744005>
+        <span></span>
+        {% render 'black-arrow' %}
+      </button>
+    </div>
+    <div class="activity-page__products--mob">
+      {% render 'page-activity_slider-products-item' , products_collection: "snowsport-stay-x-warm" %}
+    </div>
+    
+  
+  </div>
+  
+  
+  <div class="activity-page__products">
+    {% for products_collection in collectionsActivitiesTemperatures %}
+      {% render 'page-activity_slider-products-item' , products_collection: products_collection %}
+    {% endfor %}
+  </div>
+</section>
+{% comment %} END - BEST SELLERS - stay warm {% endcomment %}
+
+
+
+
+{% comment %} START - BLOG {% endcomment %}
+
+<section id="section-blog-snow">
+
+    <div class="container-sliders_markers container-sliders_markers--snow">
+
+        {% comment %} start - left slide {% endcomment %}
+
+        <div class="swiper-container container-right">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-experience-tradati-desk_2x_76ac7fa3-db1c-4bb7-bdba-389bd9890525.jpg?v=1669635045" alt="snow silverskin">
+                </div>
+               
+                {% comment %} <div class="swiper-slide">
+                  <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-experience-a-silva-desk_2x_5d9e2470-4eb1-4a99-8398-553168e560e1.jpg?v=1640795712" alt="snow silverskin">
+                </div> {% endcomment %}
+            </div>
+
+          {%- comment -%} <div class="slider-navigation-specs slider-navigation-specs--snow">
+              <div class="swiper-button-next">
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewbox="0 0 284.49 498.98"><path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path></svg>
+              </div>
+              <div class="swiper-button-prev">
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-left" viewbox="0 0 284.49 498.98"><path d="M249.49 0a35 35 0 0 1 24.75 59.75L84.49 249.49l189.75 189.74a35.002 35.002 0 1 1-49.5 49.5L10.25 274.24a35 35 0 0 1 0-49.5L224.74 10.25A34.89 34.89 0 0 1 249.49 0z"></path></svg>
+              </div>
+          </div> {%- endcomment -%}
+
+        </div>
+
+
+        {% comment %} end - left slide {% endcomment %}
+
+        {% comment %} start - right slide {% endcomment %}
+        <div class="swiper-container container-left container-text">
+
+            <div class="swiper-wrapper">
+            
+                <div class="swiper-slide">
+
+                  <div class="blog-snow__right__content">
+
+                    <h4>{{ section.settings.blog_2_sup }}</h4>
+
+                    <h3>{{ section.settings.blog_2_title }}</h3>
+
+                    <p>{{ section.settings.blog_2_description }}</p>
+
+                    <span class="separator-line"></span>
+
+                    <h5>{{ section.settings.blog_2_temp_title }}</h5>
+
+                    <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/210929-silverskin-our-collections-thermo-x-warm-desk_2x_c894978d-da54-47e4-9c4d-0a576cad8153.png?v=1632929126" alt="silverskin">
+
+                    {% comment %} <h5>{{ section.settings.blog_2_temp_subtitle }}</h5> {% endcomment %}
+
+                  </div>
+
+                </div>
+
+            
+                
+                {% comment %} <div class="swiper-slide">
+
+                    <div class="blog-snow__right__content">
+
+                      <h4>{{ section.settings.blog_3_sup }}</h4>
+
+                      <h3>{{ section.settings.blog_3_title }}</h3>
+
+                      <p>{{ section.settings.blog_3_description }}</p>
+
+                      <span class="separator-line"></span>
+
+                      <h5>{{ section.settings.blog_3_temp_title }}</h5>
+
+                      <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/210929-silverskin-our-collections-thermo-x-warm-desk_2x_c894978d-da54-47e4-9c4d-0a576cad8153.png?v=1632929126" alt="silverskin">
+
+                    </div>
+
+                </div> {% endcomment %}
+
+            </div>
+
+            <div class="swiper-pagination swiper-pagination--snow"></div>
+
+        </div>
+
+
+        {% comment %} end - right slide {% endcomment %}
+
+
+    </div>
+
+
+
+</section>
+
+{% comment %} END - BLOG {% endcomment %}
+
+
+
+
+
+
+{% comment %} START - MODALE {% endcomment %}
+
+<div class="modal-hotspot hide">
+
+  <div class="modal-hotspot__close">
+    <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-icn-close-desk_2x_505e1825-6d2e-4e3f-9e5e-203e01601d07.png?v=1640103196" alt="close snow silverskin">
+  </div>
+
+  <div class="hotspot-modal hide" attr-hotspot="hotspot-1-man">
+
+    <div class="hotspot-modal__left">
+      <img class="hotspot-modal__right__img__bottom-left" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-long-sleeve-top-01-men-desk_2x_9cd48e45-d1c2-409a-b874-cd58f4527201.jpg?v=1669717271">
+    </div> 
+    <div class="hotspot-modal__right">
+      <div class="hotspot-modal__right__img">
+        <img class="hotspot-modal__right__img__top-right" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-long-sleeve-top-02-men-desk_2x_d0e417ed-0925-4efe-a87a-3cc1b8fd951f.jpg?v=1669717280" alt="modal snow silverkin">
+      </div>
+      <div class="hotspot-modal__right__content">
+        <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-bg-desk_2x_efa8f4a1-eae0-455f-b998-78d9b86ca645.png?v=1640274082" alt="silverskin">
+        <div class="hotspot-modal__right__content__text">
+          <h5>{{ section.settings.hotspot_1_title }}</h5>
+          <p>{{ section.settings.hotspot_1_description }}</p>
+          <span class="line-red"></span>
+          <strong>{{ section.settings.hotspot_1_slogan }}</strong>
+        </div>
+      </div>
+    </div> 
+
+  </div>
+
+
+
+  <div class="hotspot-modal hide" attr-hotspot="hotspot-2-man">
+
+    <div class="hotspot-modal__left">
+      <img class="hotspot-modal__right__img__bottom-left" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-trousers-01-men-desk_2x_dde9382c-c70b-49d3-9962-5b3575d9b4f1.jpg?v=1669717376">
+    </div> 
+    <div class="hotspot-modal__right">
+      <div class="hotspot-modal__right__img">
+        <img class="hotspot-modal__right__img__top-right" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-trousers-02-men-desk_2x_d0af32bb-ea11-4954-9ba5-f3fa87000aa2.jpg?v=1669717381" alt="modal snow silverkin">
+      </div>
+      <div class="hotspot-modal__right__content">
+        <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-bg-desk_2x_efa8f4a1-eae0-455f-b998-78d9b86ca645.png?v=1640274082" alt="silverskin">
+        <div class="hotspot-modal__right__content__text">
+          <h5>{{ section.settings.hotspot_2_title }}</h5>
+          <p>{{ section.settings.hotspot_2_description }}</p>
+          <span class="line-red"></span>
+          <strong>{{ section.settings.hotspot_2_slogan }}</strong>
+        </div>
+      </div>
+    </div> 
+
+  </div>
+
+
+
+
+  <div class="hotspot-modal hide" attr-hotspot="hotspot-3-man">
+
+    <div class="hotspot-modal__left">
+      <img class="hotspot-modal__right__img__bottom-left" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-socks-01-men-desk_2x_fe7b8181-c039-45af-bec8-298402c5f0a9.jpg?v=1669717434">
+
+    </div> 
+    <div class="hotspot-modal__right">
+      <div class="hotspot-modal__right__img">
+        <img class="hotspot-modal__right__img__top-right" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-socks-02-men-desk_2x_738c4949-c64a-4ff6-869d-2726a80eedf8.jpg?v=1669717452" alt="modal snow silverkin">
+      </div>
+      <div class="hotspot-modal__right__content">
+        <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-bg-desk_2x_efa8f4a1-eae0-455f-b998-78d9b86ca645.png?v=1640274082" alt="silverskin">
+        <div class="hotspot-modal__right__content__text">
+          <h5>{{ section.settings.hotspot_3_title }}</h5>
+          <p>{{ section.settings.hotspot_3_description }}</p>
+          <span class="line-red"></span>
+          <strong>{{ section.settings.hotspot_3_slogan }}</strong>
+        </div>
+      </div>
+    </div> 
+
+  </div>
+
+  <div class="hotspot-modal hide" attr-hotspot="hotspot-1-woman">
+
+    <div class="hotspot-modal__left">
+      <img class="hotspot-modal__right__img__bottom-left" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-trousers-02-wmn-desk_2x_80aaab23-3ae8-4e38-83f4-92afb25ac06a.jpg?v=1669717989">
+    </div> 
+    <div class="hotspot-modal__right">
+      <div class="hotspot-modal__right__img">
+        <img class="hotspot-modal__right__img__top-right" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-long-sleeve-top-02-wmn-desk_2x_cdeb3078-a89a-4cea-93d1-b14beea6e2cc.jpg?v=1669718034" alt="modal snow silverkin">
+      </div>
+      <div class="hotspot-modal__right__content">
+        <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-bg-desk_2x_efa8f4a1-eae0-455f-b998-78d9b86ca645.png?v=1640274082" alt="silverskin">
+        <div class="hotspot-modal__right__content__text">
+          <h5>{{ section.settings.hotspot_1_title }}</h5>
+          <p>{{ section.settings.hotspot_1_description }}</p>
+          <span class="line-red"></span>
+          <strong>{{ section.settings.hotspot_1_slogan }}</strong>
+        </div>
+      </div>
+    </div> 
+
+  </div>
+
+
+
+  <div class="hotspot-modal hide" attr-hotspot="hotspot-2-woman">
+
+    <div class="hotspot-modal__left">
+      <img class="hotspot-modal__right__img__bottom-left" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-trousers-01-wmn-desk_2x_14a4342f-a42b-4f45-9098-e41b8bcb3a52.jpg?v=1669718065">
+    </div> 
+    <div class="hotspot-modal__right">
+      <div class="hotspot-modal__right__img">
+        <img class="hotspot-modal__right__img__top-right" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-trousers-02-wmn-desk_2x_80aaab23-3ae8-4e38-83f4-92afb25ac06a.jpg?v=1669717989" alt="modal snow silverkin">
+      </div>
+      <div class="hotspot-modal__right__content">
+        <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-bg-desk_2x_efa8f4a1-eae0-455f-b998-78d9b86ca645.png?v=1640274082" alt="silverskin">
+        <div class="hotspot-modal__right__content__text">
+          <h5>{{ section.settings.hotspot_2_title }}</h5>
+          <p>{{ section.settings.hotspot_2_description }}</p>
+          <span class="line-red"></span>
+          <strong>{{ section.settings.hotspot_2_slogan }}</strong>
+        </div>
+      </div>
+    </div> 
+
+  </div>
+
+
+
+
+  <div class="hotspot-modal hide" attr-hotspot="hotspot-3-woman">
+
+    <div class="hotspot-modal__left">
+      <img class="hotspot-modal__right__img__bottom-left" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-socks-01-wmn-desk_2x_694a6363-5d93-43f0-affb-f7a2bcf61284.jpg?v=1669718116">
+
+    </div> 
+    <div class="hotspot-modal__right">
+      <div class="hotspot-modal__right__img">
+        <img class="hotspot-modal__right__img__top-right" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-socks-02-wmn-desk_2x_374eb213-061e-4bdb-a31b-a58f891d60d9.jpg?v=1669718116" alt="modal snow silverkin">
+      </div>
+      <div class="hotspot-modal__right__content">
+        <img src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-bg-desk_2x_efa8f4a1-eae0-455f-b998-78d9b86ca645.png?v=1640274082" alt="silverskin">
+        <div class="hotspot-modal__right__content__text">
+          <h5>{{ section.settings.hotspot_3_title }}</h5>
+          <p>{{ section.settings.hotspot_3_description }}</p>
+          <span class="line-red"></span>
+          <strong>{{ section.settings.hotspot_3_slogan }}</strong>
+        </div>
+      </div>
+    </div> 
+
+  </div>
+
+
+
+  <div class="hotspot-modal hotspot-modal--mob hide" attr-hotspot="mob">
+
+    <div class="swiper-container hotspot-modal-slider hotspot-modal-slider-man">
+      <div class="swiper-wrapper">
+      
+          <div class="swiper-slide">
+
+            <div class="hotspot-modal--mob__content">
+              <div class="hotspot-modal--mob__content__img"> <img class="hotspot-modal--mob__content__img-top" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-long-sleeve-top-01-men-mob_2x_182e4db7-9df2-4a73-9d10-16c72abd68a3.jpg?v=1669718334" alt="silverskin"></div>
+              <div class="hotspot-modal--mob__content__text">
+                <h5>{{ section.settings.hotspot_1_title }}</h5>
+                <p>{{ section.settings.hotspot_1_description }}</p>
+                <span class="line-red"></span>
+                <strong>{{ section.settings.hotspot_1_slogan }}</strong>
+              </div>
+              <div class="hotspot-modal--mob__content__img"> <img class="hotspot-modal--mob__content__img-bottom" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-long-sleeve-top-02-men-mob_2x_8c19f417-beba-46bb-b253-885527adbd94.jpg?v=1669718346" alt="silverskin"></div>
+
+            </div>
+
+          </div>
+
+          <div class="swiper-slide">
+
+            <div class="hotspot-modal--mob__content">
+              <div class="hotspot-modal--mob__content__img"> <img class="hotspot-modal--mob__content__img-top" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-trousers-01-men-mob_2x_a6742c1b-87fb-48c2-ae5e-8112377ba3da.jpg?v=1669718383" alt="silverskin"></div>
+              <div class="hotspot-modal--mob__content__text">
+                <h5>{{ section.settings.hotspot_2_title }}</h5>
+                <p>{{ section.settings.hotspot_2_description }}</p>
+                <span class="line-red"></span>
+                <strong>{{ section.settings.hotspot_2_slogan }}</strong>
+              </div>
+              <div class="hotspot-modal--mob__content__img"> <img class="hotspot-modal--mob__content__img-bottom" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-trousers-02-men-mob_2x_86da6700-bb0e-4671-85ba-70fa5f18ade5.jpg?v=1669718388" alt="silverskin"></div>
+            </div>
+
+          </div>
+
+          <div class="swiper-slide">
+
+            <div class="hotspot-modal--mob__content">
+              <div class="hotspot-modal--mob__content__img"> <img class="hotspot-modal--mob__content__img-top" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-socks-01-men-mob_2x_1cccc89e-b53d-42cd-8183-dc207f63647b.jpg?v=1669718426" alt="silverskin"></div>
+              <div class="hotspot-modal--mob__content__text">
+                <h5>{{ section.settings.hotspot_3_title }}</h5>
+                <p>{{ section.settings.hotspot_3_description }}</p>
+                <span class="line-red"></span>
+                <strong>{{ section.settings.hotspot_3_slogan }}</strong>
+              </div>
+              <div class="hotspot-modal--mob__content__img"> <img class="hotspot-modal--mob__content__img-bottom" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-socks-02-men-desk_2x_472e64ce-ca05-4dbc-809f-0594ae650374.jpg?v=1669718426" alt="silverskin"></div>
+            </div>
+
+          </div>
+
+      </div>
+
+    </div>
+
+    <div class="swiper-container hotspot-modal-slider hotspot-modal-slider-woman">
+      <div class="swiper-wrapper">
+      
+          <div class="swiper-slide">
+
+            <div class="hotspot-modal--mob__content">
+              <div class="hotspot-modal--mob__content__img"> <img class="hotspot-modal--mob__content__img-top" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-long-sleeve-top-01-mob_2x_d6d4f9b0-f127-4a77-bba8-a5a0410120f9.jpg?v=1640709105" alt="silverskin"></div>
+              <div class="hotspot-modal--mob__content__text">
+                <h5>{{ section.settings.hotspot_1_title }}</h5>
+                <p>{{ section.settings.hotspot_1_description }}</p>
+                <span class="line-red"></span>
+                <strong>{{ section.settings.hotspot_1_slogan }}</strong>
+              </div>
+              <div class="hotspot-modal--mob__content__img"> <img class="hotspot-modal--mob__content__img-bottom" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-long-sleeve-top-02-wmn-mob_2x_200390f3-a496-446c-a6ac-64d24a613d0f.jpg?v=1669718491" alt="silverskin"></div>
+
+            </div>
+
+          </div>
+
+          <div class="swiper-slide">
+
+            <div class="hotspot-modal--mob__content">
+              <div class="hotspot-modal--mob__content__img"> <img class="hotspot-modal--mob__content__img-top" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-trousers-01-wmn-mob_2x_3a04b065-a8be-48de-b1b7-c3e058eee811.jpg?v=1669718538" alt="silverskin"></div>
+              <div class="hotspot-modal--mob__content__text">
+                <h5>{{ section.settings.hotspot_2_title }}</h5>
+                <p>{{ section.settings.hotspot_2_description }}</p>
+                <span class="line-red"></span>
+                <strong>{{ section.settings.hotspot_2_slogan }}</strong>
+              </div>
+              <div class="hotspot-modal--mob__content__img"> <img class="hotspot-modal--mob__content__img-bottom" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-trousers-02-wmn-mob_2x_40f6ff4d-7e78-4e3f-94e3-468c0d399a24.jpg?v=1669718538" alt="silverskin"></div>
+            </div>
+
+          </div>
+
+          <div class="swiper-slide">
+
+            <div class="hotspot-modal--mob__content">
+              <div class="hotspot-modal--mob__content__img"> <img class="hotspot-modal--mob__content__img-top" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-socks-01-wmn-mob_2x_c5bef4e1-7962-4fc9-bb14-3784b8a39cdf.jpg?v=1669718588" alt="silverskin"></div>
+              <div class="hotspot-modal--mob__content__text">
+                <h5>{{ section.settings.hotspot_3_title }}</h5>
+                <p>{{ section.settings.hotspot_3_description }}</p>
+                <span class="line-red"></span>
+                <strong>{{ section.settings.hotspot_3_slogan }}</strong>
+              </div>
+              <div class="hotspot-modal--mob__content__img"> <img class="hotspot-modal--mob__content__img-bottom" src="https://cdn.shopify.com/s/files/1/0285/3706/1424/files/silverskin-snow-overlay-socks-02-wmn-mob_2x_2342f117-3658-4ba4-9098-d0ccef285087.jpg?v=1669718588" alt="silverskin"></div>
+            </div>
+
+          </div>
+
+      </div>
+
+    </div>
+
+    <div class="swiper-pagination"></div>
+
+  </div>
+
+</div>
+
+{% comment %} END - MODALE {% endcomment %}
+
+
+
+
+{% comment %} START - VIDEO MODALE {% endcomment %}
+<div class="modal-video">
+  <span class="modal-video__close"><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64"><path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/></svg></span>
+  <video class="only-desk" width="100vw" height="100vh" controls playsinline>
+    <source src="{{ section.settings.video_link_modal_desk }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <video class="only-mob" width="100vw" height="100vh" mute controls playsinline>
+    <source src="{{ section.settings.video_link_modal_mob }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+{% comment %} END - VIDEO MODALE {% endcomment %}
+
+
+{%- comment -%} 
+{% include 'outdoortest' %}
+
+{% include 'trustpilot' %} 
+{%- endcomment -%}
+
+{% schema %}
+  {
+    "name": "Page.snow page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "slide_title",
+        "label": "Slide Title"
+      },
+      {
+        "type": "text",
+        "id": "slide_subtitle",
+        "label": "Slide Sub Title"
+      },
+      {
+        "type": "text",
+        "id": "cta1_hero_text",
+        "label": "CTA 1 Hero Text"
+      },
+      {
+        "type": "text",
+        "id": "video_link_modal_desk",
+        "label": "Video Link Modal Desk"
+      },
+      {
+        "type": "text",
+        "id": "video_link_modal_mob",
+        "label": "Video Link Modal Mob"
+      },
+      {
+        "type": "text",
+        "id": "cta2_hero_text",
+        "label": "CTA 2 Hero Text"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_text",
+        "label": "Banner Text"
+      },
+      {
+        "type": "text",
+        "id": "cta_banner_text",
+        "label": "CTA Banner Text"
+      },
+      {
+        "type": "text",
+        "id": "slide_1_title",
+        "label": "Slide 1 Title"
+      },
+      {
+        "type": "text",
+        "id": "slide_1_description",
+        "label": "Slide 1 Description"
+      },
+      {
+        "type": "text",
+        "id": "slide_2_title",
+        "label": "Slide 2 Title"
+      },
+      {
+        "type": "text",
+        "id": "slide_2_description",
+        "label": "Slide 2 Description"
+      },
+      {
+        "type": "text",
+        "id": "slide_3_title",
+        "label": "Slide 3 Title"
+      },
+      {
+        "type": "text",
+        "id": "slide_3_description",
+        "label": "Slide 3 Description"
+      },
+      {
+        "type": "text",
+        "id": "slide_4_title",
+        "label": "Slide 4 Title"
+      },
+      {
+        "type": "text",
+        "id": "slide_4_description",
+        "label": "Slide 4 Description"
+      },
+      {
+        "type": "text",
+        "id": "slide_5_title",
+        "label": "Slide 5 Title"
+      },
+      {
+        "type": "text",
+        "id": "slide_5_description",
+        "label": "Slide 5 Description"
+      },
+      {
+        "type": "text",
+        "id": "slide_6_title",
+        "label": "Slide 6 Title"
+      },
+      {
+        "type": "text",
+        "id": "slide_6_description",
+        "label": "Slide 6 Description"
+      },
+      {
+        "type": "text",
+        "id": "slider_fromto_warm",
+        "label": "Slider FromTo Warm"
+      },
+      {
+        "type": "text",
+        "id": "slider_fromto_xwarm",
+        "label": "Slider FromTo XWarm"
+      },
+      {
+        "type": "text",
+        "id": "hotspot_man",
+        "label": "Hot Spot Man"
+      },
+      {
+        "type": "text",
+        "id": "hotspot_woman",
+        "label": "Hot Spot Woman"
+      },
+      {
+        "type": "text",
+        "id": "hotspot_1_title",
+        "label": "Hot 1 Title"
+      },
+      {
+        "type": "text",
+        "id": "hotspot_1_description",
+        "label": "Hot 1 Description"
+      },
+      {
+        "type": "text",
+        "id": "hotspot_1_slogan",
+        "label": "Hot 1 Slogan"
+      },
+      {
+        "type": "text",
+        "id": "hotspot_2_title",
+        "label": "Hot 2 Title"
+      },
+      {
+        "type": "text",
+        "id": "hotspot_2_description",
+        "label": "Hot 2 Description"
+      },
+      {
+        "type": "text",
+        "id": "hotspot_2_slogan",
+        "label": "Hot 2 Slogan"
+      },
+      {
+        "type": "text",
+        "id": "hotspot_3_title",
+        "label": "Hot 3 Title"
+      },
+      {
+        "type": "text",
+        "id": "hotspot_3_description",
+        "label": "Hot 3 Description"
+      },
+      {
+        "type": "text",
+        "id": "hotspot_3_slogan",
+        "label": "Hot 3 Slogan"
+      },
+      {
+        "type": "text",
+        "id": "blog_title",
+        "label": "Blog Title"
+      },
+      {
+        "type": "text",
+        "id": "blog_1_sup",
+        "label": "Blog 1 Sup"
+      },
+      {
+        "type": "text",
+        "id": "blog_1_title",
+        "label": "Blog 1 Title"
+      },
+      {
+        "type": "textarea",
+        "id": "blog_1_description",
+        "label": "Blog 1 Description"
+      },
+      {
+        "type": "text",
+        "id": "blog_1_temp_title",
+        "label": "Blog 1 Temp Title"
+      },
+      {
+        "type": "text",
+        "id": "blog_1_temp_subtitle",
+        "label": "Blog 1 Temp Sub Title"
+      },
+      {
+        "type": "text",
+        "id": "blog_2_sup",
+        "label": "Blog 2 Sup"
+      },
+      {
+        "type": "text",
+        "id": "blog_2_title",
+        "label": "Blog 2 Title"
+      },
+      {
+        "type": "textarea",
+        "id": "blog_2_description",
+        "label": "Blog 2 Description"
+      },
+      {
+        "type": "text",
+        "id": "blog_2_temp_title",
+        "label": "Blog 2 Temp Title"
+      },
+      {
+        "type": "text",
+        "id": "blog_2_temp_subtitle",
+        "label": "Blog 2 Temp Sub Title"
+      },
+      {
+        "type": "text",
+        "id": "blog_3_sup",
+        "label": "Blog 3 Sup"
+      },
+      {
+        "type": "text",
+        "id": "blog_3_title",
+        "label": "Blog 3 Title"
+      },
+      {
+        "type": "textarea",
+        "id": "blog_3_description",
+        "label": "Blog 3 Description"
+      },
+      {
+        "type": "text",
+        "id": "blog_3_temp_title",
+        "label": "Blog 3 Temp Title"
+      },
+      {
+        "type": "text",
+        "id": "blog_3_temp_subtitle",
+        "label": "Blog 3 Temp Sub Title"
+      }
+    ],
+    "default": {
+    },
+    "blocks": [
+    ]
+
+  }
+{% endschema %}

@@ -1,0 +1,86 @@
+{% assign collectionName = products_collection| split: '-' %}
+<div class="collection-container" data-collection="{{products_collection}}">
+  <div class="collection-header">
+    <div>
+      <b>{{collectionName[1]}} {{collectionName[2]}}{%if collectionName[3]%}-{{collectionName[3]}}{% endif %}
+      </b>
+      -
+      {{collections[products_collection].products.length}}
+      <span>
+        <ly-as-742153>prodotti</ly-as-742153>
+      </span>
+    </div>
+    <a target="_blank" href="/collections/{{products_collection}}">
+      <ly-as-740693>Guarda tutti i prodotti</ly-as-740693>
+    </a>
+  </div>
+
+  <div class="swiper-container swiper-activity disable-overflow">
+    <div class="swiper-wrapper">
+
+      {% for product in collections[products_collection].products %}
+
+        {% assign productTitleArray = product.title | split: ' - ' %}
+        {% assign stayCategory = productTitleArray[0] | replace: ' ', '' %}
+        {% assign stayCategory = stayCategory | replace: '-', '' %}
+
+        {% assign prduct_title_collection = product.title | split: '-' %}
+
+        {% if prduct_title_collection[0] == "Stay X" %}
+          {% assign prduct_title = prduct_title_collection[2] %}
+          {% assign prduct_collection = prduct_title_collection[0] | append: '-' | append: prduct_title_collection[1] %}
+
+        {% else %}
+          {% assign prduct_title = prduct_title_collection[1] | append: " " | append: prduct_title_collection[2] %}
+          {% assign prduct_collection = prduct_title_collection[0] %}
+        {% endif %}
+
+        {% if prduct_title_collection[3] %}
+          {% assign prduct_title = prduct_title | append: " " | append: prduct_title_collection[3] %}
+        {% endif %}
+
+        <div class="swiper-slide">
+          <a class="" attr-title="{{ product.title }}" attr-price="{{ product.price | money | remove: '€ ' | replace: ',' , '.'  }}" attr-handle="{{ product.handle }}" attr-type="{{ product.type }}" href="{{ product.url }}">
+            <div class="img-wrapper  {{ stayCategory }}">
+              <div class="stayCategory-container">
+                <div class="stayCategory-tile"></div>
+                <div class="stayCategory-title">{{ productTitleArray[0] }}</div>
+              </div>
+              <img class="featured_image" src="{{  product.featured_image | img_url: '1024x' }}" alt="best seller silverskin">
+              {% if settings.product_hover_image and product.images.size > 1 %}
+                {% for image in product.images offset: 1 limit: 1 %}
+                  {% assign second_image = image %}
+                {% endfor %}
+                <img class="hover_img" src="{{  second_image | img_url: '1024x' }}" alt="second image silverskin">
+              {% else %}
+                <img class="hover_img" src="{{  product.featured_image | img_url: '1024x' }}" alt="second image silverskin">
+              {% endif %}
+            </div>
+            <b>{{ prduct_collection }}</b>
+            <div class="bottom-product-info">
+              <div>{{ prduct_title }}</div>
+
+              <div class="best-sellers-price">
+                <b>{{ product.price | money }}</b>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+  <div class="bottom-buttons">
+    <a class="btn " target="_blank" href="/collections/{{products_collection}}/Uomo">
+      <ly-as-740694>ACQUISTA UOMO</ly-as-740694>
+    </a>
+    <a class="btn " target="_blank" href="/collections/{{products_collection}}/Donna">
+      <ly-as-740695>ACQUISTA DONNA</ly-as-740695>
+    </a>
+    <button class="btn  btn--tertiary back-selection">
+      <ly-as-740696>TORNA ALLA SELEZIONE</ly-as-740696>
+    </a>
+  </div>
+
+</div>

@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="{{ 'section-slider-testimonial.scss.css' | asset_url }}" type="text/css"/>
+
+{% assign min = 1 %}
+{% assign max = 100 %}
+{% assign diff = max | minus: min %}
+{% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min %}
+
+{% comment %} START - SLIDER TESTIMONIAL {% endcomment %}
+<div class="container-fluid">
+  <section class="slider-testimonial">
+
+    <div id="slider-testimonial-list-{{randomNumber}}" class="swiper-container slider-testimonial-swiper">
+      <div class="swiper-wrapper">
+        
+        {% for block in section.blocks %} 
+          {% if block.type == 'slide' %}
+            
+            <div class="single-slide swiper-slide">
+
+              <span class="quote-icon">
+                <img src="//cdn.shopify.com/s/files/1/0285/3706/1424/t/11/assets/apice.svg?v=48606940569230692501634903377" alt="apice silverskin">
+              </span>
+
+              <p class="single-slide__slide_cit">{{ block.settings.slide_cit }}</p>
+              
+              {%- assign img_url = block.settings.slide_image | img_url: 'master' -%}
+              <img class="slide-image" src="{{ img_url }}" alt="{{ block.settings.slide_title }} ">
+
+              <p class="single-slide__slide_subtitle">{{ block.settings.slide_subtitle }}</p>
+
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>  
+{% comment %} END - SLIDER TESTIMONIAL {% endcomment %}
+
+<script src="{{ 'section-slider-testimonial.js' | asset_url }}" defer="defer" ></script>
+
+
+{% schema %}
+  {
+    "name": "Testimonial Slider",
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "slide",
+        "limit": 50,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "slide_image",
+            "label": "Slide image"
+          }, 
+          {
+            "type": "text",
+            "id": "slide_cit",
+            "label": "Slide cit"
+          }, 
+          {
+            "type": "text",
+            "id": "slide_subtitle",
+            "label": "Slide subtitle"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Slider testimonial",
+        "category": "Slider testimonial",
+        "blocks": [
+          {
+            "type": "slide"
+          }
+        ]
+      }
+    ]
+
+  }
+{% endschema %}

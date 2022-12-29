@@ -1,0 +1,91 @@
+{% if collection.metafields.custom_fields["calze_banner_slider"] != blank %}
+  <div class="custom-field custom-field__calze-banner-slider custom-field__type--field-collection-json">
+    <h3 class="custom-field--title">calze banner slider</h3>
+    <div class="custom-field--value">
+      {% for item in collection.metafields.custom_fields["calze_banner_slider"] %}
+        <div class="fc-item fc-index--{{ forloop.index0 }}">
+           {% if item["tipologia_di_calza"] != blank %}
+             <div class="fc-field field__tipologia-di-calza field-type--text-list">
+               <h4 class="custom-field--title">tipologia di calza</h4>
+               <div class="custom-field--value">
+                 {{ item["tipologia_di_calza"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["titolo"] != blank %}
+             <div class="fc-field field__titolo field-type--text">
+               <h4 class="custom-field--title">titolo</h4>
+               <div class="custom-field--value">
+                 {{ item["titolo"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["descrizione"] != blank %}
+             <div class="fc-field field__descrizione field-type--text">
+               <h4 class="custom-field--title">descrizione</h4>
+               <div class="custom-field--value">
+                 {{ item["descrizione"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["immagine"] != blank %}
+             <div class="fc-field field__immagine field-type--image">
+               <h4 class="custom-field--title">immagine</h4>
+               <div class="custom-field--value">
+                 {{ item["immagine"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["feature_1"] != blank %}
+             <div class="fc-field field__feature-1 field-type--text">
+               <h4 class="custom-field--title">Feature 1</h4>
+               <div class="custom-field--value">
+                 {{ item["feature_1"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["feature_2"] != blank %}
+             <div class="fc-field field__feature-2 field-type--text">
+               <h4 class="custom-field--title">Feature 2</h4>
+               <div class="custom-field--value">
+                 {{ item["feature_2"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["feature_3"] != blank %}
+             <div class="fc-field field__feature-3 field-type--text">
+               <h4 class="custom-field--title">Feature 3</h4>
+               <div class="custom-field--value">
+                 {{ item["feature_3"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["img_feature_1"] != blank %}
+             <div class="fc-field field__img-feature-1 field-type--image">
+               <h4 class="custom-field--title">Img feature 1</h4>
+               <div class="custom-field--value">
+                 {{ item["img_feature_1"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["img_feature_2"] != blank %}
+             <div class="fc-field field__img-feature-2 field-type--image">
+               <h4 class="custom-field--title">Img feature 2</h4>
+               <div class="custom-field--value">
+                 {{ item["img_feature_2"] }}
+               </div>
+             </div>
+           {% endif %}
+           {% if item["img_feature_3"] != blank %}
+             <div class="fc-field field__img-feature-3 field-type--image">
+               <h4 class="custom-field--title">Img feature 3</h4>
+               <div class="custom-field--value">
+                 {{ item["img_feature_3"] }}
+               </div>
+             </div>
+           {% endif %}
+         </div>
+       {% endfor %}
+    </div>
+  </div>
+{% endif %}

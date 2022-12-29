@@ -1,0 +1,136 @@
+{%- assign disable_sticky_header = false -%}
+
+{% if section.settings.enable %}
+  {% if section.settings.collection_image_enable and collection.image %}
+    <div
+      id="CollectionHeaderSection"
+      data-section-id="{{ section.id }}"
+      data-section-type="collection-header"
+      {% if section.settings.parallax %}data-parallax="true"{% endif %}>
+
+      <div class="collection-hero collection-hero--calze">
+        {% if section.settings.parallax %}
+          <div class="parallax-container">
+            <div
+              class="parallax-image collection-hero__image lazyload"
+              data-bgset="{% include 'bgset', image: collection.image %}"
+              data-sizes="auto">
+            </div>
+          </div>
+        {% else %}
+          {%- assign img_url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+          <img class="collection-hero__image image-fit lazyload"
+            src=""
+            data-src="{{ img_url }}"
+            data-aspectratio="{{ collection.image.aspect_ratio }}"
+            data-sizes="auto"
+            data-parent-fit="cover"
+            alt="{{ collection.image.alt | escape }}">
+          <noscript>
+            <img class="collection-hero__image image-fit"
+              src="{{ collection.image | img_url: '1400x' }}"
+              alt="{{ collection.image.alt | escape }}">
+          </noscript>
+        {% endif %}
+
+        <div class="collection-hero__content collection-hero__content--calze">
+          <div class="page-width">
+            <header class="section-header section-header--hero">
+              <div class="section-header__shadow">
+                {%- include 'breadcrumbs' -%}
+                <p class="section-header__collection">
+
+                  {% if current_tags contains "Stay Warm" %}
+                    STAY WARM
+                  {% endif %}
+                  {% if current_tags contains "Stay X-Warm" %}
+                    STAY X-WARM
+                  {% endif %}
+                  {% if current_tags contains "Stay Fresh" %}
+                    STAY FRESH
+                  {% endif %}
+                </p>
+                <h1 class="section-header__title">
+                  {{ collection.title }}
+                </h1>
+                <p class="section-header__subtitle">{{collection.metafields.custom_fields["main_banner_text"]}}</p>
+              </div>
+            </header>
+          </div>
+
+          <!-- anchors -->
+          <ul class="navbar-bottom">
+            <li class="navbar-bottom__spacer"></li>
+            <li class="navbar-bottom__item">
+              <a href="#light-run">LIGHT RUN</a>
+            </li>
+            <li class="navbar-bottom__spacer"></li>
+            <li class="navbar-bottom__item">
+              <a href="#endurance-run">ENDURANCE RUN</a>
+            </li>
+            <li class="navbar-bottom__spacer"></li>
+            <li class="navbar-bottom__item">
+              <a href="#trekking">TREKKING</a>
+            </li>
+            <li class="navbar-bottom__spacer"></li>
+            <li class="navbar-bottom__item">
+              <a href="#cycling">CYCLING</a>
+            </li>    
+            <li class="navbar-bottom__spacer"></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  {% else %}
+    {%- assign disable_sticky_header = true -%}
+    <div class="page-width page-content page-content--top">
+      <header class="section-header section-header--flush">
+        {%- include 'breadcrumbs' -%}
+        <h1 class="section-header__title">
+          {{ collection.title }}
+        </h1>
+      </header>
+    </div>
+  {% endif %}
+{% else %}
+  {%- assign disable_sticky_header = true -%}
+{% endif %}
+
+{%- if disable_sticky_header -%}
+  {% comment %}
+    Div to trigger theme.CollectionHeader JS
+  {% endcomment %}
+  <div
+    id="CollectionHeaderSection"
+    data-section-id="{{ section.id }}"
+    data-section-type="collection-header">
+  </div>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Collection header",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable",
+        "label": "Enable header",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_image_enable",
+        "label": "Show collection image",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "parallax",
+        "label": "Parallax image",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

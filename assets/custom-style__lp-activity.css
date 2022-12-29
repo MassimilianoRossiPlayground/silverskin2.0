@@ -1,0 +1,493 @@
+.floating-bar{
+    position: fixed;
+    top: 123px;
+    z-index: 2;
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    padding:20px;
+    font-size: 16px;
+}
+.floating-bar.active{
+    display: flex;
+}
+
+.floating-bar button{
+    color:white;
+    text-decoration: underline;
+}
+
+.flotaing-bar__collection{
+    color: #1D89FF;
+    font-weight: 900;
+}
+
+.flotaing-bar__activity{
+    text-transform: capitalize;
+}
+.flotaing-bar__collection{
+    text-transform: capitalize;
+}
+
+.activity-page__hero{
+    height: calc(100vh - 95px);
+    margin-top:-133px;
+    padding-top: 133px;
+    position: relative;
+}
+
+.activity-page__hero::after {
+    content:'';
+    background-color: black;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: .15;
+}
+
+.activity-page__hero-text{
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    z-index: 1;
+    text-align: center;
+    color: white;
+ 
+
+}
+.activity-page__hero-text h2{
+
+   font-size: 70px;
+
+}
+.activity-page__hero-text p {
+
+    max-width: 40%;
+    margin: 0 auto;
+    margin-top:30px;
+
+}
+.activity-page__hero{
+    background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+
+   
+.activity-page__hero {
+    background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/ss-activity-hero-desk_2x_c1fb5975-7027-4035-9d70-99f513bf9b59.jpg?v=1662562523);
+    background-position: top center;
+}
+.activity-page__hero[data-hero="running"] {
+    background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/ss-activity-hero-running-desk_2x_e44b9366-1929-449c-bc71-50b610182b77.png?v=1662542274);
+}
+.activity-page__hero[data-hero="cycling"] {
+    background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/ss-activity-hero-cycling-desk_1x_c36ffcbe-a315-420c-b086-2abfc04238bb.jpg?v=1662542276 );
+}
+.activity-page__hero[data-hero="snowsport"] {
+    background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/ss-activity-hero-snow-desk_1x_bda2f9c0-49d1-40df-b20d-b097fb290273.jpg?v=1662542277);
+}
+.activity-page__hero[data-hero="mountaineering"] {
+    background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/ss-activity-hero-mountaineering-desk_1x_5255cf79-f132-4924-a4f3-038253cdf316.jpg?v=1662542276);
+}
+
+.hero-icon{
+    display: none;
+}
+.activity_text {
+    position: absolute;
+    bottom: 50px;
+    margin: 0 auto;
+    z-index: 11;
+    text-align: center;
+    left: 0;
+    right: 0;
+    color: white;
+}
+
+.activity-page__tabs{
+    display: flex;
+}
+.activity-page__tab{
+    background-color: #181A1E;
+    padding: 30px 30px;
+    color: white;
+    flex: 1;
+    font-size: 14px;
+    border-left: 1px solid #33323C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.activity-page__tab .text{
+    margin-left: 15px;
+}
+
+
+.activity-page__tab.active{
+    background-color: #27292F;
+    border-top: 2px solid #F3F3F3;
+    padding: 20px 30px;
+
+    flex: 1;
+}
+
+.activity-page__panes{
+
+}
+.activity-page__pane{
+
+    background-color: #27292F;
+}
+
+.activity-page__pane-text{
+    display: none;
+    max-width: 70%;
+    margin: 0 auto;
+    padding: 60px 50px;
+    color: white;
+    text-align: center;
+    font-size: 22px;
+
+}
+
+.activity-page__pane-text span{
+    font-size: 14px;
+}
+
+.activity-page__pane-text.active{
+    display: block;
+}
+.activity-page__pane-selector-wrapper{
+    display: none;
+}
+.activity-page__pane-selector-wrapper.active {
+    display: flex;
+}
+.activity-page__pane-selector {
+    flex: 1;
+    border-top: 1px solid #33323C;
+    border-bottom: 1px solid #33323C;
+    padding-top: 60px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    color: white;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: background-color 300ms linear;
+    -ms-transition: background-color 300ms linear;
+    transition: background-color 300ms linear;
+}
+
+.activity-page__pane-selector:hover {
+
+    background-color: #363840;
+}
+
+.activity-page__pane-selector.active {
+
+    background-color: #fff;
+    color: black;
+    border-bottom-color: white!important;
+}
+.activity-page__pane-selector span {
+    display: none;
+}
+.activity-page__pane-selector.active span{
+    display: inline;
+}
+.activity-page__pane-selector .ly-arrow {
+    display: none;
+}
+
+.activity-page__pane-selector.active .ly-arrow {
+    display: inline-block;
+}
+
+.activity-page__pane-selector.disabled{
+    background-color: grey;
+    pointer-events: none;
+}
+
+.activity-page__pane-selector:nth-child(2){
+    border: 1px solid #33323C;
+}
+
+.activity-page__pane-selector::after{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    width: 32px;
+    z-index: 1;
+    margin: 0 auto;
+}
+
+.activity-page__pane-selector.fresh::after {
+    background-color: #1D89FF;
+}
+.activity-page__pane-selector.warm::after {
+    background-color: #EC8312;
+}
+.activity-page__pane-selector.x-warm::after {
+    background-color: #FF001F;
+}
+.arrow-mob-selector {
+    display: none;
+}
+.img-wrapper{
+    overflow: hidden;
+    position: relative;
+}
+.img-wrapper .hover_img{
+    display: none;
+}
+.img-wrapper:hover .hover_img {
+    display: inline-block;
+}
+.img-wrapper:hover .featured_image {
+    display: none;
+}
+
+.activity-page__pane-selector .temp {
+
+    margin-top:50px;
+    font-size: 12px;
+}
+
+.activity-page__pane-selector .title{
+    font-family: barlow-bold-italic!important;
+    font-size: 40px;
+    margin-top: 0px;
+}
+.activity-page__pane-selector .text {
+
+    font-size: 14px;
+    min-height: 80px;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.activity-page__pane-selector .activity-button{
+
+    margin-top: 40px;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 20px;
+    transition: all .2s;
+    /* width: 100px; */
+    height: 36px;
+    overflow: hidden;
+}
+.activity-page__pane-selector.active .activity-button {
+    /* width: 150px; */
+    background-color: #181A1E;
+}
+.activity-page__pane-selector.active .activity-button .ly-arrow path {
+    transition: all .2s;
+}
+.activity-page__pane-selector.active .activity-button:hover {
+
+    background-color: white;
+    color:#181A1E;
+    border-color: #181A1E;
+
+}
+.activity-page__pane-selector.active .activity-button:hover .ly-arrow path{
+    stroke:black;
+}
+
+.activity-page__products--mob{
+    display: none;
+}
+
+.collection-container{
+    display: none;
+    padding: 100px 7vw;
+    overflow:hidden;
+}
+.collection-container.active{
+    display: block;
+}
+.collection-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:20px;
+}
+.swiper-container.disable-overflow {
+    overflow: visible
+}
+.swiper-scrollbar-drag{
+    background-color: black;
+    border-radius: 0px;
+    margin-top: -4px;
+    height: 6px;
+}
+.swiper-container-horizontal>.swiper-scrollbar{
+    bottom: auto;
+    left: auto;
+    position: relative;
+    margin: 60px 0;
+    background-color: transparent;
+    border-radius: 0px;
+    border-top:2px solid #E3E3E3;
+}
+
+.bottom-product-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-buttons{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.bottom-buttons .btn{
+    margin:5px;
+}
+.btn--tertiary{
+    font-family: barlow-semibold;
+    letter-spacing: .2em;
+}
+
+/* mobile media query */
+@media (max-width: 768px) {
+
+    .activity-page__hero {
+        background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/ss-activity-hero-mob_1x_8edd9cc7-8a2a-4bef-a692-9d0a132b8927.jpg?v=1662562525);
+        height: calc(100vh -100px);
+        /* height: calc(calc(var(--vh, 1vh) * 100) - 140px); */
+        margin-top: -120px;
+        padding-top: 120px;
+    
+    }
+
+    .activity-page__hero[data-hero="running"] {
+        background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/ss-activity-hero-running-mob_1x_a3d0b0cd-8964-49c9-8c14-4e9a03605a58.jpg?v=1662542275);
+    }
+
+    .activity-page__hero[data-hero="cycling"] {
+        background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/ss-activity-hero-cycling-mob_1x_8cfc26e0-52dd-487d-a921-238cb8a816d8.jpg?v=1662542275);
+    }
+
+    .activity-page__hero[data-hero="snowsport"] {
+        background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/ss-activity-hero-snow-mob_1x_66af44ac-4f6e-440d-9dc1-a6ee586e68c6.jpg?v=1662542274);
+    }
+
+    .activity-page__hero[data-hero="mountaineering"] {
+        background-image: url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/ss-activity-hero-mountaineering-mob_1x_1153c9c6-7a3b-4ca5-8309-d4d9b585a1fc.jpg?v=1662542273);
+    }
+
+
+    
+    .activity-page__hero-text{
+        top:55%;
+    }
+
+    .activity-page__hero-text h2 {
+        font-size: 32px;
+        max-width: 95%;
+        margin-left:  auto;
+        margin-right: auto;
+    }
+    
+    .activity-page__hero-text p {
+        max-width: 80%;
+    }
+
+    .hero-icon {
+        display: block;
+        margin: 15px auto;
+
+    }
+
+    .activity-page__pane-text {
+      
+        max-width: 100%;
+        padding: 60px 30px;
+       
+    }
+
+    .activity-page__tabs .text{
+        display: none;
+    }
+    .activity-page__pane-selector-wrapper{
+        flex-direction: column;
+    }
+    .floating-bar {
+        top: 110px;
+    }
+    .activity-page__pane-selector {
+        text-align: left;
+    }
+
+    .activity-page__pane-selector::after {
+        left: 0;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 3px;
+        margin: 0;
+    }
+    .activity-page__pane-selector.active {
+
+        background-color:#27292F;
+        color: white;
+    
+    }
+    .bottom-buttons{
+        flex-direction: column;
+    }
+    .activity-page__products {
+        display: none!important;
+    }
+    .activity-page__products--mob {
+        display: block;
+        background-color: white;
+    }
+
+    .bottom-buttons .back-selection{
+        display: none;
+    }
+    .activity-button {
+        display: none;
+    }
+
+    .activity-page__pane-selector .temp {
+
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+
+    .activity-page__pane-selector{
+        padding-top:25px;
+    }
+    .activity-page__pane-selector .title {
+        font-size: 25px;
+    }
+    .arrow-mob-selector{
+        display: inline-block;
+        float: right;
+    }
+    .arrow-mob-selector .ly-arrow{
+        display: inline-block;
+    }
+    .activity-page__pane-selector.active .arrow-mob-selector .ly-arrow{
+        transform: rotate(180deg);
+    }
+}

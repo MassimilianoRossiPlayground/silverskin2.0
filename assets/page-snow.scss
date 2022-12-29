@@ -1,0 +1,88 @@
+#shopify-section-page-snow-template-2 {
+    margin-top: -105px;
+}
+.hero-snow__link {
+    a {
+        min-width: 300px;
+        margin: 10px 20px;
+        &.btn-white {
+            background: #fff;
+            color: #000;
+            border: 2px solid #fff;
+            &:hover {
+                background: #fff !important;
+                color: #000;
+            }
+        }
+        &.btn-transp {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            &:hover {
+                background: transparent !important;
+                color: #fff;
+            }
+        }
+    }
+}
+.hero-snow-icon {
+    position: absolute;
+    left: 48.5%;
+    bottom: 40px;
+    color: #fff;
+    font-size: 40px;
+    margin-top: 15px;
+    cursor: pointer;
+    -webkit-animation: bounce_arrow 2s infinite;
+    -moz-animation: bounce_arrow 2s infinite;
+    -o-animation: bounce_arrow 2s infinite;
+    animation: bounce_arrow 2s infinite;
+}
+.modal-video {
+    display: none;
+    &.show {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 99999;
+        background: #000;
+    }
+    span.modal-video__close {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        width: 40px;
+        height: 40px;
+        -webkit-filter: invert(100%);
+        filter: invert(100%);
+        cursor: pointer;
+        z-index: 9999999;
+        svg {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    video {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+.activity-page__pane-selector {
+    background-color: #363840;
+}
+#section-bestseller-snow {
+    padding: 0;
+    background: transparent;
+    color: #fff;
+}
+// .back-selection {
+//     display: none;
+// }
+@media screen and (max-width: 768px) {
+    .hero-snow__content {
+        top: 65%;
+    }
+}

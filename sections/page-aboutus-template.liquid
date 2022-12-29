@@ -1,0 +1,134 @@
+
+{% comment %} START - HERO BANNER {% endcomment %}
+<div class="section-hero-banner" style="background-image:linear-gradient(180deg, rgba(0,0,0,0.24413515406162467) 22%, rgba(243,243,243,0) 32%),url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/Hero-Proposta-4.jpg?v=1635502866);">
+  <h1>ABOUT US</h1>
+  <i class="fas fa-chevron-down"></i>
+</div>
+{% comment %} END - HERO BANNER {% endcomment %}
+
+
+{% comment %} START - WHO WE ARE {% endcomment %}
+<div class="section-whoweare" style="background-image:url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/background.png?v=1635348830);">
+  <div class="box-width section-whoweare__content">
+    <div class="col-6">
+      <h5 class="sup">{{ section.settings.col_1_sup }}</h5>
+      <h2 class="title">{{ section.settings.col_1_title }}</h2><br/>
+      <h3 class="desc">{{ section.settings.col_1_text }}</h3>
+    </div>
+    <div class="col-6">
+      <p>{{ section.settings.col_2_text }}</p>
+    </div>
+  </div>
+</div>
+{% comment %} END - WHO WE ARE {% endcomment %}
+
+
+{% comment %} START - WHAT WE DO {% endcomment %}
+<div class="section-whatwedo" style="background-image:url(https://cdn.shopify.com/s/files/1/0285/3706/1424/files/about_us-photo-01-2x.jpg?v=1635504117);">
+  <div class="box-width section-whatwedo__content">
+    <div class="col-6 section-whatwedo__content__text">
+      <h5 class="sup">{{ section.settings.row_2_col_2_sup }}</h5>
+      <h2 class="title">{{ section.settings.row_2_col_2_title }}</h2>
+      <h3 class="desc">{{ section.settings.row_2_col_2_text1 }}</strong></h3>
+      
+      <p>{{ section.settings.row_2_col_2_text2 }}</p>
+      <a class="cta-link" href="{{ section.settings.cta_link }}">{{ section.settings.cta_text }}</a>
+    </div>  
+  </div>
+</div>
+{% comment %} END - WHAT WE DO {% endcomment %}
+
+
+
+{% comment %} START - MEET THE TEAM {% endcomment %}
+{% comment %} <div class="section-whatwedo">
+  <div class="col-6">
+    <img src="" alt="silverskin team">
+    <h3>Andrea</h3>
+    <h5>HEAD OF MARKETING</h5>
+    <p>Andrea directs Silverskin’s commercial and tech activities. He’s a former pro athlete and Iron Man contestant, so knows precisely what athletes need from their gear. Andrea has tested out Silverskin products when running and cycling—hitting trails in South Africa, along Poland's Vistula River, and cycling Italy's Strade Bianche. His next mission? To scale Mont Blanc and run the Ramsay Round in Silverskin base layers.</p>
+  </div>
+  <div class="col-6">
+    <img src="" alt="silverskin team">
+    <h3>Gabriele</h3>
+    <h5>HEAD OF MARKETING</h5>
+    <p>Gabriele oversees Silverskin's marketing, technical and administrative direction. He's a keen runner, hiker and snowboarder. Alongside completing 15k races, his kiteboarding feats include landing 5-meter jumps. Gabriele has explored some incredible places: running trails through Yosemite National Park and kiteboarding in the Tobago Cays. Alongside taking Silverskin to new heights, his next challenge is snow kiting through Vetan in the Aosta Valley.</p>
+  </div>
+  <div class="col-6">
+    <img src="" alt="silverskin team">
+    <h3>Matteo</h3>
+    <h5>BRAND STRATEGIST</h5>
+    <p>Matteo oversees Silverkin's marketing strategy. He's an avid hiker and his favourite trail runs through Val d'Ossola. While Matteo loves running mountain trails, he's most at home underwater. As a free-diver, he's held apnea for over 3 minutes. His next goal is to reach the bottom of the Y40, one of the world's deepest free-diving pools. His vision is for Silverskin technologies to explore broader applications in health and wellbeing.</p>
+  </div>
+  <div class="col-6">
+    <img src="" alt="silverskin team">
+    <h3>Paolo</h3>
+    <h5>BRAND STRATEGIST</h5>
+    <p>Paolo contributes to Silverskin’s strategy. Over the years, he's practised Thai boxing, calisthenics, and bodybuilding, and puts Silverskin products to the test in the boxing ring or when he’s out for a run. As a keen kitesurfer, he's on a mission to land ever-high jumps—as graciously as possible. He plans to make Silverskin baselayers the industry leader for professionals and amateurs alike.</p>
+  </div>
+</div> {% endcomment %}
+{% comment %} END - MEET THE TEAM {% endcomment %}
+
+<script>
+    var headerWrapper = document.querySelector(".header-wrapper");
+    headerWrapper.classList.add("is-light");
+</script>
+
+
+{% schema %}
+  {
+    "name": "Page.aboutus page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "col_1_sup",
+        "label": "Col 1 Sup"
+      },
+      {
+        "type": "text",
+        "id": "col_1_title",
+        "label": "Col 1 Title"
+      },
+      {
+        "type": "text",
+        "id": "col_1_text",
+        "label": "Col 1 Text"
+      },
+      {
+        "type": "text",
+        "id": "col_2_text",
+        "label": "Col 2 Text"
+      },
+      {
+        "type": "text",
+        "id": "row_2_col_2_sup",
+        "label": "Row 2 - Col 2 Sup"
+      },
+      {
+        "type": "text",
+        "id": "row_2_col_2_title",
+        "label": "Row 2 - Col 2 Title"
+      },
+      {
+        "type": "text",
+        "id": "row_2_col_2_text1",
+        "label": "Row 2 - Col 2 Text 1"
+      },
+      {
+        "type": "text",
+        "id": "row_2_col_2_text2",
+        "label": "Row 2 - Col 2 Text 2"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "Row 2 - CTA Text"
+      },
+      {
+        "type": "text",
+        "id": "cta_link",
+        "label": "Row 2 - CTA link"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,8 @@
+{% if collection.metafields.custom_fields["banner_secondary_feature1"] != blank %}
+  <div class="custom-field custom-field__banner-secondary-feature1 custom-field__type--text">
+    <h3 class="custom-field--title">Banner Secondary Feature1</h3>
+    <div class="custom-field--value">
+      {{ collection.metafields.custom_fields["banner_secondary_feature1"] }}
+    </div>
+  </div>
+{% endif %}

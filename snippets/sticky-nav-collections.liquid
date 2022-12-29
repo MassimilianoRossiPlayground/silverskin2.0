@@ -1,0 +1,123 @@
+{% assign current_month = 'now' | date: "%m" %}
+{% case current_month %}
+  {% when "12" or "01" or "02" %}
+    {% assign collection_array = "warm,xwarm,fresh" | split: ',' %}
+  {% when "03" or "10" or "11" %}
+    {% assign collection_array = "warm,fresh,xwarm" | split: ',' %}
+  {% when "04" or "05" or "06" or "07" or "08" or "09" %}
+    {% assign collection_array = "fresh,warm,xwarm" | split: ',' %}
+{% endcase %}
+
+<style>
+  .collections-nav {
+    position: fixed;
+    top: 185px;
+    right: 50px;
+    z-index: 100;
+  }
+
+  .collections-nav__container {
+    display: flex;
+  }
+  .collections-nav__item {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid grey;
+    background-color: white;
+    text-transform: capitalize;
+  }
+  .collections-nav__item.active {
+
+    background-color: black;
+    color: white;
+  }
+  @media screen and (max-width: 768px) {}
+</style>
+
+{%- comment -%}
+  <div class="collections-nav">
+  <div class="collections-nav__container">
+  {% for current_collection in collection_array %}
+  <div class="collections-nav__item" data-anchor="{{current_collection}}">Stay {{current_collection}}</div>
+  {% endfor %}
+  </div>
+  </div>
+{%- endcomment -%}
+
+
+<script>
+  if ($('.collections-nav').length) {
+
+
+
+    $([document.documentElement, document.body]).animate({
+      scrollTop: 0
+    }, 500);
+
+    let arrayPositionsCollection = [...document.querySelectorAll(".collections-nav__item")].map(function(element) {
+      return element.getAttribute("data-anchor")
+    });
+
+
+    $(function() {
+
+      let position = 0
+      const $navItems = $(".collections-nav__item")
+      const anchorSection = [...document.querySelectorAll(".sub-collection__box__head__sub")]
+      const anchorLink = [...document.querySelectorAll(".collections-nav__item")]
+
+
+      $navItems.click(function() {
+
+        $([document.documentElement, document.body]).animate({
+          scrollTop: $(".stay-" + $(this).attr("data-anchor") + "__sub").offset().top - 120
+        }, 500);
+      });
+
+
+      anchorSection.forEach((element, index) => {
+
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: element,
+            start: "top center",
+            end: "bottom center",
+            scrub: true,
+            onEnter: enterSelected,
+            onLeaveBack: leaveBackSelected
+          }
+        })
+
+
+      });
+
+      function enterSelected(item) {
+        position += 1
+        highlightCollectionByTemp($(item.trigger).attr("data-collection"))
+        currentCollection = $(item.trigger).attr("data-collection")
+        logSections()
+      }
+
+
+      function leaveBackSelected(item) {
+        position -= 1
+        highlightCollectionByTemp(arrayPositionsCollection[position - 1])
+        logSections()
+      }
+
+
+      function highlightCollectionByTemp(temp) {
+        $navItems.removeClass("active")
+        $(".collections-nav__item[data-anchor=" + temp + "]").addClass("active")
+      }
+
+      function logSections() {
+
+// console.log(position)
+      }
+    })
+
+
+
+  }
+</script>

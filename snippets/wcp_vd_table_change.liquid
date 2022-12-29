@@ -1,0 +1,48 @@
+{% if customer %}
+{% assign wcp_table_current_variant = wcp_vd_table_change.selected_or_first_available_variant %}
+{% assign wcp_vd_table_v_price = wcp_table_current_variant.price %}
+{% if shop.metafields.wcp_net.IsOverrideIndividualPrice == "true" or shop.metafields.wcp_net.IsOverrideIndividualPrice == '1' %}
+			{% assign wcp_vd_table_v_price = wcp_v_price %}
+{% endif %}
+    {% assign wcp_vd_HTML_table ='' %}
+    {% assign Tag = p_discount_tag %}
+    {% assign Discount = p_discount_value %}
+    {% capture discount_key %}{{Tag}}-{{Discount}}{% endcapture %}
+    {% if shop.metafields.wcp_vd[discount_key] contains wcp_vd_table_change.id %}
+        {% assign wcp_vd_meta_data = shop.metafields.wcp_vd[discount_key] %}
+        {% assign Master = wcp_vd_meta_data | split: '||' %}
+        {% assign vd_Ids = Master[1] %}
+        {% assign vd_Ids = vd_Ids |split: "^" %}
+   		{% assign Discount_Price = 0 %}
+        {% for vd_Id in vd_Ids %}
+            {% if vd_Id contains wcp_vd_table_change.id %}
+{%- capture wcp_vd_HTML_table_tmp -%}
+{"HeaderText":"{{shop.metafields.wcp_net.VDTableNote}}",
+{% for variant in wcp_vd_table_change.variants %}
+{% include 'wcp_variant'  with variant%}
+{% assign wcp_vd_table_v_price = variant.price %}
+{% if shop.metafields.wcp_net.IsOverrideIndividualPrice == "true" or shop.metafields.wcp_net.IsOverrideIndividualPrice == '1' %}
+			{% assign wcp_vd_table_v_price = wcp_v_price %}
+{% endif %}
+			{% assign wcp_table_current_variant = variant %}
+                {% assign Discounts_values_with_qty = vd_Id |split: "~~" %}
+                {% assign Discounts_values_with_qty = Discounts_values_with_qty[1] | split: "," %}	
+	"wpd_{{variant.id}}":[
+	{%- for Discounts_value_with_qty in Discounts_values_with_qty -%}
+		{%- assign Qty_Discount = Discounts_value_with_qty | split: '-' -%}
+		{% assign wcp_vd_discount_value = Qty_Discount[1] | divided_by: 100.0 %}
+		{% assign wcp_vd_discount_value = 1 | minus: wcp_vd_discount_value %}
+		{% assign Discount_Price = wcp_vd_table_v_price | times: wcp_vd_discount_value %}
+		{"Qty":"{% if forloop.last == true  %}{{Qty_Discount[0]}}+ {% else  %}{% assign Qty_Discount_netx = Discounts_values_with_qty[forloop.index] | split: '-' %} {{Qty_Discount[0]}} - {{Qty_Discount_netx[0] |minus:1}}{% endif %}"
+				,"Discount":"{{Qty_Discount[1]}}%"
+				,"Price":"{{ Discount_Price | floor | money}}"
+				,"PID":"{{wcp_vd_table_change.id}}"
+				,"VID":"{{variant.id}}"}
+		{% unless forloop.last %},{% endunless %}
+			{% endfor %}]{% unless forloop.last %},{% endunless %}
+{% endfor %}}
+{% endcapture %}
+            {% endif %}
+        {% endfor %}
+    {% endif %} 
+{% endif %} 
